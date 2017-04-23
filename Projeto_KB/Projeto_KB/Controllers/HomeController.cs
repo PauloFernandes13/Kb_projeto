@@ -6,7 +6,6 @@ using System.Web.Mvc;
 
 namespace Projeto_KB.Controllers
 // testes de git hub...
-//novo teste git hub
 
 {
     public class HomeController : Controller
