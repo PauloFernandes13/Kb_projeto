@@ -7,7 +7,7 @@ namespace Projeto_KB.Models
 {
     public class Image
     {
-        public int ID { get;  set}
+        public int ID { get; set; }
         public string Name { get; set; }
         public string UrlImage { get; set; }
         public int ConceptID { get; set; }

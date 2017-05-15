@@ -199,6 +199,8 @@
     <Compile Include="Controllers\ContentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="DAL\KbaseContext.cs" />
+    <Compile Include="DAL\KbaseInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
