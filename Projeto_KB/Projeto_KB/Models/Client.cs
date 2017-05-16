@@ -12,6 +12,8 @@ namespace Projeto_KB.Models
         public string Email { get; set; }
         public string Adress { get; set; }
         public int JourneyID { get; set; }
+
+        public virtual ICollection<Milestone> Milestones { get; set; } 
         public virtual Journey Journey { get; set; }
              
 
