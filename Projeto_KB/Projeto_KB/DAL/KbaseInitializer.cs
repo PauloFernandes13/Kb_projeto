@@ -34,7 +34,7 @@ namespace Projeto_KB.DAL
                 Concept {JourneyID=3,Title="Generation",Description="Generation",Text="Formation",
                          ContentDate=DateTime.Parse("2016-04-22"),KeyWords="Formation",UrlContent="http.Content"},
 
-
+               
             };
 
             concepts.ForEach(s => context.Concepts.Add(s));
@@ -42,19 +42,39 @@ namespace Projeto_KB.DAL
 
             var faqs = new List<Faq>
             {
-                new Faq { JourneyID=2, Description= "Install BD Demo",Answer="How to Install BD Demo?", Question="ContactSuport",
+                new Faq { JourneyID=2,Description= "Install BD Demo",Answer="How to Install BD Demo?", Question="ContactSuport",
                          UrlFaq="http.faq"}
             };
 
+            var clients = new List<Client>
+            {
+                new Client {JourneyID=1,Name="ESAD",Email="Esad@hotmail.com",Adress="Rua de Matosinhos"},
+                new Client {JourneyID=2,Name="FDUL",Email="Flup@gmail.com",Adress="Rua das Oliveiras" },
+                new Client {JourneyID=3,Name="Faculdade do Perú",Email="FLPeru@",Adress="Rua de Lima" }
+            };
 
-        }
 
+            clients.ForEach(s => context.Clients.Add(s));
+            context.SaveChanges();
 
+            var images = new List<Image>
+            {
+                new Image {ConceptID=1,Name="Foto.png",UrlImage="Content/Foto.png" },
+                new Image {ConceptID=2,Name="Image.png",UrlImage="Content/Image.png" }
+            };
 
+           
+            images.ForEach(s => context.Images.Add(s));
+            context.SaveChanges();
 
+            var milestones = new List<Milestone>
+            {
+                new Milestone {ClientID =1,Name="Onboarding",MilestoneDate=DateTime.Parse("2016-04-21") },
+                new Milestone {ClientID =1,Name="Install/Import",MilestoneDate=DateTime.Parse("2016-06-21") },
+            };
 
-
-
+            milestones.ForEach(s => context.Milestones.Add(s));
+            context.SaveChanges();
 
         }
 
