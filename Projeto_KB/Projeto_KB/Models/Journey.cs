@@ -5,14 +5,11 @@ using System.Web;
 
 namespace Projeto_KB.Models                     // code first using EntityFramework
 {
-    public enum Name
-    {
-        Instalacion, Importacion, Geracion, Formacion
-    }
+    
     public class Journey
     {   
         public int ID { get; set; }                                        //navigation Property -- can hold multiple entities
-        public  Name? Name { get; set; }                                   //Icollection define methods to manipulate collections
+        public  string Name { get; set; }                                   //Icollection define methods to manipulate collections
                                                                            //virtual to take advantage from lazy loading
         public virtual ICollection<Concept> Concepts { get; set; }     //hold multiple entities Concept
         public virtual ICollection<Client> Clients { get; set; }       //hold multiple entities Clients

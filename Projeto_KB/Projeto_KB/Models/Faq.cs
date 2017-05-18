@@ -11,6 +11,7 @@ namespace Projeto_KB.Models
         public string Description { get; set; }
         public string Question { get; set; }
         public string Answer { get; set; }
+        public string UrlFaq { get; set; }
         public int JourneyID { get; set; }
 
         public virtual Journey Journey { get; set; }
