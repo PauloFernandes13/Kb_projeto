@@ -12,7 +12,7 @@ namespace Projeto_KB.DAL
     {
         public KbaseContext() : base("KbaseContext") //name of connection string is passed to Constructor
         {
-
+            
         }
         public DbSet<Journey> Journeys { get; set; }
         public DbSet<Concept> Concepts { get; set; }
