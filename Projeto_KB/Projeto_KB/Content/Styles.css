@@ -1,0 +1,29 @@
+﻿.jumbotron {
+    background-image: url('Photo/picture2.png');
+    background-clip: content-box;
+    min-height: 200px;
+    margin-top: -30px;
+    margin-left: -40px;
+    margin-right: -30px;
+    margin-bottom: 8px;
+}
+.jumbotron h1,
+.jumbotron .h1 {
+    color:#4b2626;
+    font-size: 40px;
+    font-family:Calibri;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+.jumbotron p{
+
+    color:#bff539;
+    margin-bottom: 50px;
+    font-size: 30px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar-inverse {
+    background-color:#444040;
+    border-color:#444040;
+}
