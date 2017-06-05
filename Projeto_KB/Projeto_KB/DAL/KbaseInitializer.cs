@@ -22,6 +22,16 @@ namespace Projeto_KB.DAL
             journeys.ForEach(s => context.Journeys.Add(s));
             context.SaveChanges();
 
+            var subjects = new List<Subject>
+            {
+                new Subject {Name="Importação de Dados" },
+                new Subject {Name="Instalação" },
+                new Subject {Name="Base de Dados" },
+
+            };
+            subjects.ForEach(s => context.Subjects.Add(s));
+            context.SaveChanges();
+
             var concepts = new List<Concept>
             {
                 new
@@ -42,7 +52,7 @@ namespace Projeto_KB.DAL
 
             var faqs = new List<Faq>
             {
-                new Faq { JourneyID=2,Description= "Install BD Demo",Answer="How to Install BD Demo?", Question="ContactSuport",
+                new Faq { JourneyID=2,SubjectID=1,Description= "Install BD Demo",Answer="How to Install BD Demo?", Question="ContactSuport",
                          UrlFaq="http.faq"}
             };
 

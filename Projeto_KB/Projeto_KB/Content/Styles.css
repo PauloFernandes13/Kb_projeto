@@ -27,3 +27,18 @@
     background-color:#444040;
     border-color:#444040;
 }
+
+.subject-feature {
+    margin-bottom: 30px;
+}
+
+.thumbnail{
+    background-color:#ac8787;
+    border: 1px solid #ffd800;
+}
+.thumbnail h4,
+.thumbnail .h4{
+    color:white;
+    text-decoration-line:underline;
+    text-decoration-color:white;
+ }

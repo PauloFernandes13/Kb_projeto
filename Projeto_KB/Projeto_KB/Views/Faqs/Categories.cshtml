@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Projeto_KB.Models.Subject>
+
+@{
+    ViewBag.Title = "Categories";
+}
+<link href="~/Content/Styles.css" rel="stylesheet" />
+<h3>Help When you Need It</h3>
+
+
+    <p class="lead">Categories</p>
+<div class="row text-center">
+
+    @foreach (var subjects in Model)
+    {
+        <div class="col-md-3 col-sm-6" subject-feature>
+            <div class="thumbnail">
+                <div class="caption">
+                    <h4>@subjects.Name</h4>
+                </div>
+           </div>
+            
+        </div>
+    }
+</div>       

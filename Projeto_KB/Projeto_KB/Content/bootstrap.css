@@ -4953,7 +4953,7 @@ a.badge:focus {
   margin-right: 5px;
 }
 .nav-pills > li > a > .badge {
-  margin-left: 3px;
+    margin-left: 3px;
 }
 .jumbotron {
   padding-top: 30px;
