@@ -52,7 +52,7 @@ namespace Projeto_KB.DAL
 
             var faqs = new List<Faq>
             {
-                new Faq { JourneyID=2,SubjectID=1,Description= "Install BD Demo",Answer="How to Install BD Demo?", Question="ContactSuport",
+                new Faq { SubjectID=1,Description= "Install BD Demo",Answer="How to Install BD Demo?", Question="ContactSuport",
                          UrlFaq="http.faq"}
             };
 

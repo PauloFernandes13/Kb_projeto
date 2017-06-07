@@ -227,6 +227,7 @@
     <Content Include="Content\Photo\picture2.png" />
     <Content Include="Content\Photo\picture_1.png" />
     <Content Include="Content\Styles.css" />
+    <Content Include="Content\Style_Categories.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -302,6 +303,7 @@
     <Content Include="Views\Faqs\Edit.cshtml" />
     <Content Include="Views\Faqs\Index.cshtml" />
     <Content Include="Views\Faqs\Categories.cshtml" />
+    <Content Include="Views\Faqs\Description.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

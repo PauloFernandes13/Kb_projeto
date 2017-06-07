@@ -13,7 +13,7 @@ namespace Projeto_KB.Models                     // code first using EntityFramew
                                                                            //virtual to take advantage from lazy loading
         public virtual ICollection<Concept> Concepts { get; set; }     //hold multiple entities Concept
         public virtual ICollection<Client> Clients { get; set; }       //hold multiple entities Clients
-        public virtual ICollection<Faq> Faqs { get; set; }             //hold multiple entities Faqs
+        
     }                                                              
                                                                    
 }
