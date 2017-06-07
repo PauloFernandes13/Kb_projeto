@@ -34,6 +34,15 @@ namespace Projeto_KB.Controllers
         
         }
 
+        // Get: Retrieve categorie and associated description
+        public ActionResult Description(string category)
+        {
+            var descriptions = db.Subjects.Include("Faqs").Single(g => g.Name == category);
+
+            return View (descriptions); 
+        }
+
+
         // GET: Faqs/Details/5
         public ActionResult Details(int? id)
         {

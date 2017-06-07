@@ -3,9 +3,9 @@
 @{
     ViewBag.Title = "Categories";
 }
-<link href="~/Content/Styles.css" rel="stylesheet" />
+<link href="~/Content/Style_Categories.css" rel="stylesheet" />
 <h3>Help When you Need It</h3>
-
+<p>Got a problem? Where we can help you. </p>
 
     <p class="lead">Categories</p>
 <div class="row text-center">
@@ -15,7 +15,8 @@
         <div class="col-md-3 col-sm-6" subject-feature>
             <div class="thumbnail">
                 <div class="caption">
-                    <h4>@subjects.Name</h4>
+  
+                    <h4><a href="~/Faqs/Description?category=@subjects.Name">@subjects.Name</a></h4>
                 </div>
            </div>
             
