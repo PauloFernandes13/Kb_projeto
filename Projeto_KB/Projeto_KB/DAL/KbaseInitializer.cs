@@ -24,13 +24,14 @@ namespace Projeto_KB.DAL
 
             var subjects = new List<Subject>
             {
-                new Subject {Name="Importação de Dados" },
-                new Subject {Name="Instalação" },
-                new Subject {Name="Base de Dados" },
+                new Subject {Name="Data Importacion" },
+                new Subject {Name="Instalacion" },
+                new Subject {Name="Database" },
 
             };
             subjects.ForEach(s => context.Subjects.Add(s));
             context.SaveChanges();
+
 
             var concepts = new List<Concept>
             {
@@ -50,11 +51,23 @@ namespace Projeto_KB.DAL
             concepts.ForEach(s => context.Concepts.Add(s));
             context.SaveChanges();
 
+            var topics = new List<Topic>
+            {
+                new Topic {Name="General Data" },
+                new Topic {Name="Importacion" }
+            };
+
+            topics.ForEach(s => context.Topics.Add(s));
+            context.SaveChanges();
+
             var faqs = new List<Faq>
             {
-                new Faq { SubjectID=1,Description= "Install BD Demo",Answer="How to Install BD Demo?", Question="ContactSuport",
+                new Faq { SubjectID=2,TopicID=1,Description= "Install BD Demo",Answer="How to Install BD Demo?", Question="ContactSuport",
                          UrlFaq="http.faq"}
             };
+
+            faqs.ForEach(s => context.Faqs.Add(s));
+            context.SaveChanges();
 
             var clients = new List<Client>
             {

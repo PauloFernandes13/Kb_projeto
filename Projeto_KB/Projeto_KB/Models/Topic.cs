@@ -5,13 +5,12 @@ using System.Web;
 
 namespace Projeto_KB.Models
 {
-    public class Subject
+    public class Topic
     {
         public int ID { get; set; }
         public string Name { get; set; }
-
-        public virtual ICollection<Faq> Faqs { get; set; } 
       
-       
+
+        public virtual ICollection<Faq> Faqs { get; set; }
     }
 }

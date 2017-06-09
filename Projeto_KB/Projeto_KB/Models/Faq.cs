@@ -12,9 +12,10 @@ namespace Projeto_KB.Models
         public string Question { get; set; }
         public string Answer { get; set; }
         public string UrlFaq { get; set; }
+        public int TopicID { get; set; }
         public int SubjectID { get; set; }
-
-        public virtual Subject Subject { get; set; } 
+        public virtual Topic Topic { get; set; } 
+        public virtual Subject Subject { get; set; }
 
     }
 }

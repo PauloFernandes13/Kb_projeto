@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Projeto_KB.Models.Subject>
+﻿
+@model IEnumerable<Projeto_KB.Models.Subject>
 
 @{
     ViewBag.Title = "Categories";
@@ -16,7 +17,7 @@
             <div class="thumbnail">
                 <div class="caption">
 
-                    <h4><a href="~/Faqs/Description?category=@subjects.Name">@subjects.Name</a></h4>
+                    <h4><a href="~/Faqs/Description?id=@subjects.ID">@subjects.Name</a></h4>
                 </div>
             </div>
 

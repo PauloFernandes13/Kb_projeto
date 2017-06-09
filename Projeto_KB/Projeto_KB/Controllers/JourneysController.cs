@@ -15,7 +15,6 @@ namespace Projeto_KB.Controllers
     {
         private KbaseContext db = new KbaseContext();
 
-
         // GET: Journeys
         public ActionResult Index()
         {

@@ -18,28 +18,28 @@ namespace Projeto_KB.Controllers
         // GET: Faqs
         public ActionResult Index()
         {
-            var faqs = db.Faqs.Include(f => f.Subject);
+            var faqs = db.Faqs.Include(f => f.Subject).Include(f => f.Topic);
             return View(faqs.ToList());
         }
-       // GET: Categories(Subject)
+
+
+        //GET: Categories(Subject)
 
             public ActionResult Categories()
         {
-            var subjects = db.Subjects.ToList();
+            var subjects = db.Subjects.ToList().OrderBy(i => i.Name);
 
             return View(subjects);
 
         }
 
         // Get: Retrieve categorie and associated description
-        public ActionResult Description(string category)
+        public ActionResult Description(int? id)
         {
-            var descriptions = db.Subjects.Include("Faqs").Single(g => g.Name == category);
+            var descriptions = db.Faqs.Include("Topic").Include(g => g.Subject).Where(g => g.SubjectID == id);
 
             return View(descriptions);
         }
-
-
 
         // GET: Faqs/Details/5
         public ActionResult Details(int? id)
@@ -60,6 +60,7 @@ namespace Projeto_KB.Controllers
         public ActionResult Create()
         {
             ViewBag.SubjectID = new SelectList(db.Subjects, "ID", "Name");
+            ViewBag.TopicID = new SelectList(db.Topics, "ID", "Name");
             return View();
         }
 
@@ -68,7 +69,7 @@ namespace Projeto_KB.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Description,Question,Answer,UrlFaq,SubjectID")] Faq faq)
+        public ActionResult Create([Bind(Include = "ID,Description,Question,Answer,UrlFaq,TopicID,SubjectID")] Faq faq)
         {
             if (ModelState.IsValid)
             {
@@ -78,6 +79,7 @@ namespace Projeto_KB.Controllers
             }
 
             ViewBag.SubjectID = new SelectList(db.Subjects, "ID", "Name", faq.SubjectID);
+            ViewBag.TopicID = new SelectList(db.Topics, "ID", "Name", faq.TopicID);
             return View(faq);
         }
 
@@ -94,6 +96,7 @@ namespace Projeto_KB.Controllers
                 return HttpNotFound();
             }
             ViewBag.SubjectID = new SelectList(db.Subjects, "ID", "Name", faq.SubjectID);
+            ViewBag.TopicID = new SelectList(db.Topics, "ID", "Name", faq.TopicID);
             return View(faq);
         }
 
@@ -102,7 +105,7 @@ namespace Projeto_KB.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Description,Question,Answer,UrlFaq,SubjectID")] Faq faq)
+        public ActionResult Edit([Bind(Include = "ID,Description,Question,Answer,UrlFaq,TopicID,SubjectID")] Faq faq)
         {
             if (ModelState.IsValid)
             {
@@ -111,6 +114,7 @@ namespace Projeto_KB.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.SubjectID = new SelectList(db.Subjects, "ID", "Name", faq.SubjectID);
+            ViewBag.TopicID = new SelectList(db.Topics, "ID", "Name", faq.TopicID);
             return View(faq);
         }
 

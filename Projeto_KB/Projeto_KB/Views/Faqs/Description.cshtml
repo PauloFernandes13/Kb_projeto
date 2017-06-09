@@ -1,20 +1,16 @@
-﻿@model Projeto_KB.Models.Subject
+﻿@model IEnumerable<Projeto_KB.Models.Faq>
+
 @{
     ViewBag.Title = "Description";
 }
 
-<h2>@Model.Name</h2>
 
-<ul>
-    @foreach (var category in Model.Faqs)
+@foreach (var item in Model)
 
-    {
-        <li>
-            @category.Description
-        </li>
+{
+    <h2>Para o topico de @Html.DisplayFor(modelItem => item.Topic.Name) existem;</h2>
 
-    }
+    <p>@item.Answer</p>
 
 
-
-</ul>
+}
