@@ -29,13 +29,14 @@ namespace Projeto_KB.Controllers
         {
             var subjects = db.Subjects.ToList().OrderBy(i => i.Name);
 
-            return View(subjects);
+            return View(subjects.ToList());
 
         }
 
         // Get: Retrieve categorie and associated description
         public ActionResult Description(int? id)
         {
+            ViewData.Model = "Subject.Name";
             var descriptions = db.Faqs.Include("Topic").Include(g => g.Subject).Where(g => g.SubjectID == id);
 
             return View(descriptions);

@@ -227,6 +227,7 @@
     <Content Include="Content\Photo\logo-bullet-solutions-inv%402x.png" />
     <Content Include="Content\Photo\picture2.png" />
     <Content Include="Content\Photo\picture_1.png" />
+    <Content Include="Content\StyleDescription.css" />
     <Content Include="Content\Styles.css" />
     <Content Include="Content\Style_Categories.css" />
     <Content Include="favicon.ico" />

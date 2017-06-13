@@ -2,18 +2,6 @@
     margin-bottom: 30px;
 }
 
-.thumbnail{
-    background-color:whitesmoke;
-    border: 1px solid #ffffff;
-    padding:30px;
-    padding-bottom:50px;
-    padding-top:50px;
-}
-.thumbnail h4,
-.thumbnail .h4{
-    
-    color:#360c0c;
- }
 
 h3 {
 color:#ac8787;
@@ -28,4 +16,10 @@ p{
 .body-content {
     padding-left: 90px;
     padding-right: 90px;
-   }
+  
+}
+
+description {
+    background-color:aliceblue;
+} 
+

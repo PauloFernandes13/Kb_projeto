@@ -3,15 +3,21 @@
 @{
     ViewBag.Title = "Description";
 }
+<link href="~/Content/StyleDescription.css" rel="stylesheet" />
+<ul>
+    
+    @foreach (var group in Model.GroupBy(item => item.Topic))
+    {
 
+        <li>@Html.Encode(group.Key.Name)
+          <ul>
 
-@foreach (var item in Model)
-
-{
-    <h2>Para o topico de @Html.DisplayFor(modelItem => item.Topic.Name) existem;</h2>
-
-    <p>@item.Answer</p>
-    <p>@item.Question</p>
-
-
-}
+        @foreach (var item in group)
+        {
+            <li>@Html.Encode(item.Answer)</li>
+            <li>@Html.Encode(item.Description)</li>
+        }
+         </ul>
+    </li>
+    }
+</ul>
