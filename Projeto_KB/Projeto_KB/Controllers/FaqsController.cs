@@ -36,14 +36,14 @@ namespace Projeto_KB.Controllers
         // Get: Retrieve categorie and associated description
         public ActionResult Description(int? id)
         {
-            ViewData.Model = "Subject.Name";
+           
             var descriptions = db.Faqs.Include("Topic").Include(g => g.Subject).Where(g => g.SubjectID == id);
 
             return View(descriptions);
         }
 
 
-        // GET: Faqs/Details/5
+        // GET: Faqs/Details/5ro
         public ActionResult Details(int? id)
         {
             if (id == null)
