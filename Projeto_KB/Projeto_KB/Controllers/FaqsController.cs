@@ -36,9 +36,9 @@ namespace Projeto_KB.Controllers
         // Get: Retrieve categorie and associated description
         public ActionResult Description(int? id)
         {
-           
-            var descriptions = db.Faqs.Include("Topic").Include(g => g.Subject).Where(g => g.SubjectID == id);
 
+            var descriptions = db.Faqs.Include("Topic").Include(g => g.Subject).Where(g => g.SubjectID == id);
+            
             return View(descriptions);
         }
 

@@ -7,7 +7,7 @@
 <ol class="breadcrumb">
     <li>@Html.ActionLink("Home", "Index", "Home")</li>
     <li>@Html.ActionLink("Categories", "Categories", "Faqs")</li>
-    <li class="active">Description</li>
+    <li class="active"></li>
 </ol>
 
 @foreach (var groupSub in Model.GroupBy(item => item.Subject)){
@@ -21,10 +21,10 @@
                  <li>@Html.Encode(groupTop.Key.Name)</li>
 
             <ul>
-                @foreach (var item in groupSub)
+               @foreach (var item in groupTop)
                 {
-                    <li>@Html.Encode(item.Description)</li>
-                    <li>@Html.Encode(item.Answer)</li>
+                    <li>@item.Question</li>
+                    <li>@item.Answer</li>
 
                 }
             </ul>
