@@ -45,7 +45,7 @@ namespace Projeto_KB.DAL
                 Concept {JourneyID=3,Title="Generation",Description="Generation",Text="Formation",
                          ContentDate=DateTime.Parse("2016-04-22"),KeyWords="Formation",UrlContent="http.Content"},
 
-               
+
             };
 
             concepts.ForEach(s => context.Concepts.Add(s));
@@ -86,7 +86,7 @@ namespace Projeto_KB.DAL
                 new Image {ConceptID=2,Name="Image.png",UrlImage="Content/Image.png" }
             };
 
-           
+
             images.ForEach(s => context.Images.Add(s));
             context.SaveChanges();
 

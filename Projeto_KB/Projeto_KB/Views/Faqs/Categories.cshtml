@@ -5,7 +5,7 @@
     ViewBag.Title = "Categories";
 }
 <link href="~/Content/Style_Categories.css" rel="stylesheet" />
-<h3>Help When you Need It</h3>
+<h3 class="category">Help When you Need It</h3>
 <p>Got a problem? Were we can help you. </p>
 
 <p class="lead">Categories</p>
@@ -16,8 +16,8 @@
         <div class="col-md-3 col-sm-6" subject-feature>
             <div class="thumbnail">
                 <div class="caption">
-
-                    <h4><a href="~/Faqs/Description?id=@subjects.ID">@subjects.Name</a></h4>
+                    <!--<h4><a href="~/Faqs/Description?id=@subjects.ID">@subjects.Name</a></h4>-->
+                    <h4>@Html.ActionLink(subjects.Name, "Description", new { ID = subjects.ID})</h4>
                 </div>
             </div>
 

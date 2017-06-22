@@ -4,31 +4,37 @@
     ViewBag.Title = "Description";
 }
 <link href="~/Content/StyleDescription.css" rel="stylesheet" />
-<ol class="breadcrumb">
-    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-    <li>@Html.ActionLink("Categories", "Categories", "Faqs")</li>
-    <li class="active"></li>
-</ol>
 
-@foreach (var groupSub in Model.GroupBy(item => item.Subject)){
-            
-       <h2>@Html.Encode(groupSub.Key.Name)</h2>
+@foreach (var groupSub in Model.GroupBy(item => item.Subject))
+{
 
-    <ul>
-        @foreach (var groupTop in groupSub.GroupBy(item => item.Topic))
-        {
+    <h2 class="description">@Html.Encode(groupSub.Key.Name)  <small>Frequently Asked Questions</small></h2>
 
-                 <li>@Html.Encode(groupTop.Key.Name)</li>
+    <div class="container-fluid thumbnail">
+        <div class="row">
 
-            <ul>
-               @foreach (var item in groupTop)
-                {
-                    <li>@item.Question</li>
-                    <li>@item.Answer</li>
+            @foreach (var groupTop in groupSub.GroupBy(item => item.Topic))
+            {
 
-                }
-            </ul>
+                <div class="col-sm-6">
 
-        }
-    </ul>
+                    <h3>@Html.Encode(groupTop.Key.Name)</h3>
+
+
+                    @foreach (var item in groupTop)
+                    {
+                        <ul class="listCat">
+                                
+                            <li><span>@Html.ActionLink(item.Question, "Details", new { id = item.ID})</span></li>
+                        </ul>
+
+
+                    }
+                </div>
+
+
+
+            }
+        </div>
+    </div>
 }

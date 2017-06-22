@@ -230,11 +230,11 @@
     <Content Include="Content\StyleDescription.css" />
     <Content Include="Content\Styles.css" />
     <Content Include="Content\Style_Categories.css" />
+    <Content Include="Content\Template\img\customer.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Content\Photo\picture.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -309,6 +309,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ckeditor\" />
+    <Folder Include="Content\Template\css\" />
+    <Folder Include="Content\Template\js\" />
+    <Folder Include="Content\Template\vendor\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

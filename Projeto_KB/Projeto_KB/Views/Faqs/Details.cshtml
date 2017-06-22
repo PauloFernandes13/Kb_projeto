@@ -3,64 +3,35 @@
 @{
     ViewBag.Title = "Details";
 }
+<link href="~/Content/StyleDescription.css" rel="stylesheet" />
 
-<h2>Details</h2>
+<ol class="breadcrumb details">
+    <li>@Html.ActionLink("Faqs_Categories", "Categories", "Faqs")</li>
+    <li>@Html.ActionLink(Html.DisplayFor(model => model.Subject.Name).ToString(), "Description", new { ID = Model.SubjectID })</li>
+    <li class="active">@Html.DisplayFor(model => model.Topic.Name)</li>
+    <li class="active">@Html.DisplayFor(model => model.Question)</li>
+</ol>
 
-<div>
-    <h4>Faq</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Subject.Name)
-        </dt>
+<h2 class="details">@Html.DisplayFor(model => model.Question)</h2>
 
-        <dd>
-            @Html.DisplayFor(model => model.Subject.Name)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Topic.Name)
-        </dt>
+<div class="container-fluid thumbnail">
 
-        <dd>
-            @Html.DisplayFor(model => model.Topic.Name)
-        </dd>
+    <a href="#demo" data-toggle="collapse">See Problem Description</a>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
+    <div id="demo" class="collapse">
+        @Html.Raw(Model.Description)
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+    <dl class="dl-vertical">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Question)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Question)
-        </dd>
-
-        <dt>
+        <dt class="first">
             @Html.DisplayNameFor(model => model.Answer)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Answer)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UrlFaq)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UrlFaq)
-        </dd>
-
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

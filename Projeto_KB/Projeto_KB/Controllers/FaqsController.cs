@@ -25,7 +25,7 @@ namespace Projeto_KB.Controllers
 
         //GET: Categories(Subject)
 
-            public ActionResult Categories()
+        public ActionResult Categories()
         {
             var subjects = db.Subjects.ToList().OrderBy(i => i.Name);
 
@@ -38,7 +38,8 @@ namespace Projeto_KB.Controllers
         {
 
             var descriptions = db.Faqs.Include("Topic").Include(g => g.Subject).Where(g => g.SubjectID == id);
-            
+
+
             return View(descriptions);
         }
 
@@ -58,7 +59,9 @@ namespace Projeto_KB.Controllers
             return View(faq);
         }
 
+
         // GET: Faqs/Create
+        
         public ActionResult Create()
         {
             ViewBag.SubjectID = new SelectList(db.Subjects, "ID", "Name");
@@ -71,6 +74,7 @@ namespace Projeto_KB.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Create([Bind(Include = "ID,Description,Question,Answer,UrlFaq,TopicID,SubjectID")] Faq faq)
         {
             if (ModelState.IsValid)
