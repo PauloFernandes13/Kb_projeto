@@ -90,6 +90,7 @@ namespace Projeto_KB.Controllers
         }
 
         // GET: Faqs/Edit/5
+        [ValidateInput(false)] //não permite as validações para que o texto com Markup de CKEditor retorne da B.D.
         public ActionResult Edit(int? id)
         {
             if (id == null)
