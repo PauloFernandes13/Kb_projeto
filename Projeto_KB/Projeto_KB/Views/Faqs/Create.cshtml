@@ -45,7 +45,8 @@
         <div class="form-group form-group-sm">
             @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Description, new { @class ="ckeditor" })
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new  { @class = "from-control", @cols = 100 } })
+                <!--para ficar com Box de inserção no modelo colocar MultiLine, retirar as colunas e colocar Css com classe apropriada-->
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -53,7 +54,12 @@
         <div class="form-group form-group-sm">
             @Html.LabelFor(model => model.Answer, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Answer, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.Answer, new { @id = "editor1", @name="editor1" })
+                <script type="text/javascript">
+                    CKEDITOR.replace('editor1', {
+                        filebrowserImageBrowseUrl: '/home/uploadPartial',
+                        filebrowserImageUploadUrl: '/home/uploadnow'
+                    });</script>
                 @Html.ValidationMessageFor(model => model.Answer, "", new { @class = "text-danger" })
             </div>
         </div>

@@ -1,12 +1,11 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-   
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 0px;  /*tinha padding em ambos com background clip em styles.css*/
+    padding-left: 0px; /*tinha padding em ambos com background clip em styles.css*/
     padding-right: 1px;
 }
 
@@ -21,5 +20,67 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 500px;
+}
+/*Navbar properties*/
+.navbar-inverse {
+    background-color: #444040;
+    border-color: #444040;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: small;
+}
+
+/* css para a view description*/
+.thumbnail {
+    background-color: whitesmoke;
+    border: 1px solid #ffffff;
+    padding: 40px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    margin-top: 40px;
+}
+
+    .thumbnail h4,
+    .thumbnail .h4 {
+        color: #360c0c;
+    }
+
+.subject-feature {
+    margin-bottom: 30px;
+}
+
+.DescriptionBody {
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.CategoryBody {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.CategoryBody p{
+     margin-bottom: 40px;
+}
+
+h3.category {
+    color: #ecd553;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 80px;
+    margin-bottom: 50px;
+}
+
+h2.description {
+    margin-top: 80px;
+    margin-bottom: 60px;
+}
+
+h2.details {
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+/*Footer Page*/
+
+footer {
+    margin: 50px 0;
 }

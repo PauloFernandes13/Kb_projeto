@@ -1,0 +1,28 @@
+﻿@model IEnumerable <Projeto_KB.Models.Image>
+
+@{
+    ViewBag.Title = "uploadPartial";
+}
+
+<h2>uploadPartial</h2>
+
+@foreach (var image in Model)
+{
+    <a href="#" class="returnImage" data-url="@Request.Url.GetLeftPart(UriPartial.Authority)@image.UrlImage">
+        <img src="@image.UrlImage" alt="Hejsan" id="#image" data-source="@image.UrlImage" width="200" height="200" />
+    </a>
+}
+
+<!--Scrip para se carregar na imagem e permitir o acesso ao caminho da imagem...Neste momento ainda não se encontra a funcionar-->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".returnImage").click("click", function (e) {
+            var urlImage = $(this).attr("data-url");
+            //This takes the data value and id of the editor and sends the data(i.e.,image url) back to the caller page
+            window.opener.updateValue("cke_72_textInput", urlImage);
+            window.close();
+        });
+    });
+</script>
+

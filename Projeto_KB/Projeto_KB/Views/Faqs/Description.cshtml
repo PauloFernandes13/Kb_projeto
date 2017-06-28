@@ -3,38 +3,40 @@
 @{
     ViewBag.Title = "Description";
 }
-<link href="~/Content/StyleDescription.css" rel="stylesheet" />
 
-@foreach (var groupSub in Model.GroupBy(item => item.Subject))
-{
+<link href="~/Content/Site.css" rel="stylesheet" />
 
-    <h2 class="description">@Html.Encode(groupSub.Key.Name)  <small>Frequently Asked Questions</small></h2>
+<div class="DescriptionBody">
+    @{
+        var subj = Model.FirstOrDefault();} <!--First or defaul para não dar erro caso modelo não tenha nenhum valor-->
 
-    <div class="container-fluid thumbnail">
-        <div class="row">
+    @foreach (var groupSub in Model.GroupBy(item => item.Subject))
+    {
+        <h3 class="category">@Html.Encode(groupSub.Key.Name) <small>Frequently Asked Questions</small></h3>
 
-            @foreach (var groupTop in groupSub.GroupBy(item => item.Topic))
-            {
+        <div class="container-fluid thumbnail">
+            <div class="row">
+                @foreach (var groupTop in groupSub.GroupBy(item => item.Topic))
+                {
+                    <div class="col-sm-6">
 
-                <div class="col-sm-6">
+                        <h4>@Html.Encode(groupTop.Key.Name)</h4>
 
-                    <h3>@Html.Encode(groupTop.Key.Name)</h3>
-
-
-                    @foreach (var item in groupTop)
+                        @foreach (var item in groupTop)
                     {
-                        <ul class="listCat">
-                                
-                            <li><span>@Html.ActionLink(item.Question, "Details", new { id = item.ID})</span></li>
-                        </ul>
+                            <ul class="listCat">
 
+                                <li><span>@Html.ActionLink(item.Question, "Details", new { id = item.ID })</span></li>
 
-                    }
-                </div>
+                            </ul>
 
+                        }
+                        <p><small>@Html.ActionLink("See all Articles", "DescriptionAll", new { idTopic = groupTop.Key.ID, idSubject = subj.SubjectID })</small></p>
 
+                    </div>
 
-            }
+                }
+            </div>
         </div>
-    </div>
-}
+    }
+</div>

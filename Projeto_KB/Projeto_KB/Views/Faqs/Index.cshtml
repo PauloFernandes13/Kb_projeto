@@ -1,5 +1,9 @@
 ﻿@model IEnumerable<Projeto_KB.Models.Faq>
 
+
+<link href="~/Content/StyleDescription.css" rel="stylesheet" />
+
+
 @helper Truncate(string input, int lenght)
 {
 if (input.Length <= lenght)
@@ -10,68 +14,82 @@ else
 {
         @input.Substring(0, lenght)<text>...</text>
 }
-    }
+}
 
 
-    @{
-        ViewBag.Title = "Index";
-    }
+@{
+    ViewBag.Title = "Index";
+}
 
-        <h2>Index</h2>
+<h2 class="details">Faq List</h2>
 
-        <p>
-            @Html.ActionLink("Create New", "Create")
-        </p>
-        <table class="table">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Subject.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Topic.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Description)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Question)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Answer)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.UrlFaq)
-                </th>
-                <th></th>
-            </tr>
 
-            @foreach (var item in Model)
+
+
+    <form class="create" method="get">
+        <div class="inner-addon right-addon">
+            <i class="glyphicon glyphicon-search"></i>
+        <input type="text" class="form-control" placeholder="Category" name="searchTerm" />
+          </div>
+    </form>
+    
+    
+
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Subject.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Topic.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Question)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Answer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UrlFaq)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Subject.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Topic.Name)
-                    </td>
-                    <td>
-                        @Truncate(item.Description, 20)
-                    </td>
-                    <td>
-                        @Truncate(item.Question, 25)
-                    </td>
-                    <td>
-                        @Truncate(item.Answer, 35)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.UrlFaq)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                    </td>
-                </tr>
-            }
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Topic.Name)
+            </td>
+            <td>
+                @Truncate(item.Description, 20)
+            </td>
+            <td>
+                @Truncate(item.Question, 25)
+            </td>
+            <td>
+                @Truncate(item.Answer, 35)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UrlFaq)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
 
-        </table>
+</table>

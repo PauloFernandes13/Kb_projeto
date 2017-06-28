@@ -16,9 +16,10 @@ namespace Projeto_KB.Controllers
         private KbaseContext db = new KbaseContext();
 
         // GET: Faqs
-        public ActionResult Index()
+        public ActionResult Index(string searchTerm = null)
         {
-            var faqs = db.Faqs.Include(f => f.Subject).Include(f => f.Topic);
+            var faqs = db.Faqs.Include(f => f.Subject).Include(f => f.Topic)
+             .Where(r => searchTerm == null || r.Subject.Name.StartsWith(searchTerm));
             return View(faqs.ToList());
         }
 
@@ -37,14 +38,23 @@ namespace Projeto_KB.Controllers
         public ActionResult Description(int? id)
         {
 
-            var descriptions = db.Faqs.Include("Topic").Include(g => g.Subject).Where(g => g.SubjectID == id);
-
-
+            var descriptions = db.Faqs.Include("Topic").Include(g => g.Subject).Where(g => g.SubjectID == id).Take(3);
+            if (id != null) { 
             return View(descriptions);
+            }
+            return HttpNotFound();
+        }
+        // Get: Retrieve all questions associated to a Topic
+        public ActionResult DescriptionAll(int? idTopic, int? idSubject)
+        {
+            var descriptionsFull = db.Faqs.Include("Subject").Where(g => g.SubjectID==idSubject).Include(g => g.Topic).Where(g => g.TopicID == idTopic).OrderBy(g=>g.Question);
+
+            return View(descriptionsFull);
         }
 
+        
 
-        // GET: Faqs/Details/5ro
+        // GET: Faqs/Details
         public ActionResult Details(int? id)
         {
             if (id == null)

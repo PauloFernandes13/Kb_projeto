@@ -1,7 +1,8 @@
-﻿.subject-feature {
+﻿/*Passed*/
+.subject-feature {
     margin-bottom: 30px;
 }
-
+/*Passed*/
 .thumbnail{
     background-color:whitesmoke;
     border: 1px solid #ffffff;
@@ -9,12 +10,8 @@
     padding-bottom:50px;
     padding-top:50px;
 }
-.thumbnail h4,
-.thumbnail .h4{
-    
-    color:#360c0c;
- }
 
+/*Passed*/
 h3.category {
 color:#ecd553;
 font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -25,6 +22,7 @@ margin-bottom: 50px;
 p{
     margin-bottom: 40px;
 }
+/*Passed has CategoryBody*/
 .body-content {
     padding-left: 50px;
     padding-right: 50px;

@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Projeto_KB.Models.Faq>
+
+@{
+    ViewBag.Title = "DescriptionAll";
+}
+
+<link href="~/Content/StyleDescription.css" rel="stylesheet" />
+
+
+
+
+@foreach (var topic in Model.GroupBy(g => g.Topic))
+
+{
+    <h2 class="description"> The @Html.Encode(topic.Key.Name)  have associated @Model.Count() <small>Frequently Asked Questions</small></h2>
+
+    <div class="container-fluid thumbnail">
+        @foreach (var item in topic)
+
+        {
+            <ul>
+        <li><span>@Html.ActionLink(item.Question, "Details", new { id = item.ID })</span></li>
+                </ul>
+        }
+        
+        
+        </div>
+        
+        
+        
+        }
+
+
+
+
+
+

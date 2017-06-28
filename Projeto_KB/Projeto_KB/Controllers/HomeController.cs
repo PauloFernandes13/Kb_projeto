@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Projeto_KB.Models;
+using System.IO;
 
 namespace Projeto_KB.Controllers
 // testes de git hub...
@@ -13,6 +15,26 @@ namespace Projeto_KB.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+        // Envia as imagens para o servidor
+        public void uploadnow(HttpPostedFileWrapper upload)
+        {
+            if(upload!=null)
+            {
+                string ImageName = upload.FileName;
+                string path = System.IO.Path.Combine(Server.MapPath("~/Content/Images"), ImageName);
+                upload.SaveAs(path);
+            }
+        }
+        // Vista parcial para se verificar se as imagens estão no servidor
+        public ActionResult uploadPartial()
+        {
+            var appData = Server.MapPath("~/Content/Images");
+            var images = Directory.GetFiles(appData).Select(x => new Image
+            {
+                UrlImage = Url.Content("/Content/Images/" + Path.GetFileName(x))
+            });
+            return View(images);
         }
 
         public ActionResult About()

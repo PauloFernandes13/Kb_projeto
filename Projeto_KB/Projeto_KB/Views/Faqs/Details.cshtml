@@ -25,13 +25,12 @@
 
     <dl class="dl-vertical">
 
-
         <dt class="first">
             @Html.DisplayNameFor(model => model.Answer)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Answer)
+            @Html.Raw(Model.Answer)
         </dd>
     </dl>
 </div>
