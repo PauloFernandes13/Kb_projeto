@@ -1,36 +1,62 @@
 ﻿@model Projeto_KB.Models.Faq
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Customer Success</title>
+    <script type="text/javascript" src="http://localhost:61495/ckeditor/ckeditor.js"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+
 
 @{
-    ViewBag.Title = "Details";
+    Layout = null;
 }
-<link href="~/Content/StyleDescription.css" rel="stylesheet" />
 
-<ol class="breadcrumb details">
-    <li>@Html.ActionLink("Faqs_Categories", "Categories", "Faqs")</li>
-    <li>@Html.ActionLink(Html.DisplayFor(model => model.Subject.Name).ToString(), "Description", new { ID = Model.SubjectID })</li>
-    <li class="active">@Html.DisplayFor(model => model.Topic.Name)</li>
-    <li class="active">@Html.DisplayFor(model => model.Question)</li>
-</ol>
-
-<h2 class="details">@Html.DisplayFor(model => model.Question)</h2>
-
-
-<div class="container-fluid thumbnail">
-
-    <a href="#demo" data-toggle="collapse">See Problem Description</a>
-
-    <div id="demo" class="collapse">
-        @Html.Raw(Model.Description)
+<div class="CategoryBody">
+    <div class="row">
+        <div class="col-xs-6">
+            <p>
+                <a class="picture" href="@Url.Action("Index", "Home")">
+                    <img src="~/Content/Photo/logo-bullet-solutions.png" style="max-width:140px; margin-top:-7px" />
+                </a>
+            </p>
+        </div>
+        <div class="col-xs-6">
+            <form class="create" method="get">
+                <div class="inner-addon right-addon">
+                    <i class="glyphicon glyphicon-search"></i>
+                    <input type="text" class="form-control" placeholder="Search by Question" name="searchTerm" />
+                </div>
+            </form>
+        </div>
     </div>
+    <ol class="breadcrumb details">
+        <li>@Html.ActionLink("Faqs_Categories", "Categories", "Faqs")</li>
+        <li>@Html.ActionLink(Html.DisplayFor(model => model.Subject.Name).ToString(), "Description", new { ID = Model.SubjectID })</li>
+        <li class="active">@Html.DisplayFor(model => model.Topic.Name)</li>
+        <li class="active">@Html.DisplayFor(model => model.Question)</li>
+    </ol>
+    <h3 class="details">@Html.DisplayFor(model => model.Question)</h3>
+    <div class="container-fluid thumbnail">
 
-    <dl class="dl-vertical">
+        <a href="#demo" data-toggle="collapse">See Problem Description</a>
 
-        <dt class="first">
-            @Html.DisplayNameFor(model => model.Answer)
-        </dt>
+        <div id="demo" class="collapse">
+            @Html.Raw(Model.Description)
+        </div>
 
-        <dd>
-            @Html.Raw(Model.Answer)
-        </dd>
-    </dl>
+        <dl class="dl-vertical">
+
+            <dt class="first">
+                @Html.DisplayNameFor(model => model.Answer)
+            </dt>
+
+            <dd>
+                @Html.Raw(Model.Answer)
+            </dd>
+        </dl>
+    </div>
 </div>

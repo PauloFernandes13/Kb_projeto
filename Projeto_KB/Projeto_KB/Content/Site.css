@@ -23,7 +23,6 @@ textarea {
     max-width: 500px;
 }
 /*Navbar properties*/
-
 #masterNav.navbar-inverse{
     background-color: #444040;
     border: none;
@@ -41,7 +40,7 @@ color:white;
 }
 #masterNav .navbar-nav .nav-item .nav-link:hover, #masterNav .navbar-nav .nav-item .nav-link.active{color: #fed136;}
 
-/*css para a view description*/
+/*used in Category and Description*/
 .thumbnail {
     background-color: whitesmoke;
     border: 1px solid #ffffff;
@@ -59,12 +58,41 @@ color:white;
 .subject-feature {
     margin-bottom: 20px;
 }
-
+/*Utilizado na view descrição*/
 .DescriptionBody {
-    padding-left: 80px;
-    padding-right: 80px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+.DescriptionBody h3{
+color:#ecd553;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+margin-top: 20px;
+margin-bottom: 50px;
+font-size: 240%;
+}
+.DescriptionBody .thumbnail{
+
+    background-color: whitesmoke;
+    border: 1px solid #ffffff;
+    padding: 40px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    padding-left: 10%;
+    margin-top: 40px;
 }
 
+.DescriptionBody .subject-feature {
+    margin-bottom: 30px;
+}
+
+ul.listCat {
+    color: #ecd553;
+    list-style-type: disc;
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+/*Used in Category View*/
 .CategoryBody {
     padding-left: 100px;
     padding-right: 100px;
@@ -74,12 +102,6 @@ color:white;
  margin-top: 20px;
  margin-bottom: 90px;
 }
-
-.CategoryBody h6 {    
-    margin-bottom: 90px;
-    }
-
-
 .CategoryBody h3 {
     color: #ecd553;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -87,12 +109,17 @@ color:white;
     margin-bottom: 20px;
     font-size:220%;
 }
-
 .CategoryBody h4 {
     margin-bottom: 0px;
 }
+.CategoryBody h6 {    
+    margin-bottom: 90px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 110%;
+    color:darkcyan;
+    }
 
-
+/*Used in form to Search (Category and Index_Faqs)*/
 form.create {
                     
  float:right;
@@ -132,6 +159,19 @@ h2.details {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+.breadcrumb.details {
+    font-size: smaller;
+    padding: 8px 0px;
+    margin-bottom: 20px;
+    list-style: none;
+    background-color: white;
+}
+/*Used in Details*/
+dt.first {
+    font-size: medium;
+    margin-top: 20px;
+}
+
 /*Footer Page*/
 
 footer {

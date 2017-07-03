@@ -1,14 +1,19 @@
-﻿
-@model IEnumerable<Projeto_KB.Models.Subject>
+﻿@model IEnumerable<Projeto_KB.Models.Subject>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title  Customer Success</title>
+    <script type="text/javascript" src="http://localhost:61495/ckeditor/ckeditor.js"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
 
-@{
-    ViewBag.Title = "Categories";
-}
 
 @{Layout = null;
 }
 
-@Styles.Render("~/Content/css")
 
 <div class="CategoryBody">
     <div class="row">
@@ -20,10 +25,10 @@
         </p>
     </div>
     <div class="col-xs-6">
-        <form class="create" method="get" id="element2">
+        <form class="create" method="get">
             <div class="inner-addon right-addon">
                 <i class="glyphicon glyphicon-search"></i>
-                <input type="text" class="form-control" placeholder="Category" name="searchTerm" />
+                <input type="text" class="form-control" placeholder="Search by Question" name="searchFaq" />
             </div>
         </form>
     </div>
@@ -38,7 +43,7 @@
             <div class="col-md-3 col-sm-6" subject-feature>
                 <div class="thumbnail">
                     <div class="caption">
-                        <!--<h4><a href="~/Faqs/Description?id=@subjects.ID">@subjects.Name</a></h4>-->
+                        <!--<h4><a href="~/Faqs/Description?id=@*subjects.ID">@subjects.Name*@</a></h4>-->
 
                         <h4>@Html.ActionLink(subjects.Name, "Description", new { ID = subjects.ID }, null)</h4>
                     </div>

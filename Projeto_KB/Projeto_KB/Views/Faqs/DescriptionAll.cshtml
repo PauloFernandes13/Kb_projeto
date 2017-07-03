@@ -1,35 +1,66 @@
 ﻿@model IEnumerable<Projeto_KB.Models.Faq>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title  Customer Success</title>
+    <script type="text/javascript" src="http://localhost:61495/ckeditor/ckeditor.js"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
 
-@{
-    ViewBag.Title = "DescriptionAll";
+
+@{ Layout = null;
 }
 
-<link href="~/Content/StyleDescription.css" rel="stylesheet" />
-
-
-
-
-@foreach (var topic in Model.GroupBy(g => g.Topic))
-
-{
-    <h2 class="description"> The @Html.Encode(topic.Key.Name)  have associated @Model.Count() <small>Frequently Asked Questions</small></h2>
-
-    <div class="container-fluid thumbnail">
-        @foreach (var item in topic)
-
-        {
-            <ul>
-        <li><span>@Html.ActionLink(item.Question, "Details", new { id = item.ID })</span></li>
-                </ul>
-        }
-        
-        
+@{
+    var subj = Model.FirstOrDefault();}
+<div class="CategoryBody">
+    <div class="row">
+        <div class="col-xs-6">
+            <p>
+                <a class="picture" href="@Url.Action("Index", "Home")">
+                    <img src="~/Content/Photo/logo-bullet-solutions.png" style="max-width:140px; margin-top:-7px" />
+                </a>
+            </p>
         </div>
-        
-        
-        
-        }
+        <div class="col-xs-6">
+            <form class="create" method="get">
+                <div class="inner-addon right-addon">
+                    <i class="glyphicon glyphicon-search"></i>
+                    <input type="text" class="form-control" placeholder="Search by Question" name="searchTerm" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <ol class="breadcrumb details">
+        <li>@Html.ActionLink("Faqs_Categories", "Categories", "Faqs")</li>
+        <li>@Html.ActionLink(Html.DisplayFor(model => subj.Subject.Name).ToString(), "Description", new { ID = subj.SubjectID })</li>
+        <li class="active">@Html.DisplayFor(model => subj.Topic.Name)</li>
+        <li class="active">Questions</li>
+    </ol>
+ </div>
+<div class="DescriptionBody">
+    @foreach (var topic in Model.GroupBy(g => g.Topic))
 
+    {
+        <h3>@Html.Encode(topic.Key.Name) topic <small>have associated @Model.Count() questions.</small></h3>
+
+        <div class="container-fluid thumbnail">
+            @foreach (var item in topic)
+
+            {
+                <ul class="listCat">
+                    <li><span>@Html.ActionLink(item.Question, "Details", new { id = item.ID })</span></li>
+                </ul>
+            }
+
+
+        </div>
+    }
+
+</div>
 
 
 

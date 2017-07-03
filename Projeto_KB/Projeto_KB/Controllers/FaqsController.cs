@@ -23,6 +23,14 @@ namespace Projeto_KB.Controllers
             return View(faqs.ToList());
         }
 
+        //Get: Faqs
+        public ActionResult Search(string searchFaq = null)
+        {
+            var faqs = db.Faqs.Include(f => f.Subject).Include(f => f.Topic)
+             .Where(r => searchFaq == null || r.Subject.Name.StartsWith(searchFaq));
+            return View(faqs.ToList());
+        }
+
 
         //GET: Categories(Subject)
 
@@ -49,7 +57,11 @@ namespace Projeto_KB.Controllers
         {
             var descriptionsFull = db.Faqs.Include("Subject").Where(g => g.SubjectID==idSubject).Include(g => g.Topic).Where(g => g.TopicID == idTopic).OrderBy(g=>g.Question);
 
-            return View(descriptionsFull);
+            if (idTopic != null) {
+
+                return View(descriptionsFull);
+            }
+            return HttpNotFound();
         }
 
         
