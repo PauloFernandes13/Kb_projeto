@@ -61,7 +61,7 @@ body {
   -webkit-tap-highlight-color: #fed136; }
 
 #mainNav {
-  background-color: #222222; }
+  background-color: #444040; }
   #mainNav .navbar-toggler {
     font-size: 12px;
     right: 0;
@@ -107,7 +107,7 @@ body {
       padding: 1.1em 1em !important; }
     #mainNav.navbar-shrink {
       padding: 0;
-      background-color: #222222; }
+      background-color:  #444040; }
       #mainNav.navbar-shrink .navbar-brand {
         font-size: 1.25em;
         padding: 12px 0; } }
@@ -115,7 +115,7 @@ body {
 header.masthead {
   text-align: center;
   color: white;
-  background-image: url("../img/header-bg.jpg");
+  background-image: url("../img/customer.png");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -271,7 +271,7 @@ header.masthead {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
-    background-color: #222222; }
+    background-color:  #444040; }
     .portfolio-modal .close-modal .lr .rl {
       /* Safari and Chrome */
       z-index: 1052;
@@ -281,7 +281,7 @@ header.masthead {
       -webkit-transform: rotate(90deg);
       -ms-transform: rotate(90deg);
       transform: rotate(90deg);
-      background-color: #222222; }
+      background-color:  #444040; }
 
 .portfolio-modal .modal-backdrop {
   display: none;
@@ -436,7 +436,7 @@ header.masthead {
     margin-top: 0; }
 
 section#contact {
-  background-color: #222222;
+  background-color:  #444040;
   background-image: url("../img/map-image.png");
   background-repeat: no-repeat;
   background-position: center; }
@@ -510,7 +510,7 @@ ul.social-buttons {
     color: white;
     border-radius: 100%;
     outline: none;
-    background-color: #222222; }
+    background-color:  #444040; }
     ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li a:active {
       background-color: #fed136; }
 

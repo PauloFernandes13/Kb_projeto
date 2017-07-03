@@ -5,24 +5,46 @@
     ViewBag.Title = "Categories";
 }
 
-<div class="CategoryBody">
-    <h3 class="category">Help When you Need It</h3>
-    <p>Got a problem? Were we can help you. </p>
+@{Layout = null;
+}
 
-    <h3>Categories</h3>
+@Styles.Render("~/Content/css")
+
+<div class="CategoryBody">
+    <div class="row">
+        <div class="col-xs-6">
+        <p>
+            <a class="picture" href="@Url.Action("Index", "Home")">
+                <img src="~/Content/Photo/logo-bullet-solutions.png" style="max-width:140px; margin-top:-7px" />
+            </a>
+        </p>
+    </div>
+    <div class="col-xs-6">
+        <form class="create" method="get" id="element2">
+            <div class="inner-addon right-addon">
+                <i class="glyphicon glyphicon-search"></i>
+                <input type="text" class="form-control" placeholder="Category" name="searchTerm" />
+            </div>
+        </form>
+    </div>
+  </div>
+    <h3>Help When you Need It</h3>
+    <h6>Got a problem? Here we can help you. </h6>
+    <h4>Categories</h4>
     <div class="row text-center">
 
         @foreach (var subjects in Model)
-        {
+            {
             <div class="col-md-3 col-sm-6" subject-feature>
                 <div class="thumbnail">
                     <div class="caption">
                         <!--<h4><a href="~/Faqs/Description?id=@subjects.ID">@subjects.Name</a></h4>-->
+
                         <h4>@Html.ActionLink(subjects.Name, "Description", new { ID = subjects.ID }, null)</h4>
                     </div>
                 </div>
 
             </div>
-        }
+           }
     </div>
 </div>       

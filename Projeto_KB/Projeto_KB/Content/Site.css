@@ -23,30 +23,41 @@ textarea {
     max-width: 500px;
 }
 /*Navbar properties*/
-.navbar-inverse {
-    background-color: #444040;
-    border-color: #444040;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: small;
-}
 
-/* css para a view description*/
+#masterNav.navbar-inverse{
+    background-color: #444040;
+    border: none;
+    font-family: 'Kaushan Script', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: white;
+    padding: .65em 0;
+}
+#masterNav .navbar-nav .nav-item .nav-link
+{
+color:white;
+}
+#masterNav .navbar-nav .nav-item .nav-link:hover, #masterNav .navbar-nav .nav-item .nav-link.active{color: #fed136;}
+
+/*css para a view description*/
 .thumbnail {
     background-color: whitesmoke;
     border: 1px solid #ffffff;
     padding: 40px;
     padding-bottom: 50px;
     padding-top: 50px;
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
-    .thumbnail h4,
-    .thumbnail .h4 {
+.thumbnail h4,
+.thumbnail .h4 {
         color: #360c0c;
     }
 
 .subject-feature {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .DescriptionBody {
@@ -55,19 +66,61 @@ textarea {
 }
 
 .CategoryBody {
-    padding-left: 50px;
-    padding-right: 50px;
-}
-.CategoryBody p{
-     margin-bottom: 40px;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
-h3.category {
+.CategoryBody p{
+ margin-top: 20px;
+ margin-bottom: 90px;
+}
+
+.CategoryBody h6 {    
+    margin-bottom: 90px;
+    }
+
+
+.CategoryBody h3 {
     color: #ecd553;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-top: 80px;
-    margin-bottom: 50px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    font-size:220%;
 }
+
+.CategoryBody h4 {
+    margin-bottom: 0px;
+}
+
+
+form.create {
+                    
+ float:right;
+ padding-right:10px;
+ margin:38px auto;
+ width:400px;
+}
+
+/* enable absolute positioning */
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
 
 h2.description {
     margin-top: 80px;
