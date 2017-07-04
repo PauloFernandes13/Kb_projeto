@@ -65,13 +65,6 @@
                 @Html.ValidationMessageFor(model => model.Answer, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <div class="form-group form-group-sm">
-            @Html.LabelFor(model => model.UrlFaq, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UrlFaq, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UrlFaq, "", new { @class = "text-danger" })
-            </div>
         </div>
 
         <div class="form-group form-group-sm">
@@ -79,7 +72,6 @@
                 <input type="submit" value="Create" class="btn btn-info btn-xs" />
             </div>
         </div>
-    </div>
 }
 
 <div>

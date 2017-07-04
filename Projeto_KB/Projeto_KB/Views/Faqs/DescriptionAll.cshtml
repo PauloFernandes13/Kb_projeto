@@ -26,10 +26,10 @@
             </p>
         </div>
         <div class="col-xs-6">
-            <form class="create" method="get">
+            <form class="create" method="get" action="@Url.Action("SearchFaq", "Faqs")">
                 <div class="inner-addon right-addon">
                     <i class="glyphicon glyphicon-search"></i>
-                    <input type="text" class="form-control" placeholder="Search by Question" name="searchTerm" />
+                    <input type="text" class="form-control" placeholder="Search" name="searchFaqs" />
                 </div>
             </form>
         </div>
@@ -45,7 +45,17 @@
     @foreach (var topic in Model.GroupBy(g => g.Topic))
 
     {
-        <h3>@Html.Encode(topic.Key.Name) topic <small>have associated @Model.Count() questions.</small></h3>
+        if (@Model.Count() == 0)
+        {
+            <h3>@Html.Encode(topic.Key.Name) <small>topic don´t have questions associated.</small></h3>
+        }
+        else if (@Model.Count() == 1) { 
+        <h3>@Html.Encode(topic.Key.Name) <small>topic have associated @Model.Count() question.</small></h3>
+        }
+        else
+        {
+        <h3>@Html.Encode(topic.Key.Name) <small>topic have associated @Model.Count() questions.</small></h3>
+        }
 
         <div class="container-fluid thumbnail">
             @foreach (var item in topic)

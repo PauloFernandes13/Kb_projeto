@@ -27,6 +27,7 @@ namespace Projeto_KB.DAL
                 new Subject {Name="Data Importacion" },
                 new Subject {Name="Instalacion" },
                 new Subject {Name="Database" },
+                new Subject {Name="Bullet Calendar" }, 
 
             };
             subjects.ForEach(s => context.Subjects.Add(s));
@@ -63,7 +64,7 @@ namespace Projeto_KB.DAL
             var faqs = new List<Faq>
             {
                 new Faq { SubjectID=2,TopicID=1,Description= "Install BD Demo",Answer="How to Install BD Demo?", Question="ContactSuport",
-                         UrlFaq="http.faq"}
+                         }
             };
 
             faqs.ForEach(s => context.Faqs.Add(s));

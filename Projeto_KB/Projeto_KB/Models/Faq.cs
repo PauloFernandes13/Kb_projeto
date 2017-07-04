@@ -14,7 +14,6 @@ namespace Projeto_KB.Models
         public string Question { get; set; }
         [DataType(DataType.MultilineText)]
         public string Answer { get; set; }
-        public string UrlFaq { get; set; }
         public int TopicID { get; set; }
         public int SubjectID { get; set; }
         public virtual Topic Topic { get; set; } 

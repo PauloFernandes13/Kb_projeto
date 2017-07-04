@@ -9,7 +9,8 @@ namespace Projeto_KB.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
             ContextKey = "Projeto_KB.DAL.KbaseContext";
         }
 

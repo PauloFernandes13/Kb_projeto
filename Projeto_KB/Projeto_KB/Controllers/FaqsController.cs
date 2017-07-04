@@ -24,47 +24,50 @@ namespace Projeto_KB.Controllers
         }
 
         //Get: Faqs
-        public ActionResult Search(string searchFaq = null)
+        public ActionResult SearchFaq(string SearchFaqs )
         {
-            var faqs = db.Faqs.Include(f => f.Subject).Include(f => f.Topic)
-             .Where(r => searchFaq == null || r.Subject.Name.StartsWith(searchFaq));
-            return View(faqs.ToList());
-        }
+            ViewBag.dataSearch = SearchFaqs;
+            var searchGeral = db.Faqs.Include(f => f.Subject).Include(f => f.Topic)
+                    .Where(r => r.Answer.Contains(SearchFaqs) || r.Question.Contains(SearchFaqs) || r.Description.Contains(SearchFaqs));
 
+            return View(searchGeral);
+
+        }
 
         //GET: Categories(Subject)
 
-        public ActionResult Categories()
+        public ActionResult Categories(string searchFaq = null)
         {
             var subjects = db.Subjects.ToList().OrderBy(i => i.Name);
-
             return View(subjects.ToList());
-
         }
+
 
         // Get: Retrieve categorie and associated description
         public ActionResult Description(int? id)
         {
 
             var descriptions = db.Faqs.Include("Topic").Include(g => g.Subject).Where(g => g.SubjectID == id).Take(3);
-            if (id != null) { 
-            return View(descriptions);
+            if (id != null)
+            {
+                return View(descriptions);
             }
             return HttpNotFound();
         }
         // Get: Retrieve all questions associated to a Topic
         public ActionResult DescriptionAll(int? idTopic, int? idSubject)
         {
-            var descriptionsFull = db.Faqs.Include("Subject").Where(g => g.SubjectID==idSubject).Include(g => g.Topic).Where(g => g.TopicID == idTopic).OrderBy(g=>g.Question);
+            var descriptionsFull = db.Faqs.Include("Subject").Where(g => g.SubjectID == idSubject).Include(g => g.Topic).Where(g => g.TopicID == idTopic).OrderBy(g => g.Question);
 
-            if (idTopic != null) {
+            if (idTopic != null)
+            {
 
                 return View(descriptionsFull);
             }
             return HttpNotFound();
         }
 
-        
+
 
         // GET: Faqs/Details
         public ActionResult Details(int? id)
@@ -83,7 +86,7 @@ namespace Projeto_KB.Controllers
 
 
         // GET: Faqs/Create
-        
+
         public ActionResult Create()
         {
             ViewBag.SubjectID = new SelectList(db.Subjects, "ID", "Name");
