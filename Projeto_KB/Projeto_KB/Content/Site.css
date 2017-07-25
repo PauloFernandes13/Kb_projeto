@@ -20,9 +20,10 @@
 input,
 select,
 textarea {
-    max-width: 500px;
+    max-width: 500px; /*Permite alterar tamanho de textBox*/
 }
-/*Navbar properties*/
+
+/*Navbar properties from SharedLayout*/
 #masterNav.navbar-inverse {
     background-color: #444040;
     border: none;
@@ -32,7 +33,7 @@ textarea {
     font-weight: 400;
     text-transform: uppercase;
     color: white;
-    padding: .65em 0;
+    padding: .10em 0;
 }
 
 #masterNav .navbar-nav .nav-item .nav-link {
@@ -67,33 +68,33 @@ textarea {
     padding-right: 100px;
 }
 
-.DescriptionBody h3 {
+    .DescriptionBody h3 {
         color: #ecd553;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         margin-top: 20px;
         margin-bottom: 50px;
         font-size: 240%;
-}
+    }
 
 h4.questionSearch {
-        color: #ecd553;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 120%;
-    }
+    color: #ecd553;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 120%;
+}
 
-    .DescriptionBody .thumbnail {
-        background-color: whitesmoke;
-        border: 1px solid #ffffff;
-        padding: 40px;
-        padding-bottom: 50px;
-        padding-top: 50px;
-        padding-left: 10%;
-        margin-top: 40px;
-    }
+.DescriptionBody .thumbnail {
+    background-color: whitesmoke;
+    border: 1px solid #ffffff;
+    padding: 40px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    padding-left: 10%;
+    margin-top: 40px;
+}
 
-    .DescriptionBody .subject-feature {
-        margin-bottom: 30px;
-    }
+.DescriptionBody .subject-feature {
+    margin-bottom: 30px;
+}
 
 ul.listCat {
     color: #ecd553;
@@ -146,7 +147,7 @@ form.create {
 }
 
     /* style icon */
-.inner-addon .glyphicon {
+    .inner-addon .glyphicon {
         position: absolute;
         padding: 10px;
         pointer-events: none;
@@ -200,18 +201,50 @@ h2.details {
     list-style: none;
     background-color: white;
 }
+
 .onSearchFaq .breadcrumb {
-    background-color:whitesmoke;
+    background-color: whitesmoke;
 }
 
 .breadcrumb li {
-        font-size: 85%;
-    }
+    font-size: 85%;
+}
 /*Used in Details*/
 dt.first {
     font-size: medium;
     margin-top: 20px;
 }
+
+p.blocktext {
+}
+/*Block used to center image*/
+img.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 250px;
+    padding-right: 35px;
+}
+
+/*hr de login*/
+hr.login {
+    margin-bottom: 40px;
+}
+
+h2.log {
+    color: darkcyan;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 200%;
+    margin-top: 40px;
+}
+
+.btn-info {
+    margin-top: 20px;
+    color: white;
+    background-color: #ecd553;
+    border-color: orange;
+}
+
 
 /*Footer Page*/
 

@@ -63,7 +63,7 @@ else
         {
             <div class="container-fluid thumbnail">
                 <div class="col-sm-6">
-                    <h4 class="questionSearch">@item.Question</h4>
+                    <h4 class="questionSearch">@Html.ActionLink(item.Question, "Details", new { id = item.ID})</h4>
                     <h5>@Html.Raw(item.Answer)</h5>
                     <div class="onSearchFaq">
                         <ol class="breadcrumb">

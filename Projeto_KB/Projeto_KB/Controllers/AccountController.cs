@@ -86,7 +86,8 @@ namespace Projeto_KB.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
+                    ModelState.AddModelError("",""); //retirei a mensagem de erro em segundo "" e a mensagem está associada a ValidationSummary 
+                                                    //  na view de Login 
                     return View(model);
             }
         }

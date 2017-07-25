@@ -1,22 +1,23 @@
-﻿@using Microsoft.AspNet.Identity
+﻿
+@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar" }))
     {
-    @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
 
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    </ul>
+        <ul class="navbar-nav" style="margin-top:6.4px">
+            <li>
+                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            </li>  <!--Depois de acrescentar campos a user mudar o campo que será apresentado-->
+            <li><a href="javascript:document.getElementById('logoutForm').submit()" style="padding-left: 1.8em" >Log Out</a></li>
+        </ul>
     }
 }
 else
 {
-    <ul class="nav navbar-nav">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    <ul class="navbar-nav" style="margin-top:14px">
+        <!--<li>Para o caso de querer colocar o registo na página inicial colocar como exemplo abaixo("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>-->
+        <li>@Html.ActionLink("Log In", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }
