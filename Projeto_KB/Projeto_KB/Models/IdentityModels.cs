@@ -7,7 +7,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 namespace Projeto_KB.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
-    public class ApplicationUser : IdentityUser
+    public class ApplicationUser : IdentityUser //class ApplicationUser inherits from framework Class IdentityUser
     {
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -16,6 +16,13 @@ namespace Projeto_KB.Models
             // Add custom user claims here
             return userIdentity;
         }
+    }
+
+    //create roles
+    public class ApplicationRole : IdentityRole
+    {
+        public ApplicationRole() : base () { }
+        public ApplicationRole(string roleName):base(roleName) { }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -29,5 +36,7 @@ namespace Projeto_KB.Models
         {
             return new ApplicationDbContext();
         }
+
+       
     }
 }
