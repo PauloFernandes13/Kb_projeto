@@ -37,6 +37,6 @@ namespace Projeto_KB.Models
             return new ApplicationDbContext();
         }
 
-       
+        public System.Data.Entity.DbSet<Projeto_KB.Models.UserViewModel> UserViewModels { get; set; }
     }
 }

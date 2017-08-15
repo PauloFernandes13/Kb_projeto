@@ -9,25 +9,39 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Projeto_KB.Models;
+using System.Collections.Generic;
 
 namespace Projeto_KB.Controllers
 {
-    [Authorize]
+    
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationRoleManager _roleManager; // Add a Role to Register
         
 
         public AccountController()
         {
            
         }
-
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        // add on Account Controller ApplicationRoleManager
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, ApplicationRoleManager roleManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
+            RoleManager = roleManager;
+        }
+       public ApplicationRoleManager RoleManager
+        {
+            get
+            {
+                return _roleManager ?? HttpContext.GetOwinContext().Get<ApplicationRoleManager>();
+            }
+            private set
+            {
+                _roleManager = value;
+            }
         }
 
         public ApplicationSignInManager SignInManager
@@ -142,23 +156,33 @@ namespace Projeto_KB.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            //acesso a roles and add to list (use ViewBag(allows to share dynamic objects between control. and View) to store list Item) 
+            // dynamic object(without predifened proprieties.)//we define proprities were.
+            List<SelectListItem> list = new List<SelectListItem>();
+            foreach (var role in RoleManager.Roles)
+                list.Add(new SelectListItem() { Value = role.Name, Text = role.Name });
+            ViewBag.Roles = list;
+
             return View();
         }
+
+        
 
         //
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
-        {
-            if (ModelState.IsValid)
+        public async Task<ActionResult> Register(RegisterViewModel model)     //Initially UserName it was Email,
+        {                                                                    // it was introduced Parameter UserName
+            if (ModelState.IsValid)                                         //Now odel.UserName = New Parameter UserName
             {
                 var user = new ApplicationUser { UserName = model.UserName, Email = model.Email }; //New Instance from ApplicationUser with properties
                                                                                                   // UserName e Email.
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    result = await UserManager.AddToRoleAsync(user.Id, model.RoleName); //add role to register....
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
@@ -175,8 +199,6 @@ namespace Projeto_KB.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
-
-        
 
         //
         // GET: /Account/ConfirmEmail

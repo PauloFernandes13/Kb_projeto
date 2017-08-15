@@ -201,6 +201,7 @@
     <Compile Include="Controllers\JourneysController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\KbaseContext.cs" />
     <Compile Include="DAL\KbaseInitializer.cs" />
     <Compile Include="Global.asax.cs">
@@ -209,6 +210,18 @@
     <Compile Include="Migrations.Identity\201707042052209_InitialCreate.cs" />
     <Compile Include="Migrations.Identity\201707042052209_InitialCreate.Designer.cs">
       <DependentUpon>201707042052209_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations.Identity\201707281116097_AddRoles.cs" />
+    <Compile Include="Migrations.Identity\201707281116097_AddRoles.Designer.cs">
+      <DependentUpon>201707281116097_AddRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations.Identity\201707290750484_Add UserViewModel.cs" />
+    <Compile Include="Migrations.Identity\201707290750484_Add UserViewModel.Designer.cs">
+      <DependentUpon>201707290750484_Add UserViewModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations.Identity\201708101528017_Name_Migration.cs" />
+    <Compile Include="Migrations.Identity\201708101528017_Name_Migration.Designer.cs">
+      <DependentUpon>201708101528017_Name_Migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations.Identity\Configuration.cs" />
     <Compile Include="Migrations\201706091055174_InitialCreate.cs" />
@@ -232,6 +245,7 @@
     <Compile Include="Models\RoleViewModel.cs" />
     <Compile Include="Models\Subject.cs" />
     <Compile Include="Models\Topic.cs" />
+    <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -798,6 +812,8 @@
     <Content Include="Views\Role\Edit.cshtml" />
     <Content Include="Views\Role\Details.cshtml" />
     <Content Include="Views\Role\Delete.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\ManageUsers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -814,6 +830,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations.Identity\201707042052209_InitialCreate.resx">
       <DependentUpon>201707042052209_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations.Identity\201707281116097_AddRoles.resx">
+      <DependentUpon>201707281116097_AddRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations.Identity\201707290750484_Add UserViewModel.resx">
+      <DependentUpon>201707290750484_Add UserViewModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations.Identity\201708101528017_Name_Migration.resx">
+      <DependentUpon>201708101528017_Name_Migration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706091055174_InitialCreate.resx">
       <DependentUpon>201706091055174_InitialCreate.cs</DependentUpon>

@@ -53,7 +53,7 @@ namespace Projeto_KB.Models
         [EmailAddress]
         public string Email { get; set; }
         [Required]
-        [Display(Name = "Client")]
+        [Display(Name = "Client")]   //Add a userName to Login
         public string UserName { get; set; }
         [Required]
         [DataType(DataType.Password)]
@@ -72,7 +72,7 @@ namespace Projeto_KB.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
         [Required]
-        [Display(Name = "Client")]
+        [Display(Name = "Client")] //Add a userName to Register.
         public string UserName { get; set; }
 
         [Required]
@@ -85,6 +85,8 @@ namespace Projeto_KB.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+        
+        public string RoleName { get; set; }
     }
 
     public class ResetPasswordViewModel
