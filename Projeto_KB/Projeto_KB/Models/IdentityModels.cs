@@ -16,6 +16,11 @@ namespace Projeto_KB.Models
             // Add custom user claims here
             return userIdentity;
         }
+        //new users parameters
+        public string AccountName { get; set; }
+        public string ContactName { get; set; }
+        public string Country { get; set; }
+
     }
 
     //create roles
@@ -37,6 +42,6 @@ namespace Projeto_KB.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<Projeto_KB.Models.UserViewModel> UserViewModels { get; set; }
+        
     }
 }

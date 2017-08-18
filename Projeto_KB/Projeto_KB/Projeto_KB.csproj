@@ -223,6 +223,22 @@
     <Compile Include="Migrations.Identity\201708101528017_Name_Migration.Designer.cs">
       <DependentUpon>201708101528017_Name_Migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations.Identity\201708160031365_DeleteUserViewModel.cs" />
+    <Compile Include="Migrations.Identity\201708160031365_DeleteUserViewModel.Designer.cs">
+      <DependentUpon>201708160031365_DeleteUserViewModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations.Identity\201708160117210_UserListViewModel.cs" />
+    <Compile Include="Migrations.Identity\201708160117210_UserListViewModel.Designer.cs">
+      <DependentUpon>201708160117210_UserListViewModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations.Identity\201708160129014_Fixed_ViewModel.cs" />
+    <Compile Include="Migrations.Identity\201708160129014_Fixed_ViewModel.Designer.cs">
+      <DependentUpon>201708160129014_Fixed_ViewModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations.Identity\201708171458107_new Parameters_User.cs" />
+    <Compile Include="Migrations.Identity\201708171458107_new Parameters_User.Designer.cs">
+      <DependentUpon>201708171458107_new Parameters_User.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations.Identity\Configuration.cs" />
     <Compile Include="Migrations\201706091055174_InitialCreate.cs" />
     <Compile Include="Migrations\201706091055174_InitialCreate.Designer.cs">
@@ -814,6 +830,9 @@
     <Content Include="Views\Role\Delete.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\ManageUsers.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
+    <Content Include="Views\User\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -839,6 +858,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations.Identity\201708101528017_Name_Migration.resx">
       <DependentUpon>201708101528017_Name_Migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations.Identity\201708160031365_DeleteUserViewModel.resx">
+      <DependentUpon>201708160031365_DeleteUserViewModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations.Identity\201708160117210_UserListViewModel.resx">
+      <DependentUpon>201708160117210_UserListViewModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations.Identity\201708160129014_Fixed_ViewModel.resx">
+      <DependentUpon>201708160129014_Fixed_ViewModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations.Identity\201708171458107_new Parameters_User.resx">
+      <DependentUpon>201708171458107_new Parameters_User.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706091055174_InitialCreate.resx">
       <DependentUpon>201706091055174_InitialCreate.cs</DependentUpon>

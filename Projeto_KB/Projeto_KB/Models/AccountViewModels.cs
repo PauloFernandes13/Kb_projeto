@@ -46,6 +46,7 @@ namespace Projeto_KB.Models
         public string Email { get; set; }
     }
 
+
     public class LoginViewModel
     {
         //[Required]
@@ -85,8 +86,16 @@ namespace Projeto_KB.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
-        
+        [Required]
         public string RoleName { get; set; }
+        [Required]
+        [Display(Name = "Account")]
+        public string AccountName { get; set; }
+        [Required]
+        [Display(Name = "Contact")]
+        public string ContactName { get; set; }
+        [Required]
+        public string Country { get; set; }
     }
 
     public class ResetPasswordViewModel

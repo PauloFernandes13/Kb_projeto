@@ -8,6 +8,8 @@ using Projeto_KB.Models;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity;
+using System.Data.Entity;
+using System.Net;
 
 namespace Projeto_KB.Controllers
 {
@@ -23,7 +25,7 @@ namespace Projeto_KB.Controllers
         public UserController(ApplicationUserManager userManager, ApplicationRoleManager roleManager)
         {
             UserManager = userManager;
-            RoleManager = roleManager; 
+            RoleManager = roleManager;
         }
         public ApplicationRoleManager RoleManager
         {
@@ -52,25 +54,13 @@ namespace Projeto_KB.Controllers
         // GET: User
         public ActionResult Index()
         {
-            //var applicationDbContext = HttpContext.GetOwinContext().Get<ApplicationDbContext>();
-            //var users = from u in applicationDbContext.Users
-            //            from ur in u.Roles
-            //            join r in applicationDbContext.Roles on ur.RoleId equals r.Id
-            //            select new
-            //            {
-            //                u.Id,
-            //                Name = u.UserName,
-            //                Role = r.Name,
-            //            };
-
-            //// users is anonymous type, map it to a Model 
-            //return View(users.ToList());
 
             List<UserViewModel> list = new List<UserViewModel>();
             foreach (var role in UserManager.Users)
                 list.Add(new UserViewModel(role));
             return View(list);
         }
+
 
         public ActionResult ManageUsersRoles()
         {
@@ -79,8 +69,78 @@ namespace Projeto_KB.Controllers
                 Value = r_user.Name.ToString(),
                 Text = r_user.Name
             }).ToList();
-            ViewBag.Roles = list;            
+
+            ViewBag.Roles = list;
             return View();
+        }
+
+        public async Task<ActionResult> Edit(string id)
+        {
+            var user = await UserManager.FindByIdAsync(id);
+
+            return View(new UserViewModel(user));
+
+        }
+        //Used inicially Async method, but UpdateAsync...not save on context...error: already exist object with that ID.
+        //Solution to error: not not use Async Method... 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,Email,UserName,PhoneNumber")] UserViewModel user)
+        {
+
+            ApplicationUser User = UserManager.FindById(user.Id);
+
+            User.Email = user.Email;
+
+            User.Id = user.Id;
+            User.Email = user.Email;
+            User.UserName = user.UserName;
+            User.PhoneNumber = user.PhoneNumber;
+
+
+            IdentityResult result = UserManager.Update(User);
+
+
+            return RedirectToAction("Index");
+        }
+
+        public async Task<ActionResult> Details (string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var user = await UserManager.FindByIdAsync(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(new UserViewModel(user));
+        } 
+
+        public async Task<ActionResult> Delete (string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var user = await UserManager.FindByIdAsync(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(new UserViewModel(user));
+        }
+
+        [HttpPost,ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> DeleteConfirmed (string id )
+        {
+            var user = await UserManager.FindByIdAsync(id);
+            await UserManager.DeleteAsync(user);
+            return RedirectToAction("Index");
         }
 
         public ActionResult ManageUsers()
@@ -146,12 +206,13 @@ namespace Projeto_KB.Controllers
             {
                 ViewBag.ResultMessage = "This user doesn't belong to selected role.";
             }
-            // prepopulat roles for the view dropdown
+            // prepopulat roles for the view dropdown, error like in register in Account
             var list = db.Roles.OrderBy(r => r.Name).ToList().Select(rr => new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
             ViewBag.Roles = list;
 
             return View("ManageUsers");
         }
+
 
     }
 }

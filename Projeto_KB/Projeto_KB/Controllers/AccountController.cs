@@ -67,7 +67,7 @@ namespace Projeto_KB.Controllers
                 _userManager = value;
             }
         }
-
+        
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -175,9 +175,16 @@ namespace Projeto_KB.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)     //Initially UserName it was Email,
         {                                                                    // it was introduced Parameter UserName
-            if (ModelState.IsValid)                                         //Now odel.UserName = New Parameter UserName
+            if (ModelState.IsValid)                                         //Now model.UserName = New Parameter UserName
             {
-                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email }; //New Instance from ApplicationUser with properties
+                var user = new ApplicationUser {
+                    UserName = model.UserName,
+                    Email = model.Email,
+                    AccountName = model.AccountName,
+                    ContactName = model.ContactName,
+                    Country = model.Country 
+
+                }; //New Instance from ApplicationUser with properties
                                                                                                   // UserName e Email.
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -195,9 +202,17 @@ namespace Projeto_KB.Controllers
                 }
                 AddErrors(result);
             }
+            //Need to repopulating then List(roles_ViewBag) in Post action, error associated: 
+            // ViewData must be a Inumerable<SelectedList> 
+            List<SelectListItem> list = new List<SelectListItem>();
+            foreach (var role in RoleManager.Roles)
+                list.Add(new SelectListItem() { Value = role.Name, Text = role.Name });
+            ViewBag.Roles = list;
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return View(model);  
+            
+            
         }
 
         //
@@ -508,6 +523,8 @@ namespace Projeto_KB.Controllers
                 context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider);
             }
         }
+
+        
         #endregion
     }
 }
