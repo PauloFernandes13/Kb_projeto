@@ -35,7 +35,7 @@ namespace Projeto_KB.Controllers
         }
 
         //GET: Categories(Subject)
-        [Authorize]
+        
         public ActionResult Categories(string searchFaq = null)
         {
             var subjects = db.Subjects.ToList().OrderBy(i => i.Name);

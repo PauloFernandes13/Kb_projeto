@@ -8,7 +8,7 @@
 
         <ul class="navbar-nav" style="margin-top:6.4px">
             <li>
-                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                @Html.ActionLink("Welcome " + User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
             </li>  <!--Depois de acrescentar campos a user mudar o campo que será apresentado-->
             <li><a href="javascript:document.getElementById('logoutForm').submit()" style="padding-left: 1.8em" >Log Out</a></li>
         </ul>

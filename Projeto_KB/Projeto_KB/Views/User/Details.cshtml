@@ -1,36 +1,63 @@
 ﻿@model Projeto_KB.Models.UserViewModel
 
-<div>
-    <h4>UserViewModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
+@{
+    ViewBag.Title = "Account Details";
+}
+<h2 class="log" style="text-align:center">@Html.DisplayFor(model => model.AccountName)</h2>
+<h4 class="log" style="text-align:center"><small>@ViewBag.Title</small></h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+<div class="row">
+    <div class="col-lg-6">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UserName)
-        </dt>
+        <table class="table table-striped">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.AccountName)</th>
+                <td>@Html.DisplayFor(model => model.AccountName)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.UserName)</th>
+                <td>@Html.DisplayFor(model => model.UserName)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.ContactName)</th>
+                <td>@Html.DisplayFor(model => model.ContactName)
+            </tr>
+        </table>
+    </div>
+    <div class="col-lg-6">
 
-        <dd>
-            @Html.DisplayFor(model => model.UserName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
-
-    </dl>
+        <table class="table table-striped">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Email)</th>
+                <td>@Html.DisplayFor(model => model.Email)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.PhoneNumber)</th>
+                <td>@Html.DisplayFor(model => model.PhoneNumber)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Country)</th>
+                <td>@Html.DisplayFor(model => model.Country)
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div style="text-align:right">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-info btn-xs btn-size"})
+        @Html.ActionLink("Delete", "Delete", new { id = Model.Id }, new { @class = "btn btn-info btn-xs btn-size"})
+    </div>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    <div class="row">
+        <div class="col-lg-2">
+            <a href=@Url.Action("Index")><span class="glyphicon glyphicon-circle-arrow-left"></span></a>
+        </div>
+    </div>
 </p>
+
+
+
+
+
+

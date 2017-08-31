@@ -82,6 +82,12 @@ h4.questionSearch {
     font-size: 120%;
 }
 
+h4.labelUser{
+    color: #727c8a;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 100%;
+}
+
 .DescriptionBody .thumbnail {
     background-color: whitesmoke;
     border: 1px solid #ffffff;
@@ -243,8 +249,30 @@ h2.log {
     color: white;
     background-color: #ecd553;
     border-color: orange;
+    box-shadow: none;
+}
+.btn-size{
+     height: 28px; 
+     width: 50px;
+     text-align: center;
+     padding-top: 4px;
+     margin-right: 10px;
+     
+    
 }
 
+.registerFeature p{
+    margin-bottom: 35px;
+}
+.glyphicon.glyphicon-circle-arrow-left {
+    font-size: 25px;
+    color:#ecd553;
+}
+.center {
+    width:200px;
+    margin:0 auto;
+    text-align:left;
+}
 
 /*Footer Page*/
 

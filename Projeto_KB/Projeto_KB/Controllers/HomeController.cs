@@ -7,7 +7,6 @@ using Projeto_KB.Models;
 using System.IO;
 
 namespace Projeto_KB.Controllers
-// testes de git hub...
 
 {
     public class HomeController : Controller

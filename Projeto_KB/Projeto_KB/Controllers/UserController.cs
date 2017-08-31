@@ -85,17 +85,17 @@ namespace Projeto_KB.Controllers
         //Solution to error: not not use Async Method... 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Email,UserName,PhoneNumber")] UserViewModel user)
+        public ActionResult Edit([Bind(Include = "Id,Email,UserName,PhoneNumber,AccountName,ContactName")] UserViewModel user)
         {
 
             ApplicationUser User = UserManager.FindById(user.Id);
-
-            User.Email = user.Email;
 
             User.Id = user.Id;
             User.Email = user.Email;
             User.UserName = user.UserName;
             User.PhoneNumber = user.PhoneNumber;
+            User.AccountName = user.AccountName;
+            User.ContactName = user.ContactName;
 
 
             IdentityResult result = UserManager.Update(User);
@@ -143,17 +143,18 @@ namespace Projeto_KB.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult ManageUsers()
+        public ActionResult ManageUsers(string id)
         {
-
+            ApplicationUser User= db.Users.Where(u => u.Id.Equals(id, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
             var list = db.Roles.OrderBy(r => r.Name).ToList().Select(r_user => new SelectListItem
             {
                 Value = r_user.Name.ToString(),
                 Text = r_user.Name
             }).ToList();
             ViewBag.Roles = list;
-            return View();
+            return View(User);
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
