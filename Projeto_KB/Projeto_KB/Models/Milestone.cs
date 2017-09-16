@@ -10,8 +10,7 @@ namespace Projeto_KB.Models
         public int ID { get; set; }
         public string Name { get; set; }
         public DateTime MilestoneDate { get; set; }
-        public int ClientID { get; set; }
+ 
 
-        public virtual Client Client { get; set; }
     }
 }

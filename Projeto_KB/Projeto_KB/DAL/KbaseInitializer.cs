@@ -37,14 +37,14 @@ namespace Projeto_KB.DAL
             var concepts = new List<Concept>
             {
                 new
-                Concept {JourneyID=1,Title="Reunião de Arranque",Description="Boot Meeting",Text="Deadlines Implementacion",
-                         ContentDate=DateTime.Parse("2016-03-21"),KeyWords="Meetings",UrlContent="http.Content"},
+                Concept {JourneyID=1,Title="Reunião de Arranque",Text="Deadlines Implementacion",
+                         ContentDate=DateTime.Parse("2016-03-21"),KeyWords="Meetings"},
                 new
-                Concept {JourneyID=2,Title="Installation",Description="Assumptions",Text="Deadlines Installation",
-                         ContentDate=DateTime.Parse("2016-04-21"),KeyWords="Installation",UrlContent="http.Content"},
+                Concept {JourneyID=2,Title="Installation",Text="Deadlines Installation",
+                         ContentDate=DateTime.Parse("2016-04-21"),KeyWords="Installation"},
                 new
-                Concept {JourneyID=3,Title="Generation",Description="Generation",Text="Formation",
-                         ContentDate=DateTime.Parse("2016-04-22"),KeyWords="Formation",UrlContent="http.Content"},
+                Concept {JourneyID=3,Title="Generation", Text="Formation",
+                         ContentDate=DateTime.Parse("2016-04-22"),KeyWords="Formation"},
 
 
             };
@@ -70,16 +70,6 @@ namespace Projeto_KB.DAL
             faqs.ForEach(s => context.Faqs.Add(s));
             context.SaveChanges();
 
-            var clients = new List<Client>
-            {
-                new Client {JourneyID=1,Name="ESAD",Email="Esad@hotmail.com",Adress="Rua de Matosinhos"},
-                new Client {JourneyID=2,Name="FDUL",Email="Flup@gmail.com",Adress="Rua das Oliveiras" },
-                new Client {JourneyID=3,Name="Faculdade do Perú",Email="FLPeru@",Adress="Rua de Lima" }
-            };
-
-
-            clients.ForEach(s => context.Clients.Add(s));
-            context.SaveChanges();
 
             var images = new List<Image>
             {
@@ -93,8 +83,8 @@ namespace Projeto_KB.DAL
 
             var milestones = new List<Milestone>
             {
-                new Milestone {ClientID =1,Name="Onboarding",MilestoneDate=DateTime.Parse("2016-04-21") },
-                new Milestone {ClientID =1,Name="Install/Import",MilestoneDate=DateTime.Parse("2016-06-21") },
+                new Milestone {Name="Onboarding",MilestoneDate=DateTime.Parse("2016-04-21") },
+                new Milestone {Name="Install/Import",MilestoneDate=DateTime.Parse("2016-06-21") },
             };
 
             milestones.ForEach(s => context.Milestones.Add(s));

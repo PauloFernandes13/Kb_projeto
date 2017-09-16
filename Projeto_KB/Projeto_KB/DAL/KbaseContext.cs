@@ -16,7 +16,6 @@ namespace Projeto_KB.DAL
         }
         public DbSet<Journey> Journeys { get; set; }
         public DbSet<Concept> Concepts { get; set; }
-        public DbSet<Client> Clients { get; set; }
         public DbSet<Image> Images { get; set; }
         public DbSet<Faq> Faqs { get; set; }
         public DbSet<Milestone> Milestones { get; set; }

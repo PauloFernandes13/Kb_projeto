@@ -10,8 +10,10 @@ namespace Projeto_KB.Models
         public int ID { get; set; }
         public string Name { get; set; }
 
-        public virtual ICollection<Faq> Faqs { get; set; } 
-      
-       
+        public virtual ICollection<Faq> Faqs { get; set; }
+        public virtual ICollection<Concept> Concepts {get; set;}
+     
+
+
     }
 }

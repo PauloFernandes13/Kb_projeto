@@ -31,7 +31,8 @@ namespace Projeto_KB.Controllers
             var appData = Server.MapPath("~/Content/Images");
             var images = Directory.GetFiles(appData).Select(x => new Image
             {
-                UrlImage = Url.Content("/Content/Images/" + Path.GetFileName(x))
+                UrlImage = Url.Content("/Content/Images/" + Path.GetFileName(x)),
+                Name = Path.GetFileName(x)
             });
             return View(images);
         }

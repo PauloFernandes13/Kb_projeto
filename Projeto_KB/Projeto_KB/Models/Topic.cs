@@ -12,5 +12,8 @@ namespace Projeto_KB.Models
       
 
         public virtual ICollection<Faq> Faqs { get; set; }
+        public virtual ICollection<Concept> Concepts { get; set; }
+
+
     }
 }
