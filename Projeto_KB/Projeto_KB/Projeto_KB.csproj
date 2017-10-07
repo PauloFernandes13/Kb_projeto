@@ -858,6 +858,10 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Images\" />
+    <Folder Include="Content\TemplateAdmin\css\" />
+    <Folder Include="Content\TemplateAdmin\js\" />
+    <Folder Include="Content\TemplateAdmin\scss\" />
+    <Folder Include="Content\TemplateAdmin\vendor\" />
     <Folder Include="Content\Template\css\" />
     <Folder Include="Content\Template\js\" />
     <Folder Include="Content\Template\vendor\" />

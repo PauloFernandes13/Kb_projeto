@@ -30,7 +30,12 @@ namespace Projeto_KB
             bundles.Add(new StyleBundle("~/Content/Template").Include(
                 "~/Content/Template/vendor/bootstrap/css/bootstrap.css",
                 "~/Content/Template/css/agency.css"));
-
+            //new bundle Added for Concepts
+            bundles.Add(new StyleBundle("~/Content/TemplateAdmin").Include(
+                "~/Content/TemplateAdmin/vendor/bootstrap/css/bootstrap.css",
+                "~/Content/TemplateAdmin/css/sb-admin.css",
+                "~/Content/TemplateAdmin/scss/sb-admin.scss",
+                "~/Content/TemplateAdmin/vendor/font-awesome/css/font-awesome.min.css"));
         }
     }
 }

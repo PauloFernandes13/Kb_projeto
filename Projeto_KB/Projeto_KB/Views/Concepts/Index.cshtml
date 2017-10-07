@@ -1,0 +1,133 @@
+﻿@model IEnumerable<Projeto_KB.Models.Concept>
+
+@{
+    ViewBag.Title = "Concepts";
+}
+@{Layout = null; }
+@Styles.Render("~/Content/TemplateAdmin")
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <a class="navbar-brand" href="@Url.Action("Index", "Home")"><img src="~/Content/Photo/logo-bullet-solutions-inv@2x.png" style="max-width:75px; margin-left: 50px;"></a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+                <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Dashboard">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-fw fa-dashboard"></i>
+                        <span class="nav-link-text">
+                            Bullet Concepts
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-fw fa-area-chart"></i>
+                        <span class="nav-link-text">
+                            BTT
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-fw fa-table"></i>
+                        <span class="nav-link-text">
+                            BC
+                        </span>
+                    </a>
+                </li>
+                @{int i = 0;}
+                @{int a = 0;}
+                @foreach (var subject in Model.GroupBy(s => s.Subject))
+                {
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+
+                        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti_@i" data-parent="#exampleAccordion" style="margin-top:-20px">
+                            <i class="fa fa-fw fa-sitemap"></i>
+                            <span class="nav-link-text">
+                                @Html.Encode(subject.Key.Name)
+                            </span>
+                        </a>
+                        <ul class="sidenav-second-level collapse" id="collapseMulti_@i">
+                            @foreach (var topicGroup in subject)
+                            {
+                                <li>
+                                    <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2_@a" style="margin-top:-20px" >@Html.Encode(topicGroup.Topic.Name)</a>
+                                    <ul class="sidenav-third-level collapse" id="collapseMulti2_@a">
+                                        
+                                        @foreach (var item in subject)
+                                        {
+                                            string searchTopic = topicGroup.Topic.Name;
+                                            if (item.Topic.Name.Equals(searchTopic))
+                                            {
+                                            <li>
+                                                <a href="#" style="margin-top:-50px">@Html.ActionLink(item.Title,"Details", new { id = item.ID })</a>
+                                            </li>
+                                            }
+                                        }
+                                    </ul>
+                                </li>
+                                a++;
+                            }
+                        </ul>
+                    </li>
+                    i++;
+                }
+
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+                    <a class="nav-link" href="@Url.Action("Categories", "Faqs")">
+                        <i class="fa fa-fw fa-link"></i>
+                        <span class="nav-link-text">
+                            FAQS
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <ul class="navbar-nav sidenav-toggler">
+            <li class="nav-item">
+                <a class="nav-link text-center" id="sidenavToggler">
+                    <i class="fa fa-fw fa-angle-left"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+            <a class="nav-link text-center" id="sidenavToggler">
+                <i class="fa fa-fw fa-angle-left"></i>
+            </a>
+        </li>
+    </ul>
+    <div class="content-wrapper">
+        <div class="container-fluid">
+
+
+        </div>
+    </div>
+    <footer class="sticky-footer">
+        <div class="container">
+            <div class="text-center">
+                <small>Bullet Solutions &copy; Customer Success Department</small>
+            </div>
+        </div>
+    </footer>
+    <!-- Scroll to Top Button -->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/Content/TemplateAdmin/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Content/TemplateAdmin/vendor/popper/popper.min.js"></script>
+    <script src="~/Content/TemplateAdmin/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="~/Content/TemplateAdmin/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="~/Content/TemplateAdmin/vendor/chart.js/Chart.min.js"></script>
+    <script src="~/Content/TemplateAdmin/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="~/Content/TemplateAdmin/vendor/datatables/dataTables.bootstrap4.js"></script>
+    <!-- Custom scripts for this template -->
+    <script src="~/Content/TemplateAdmin/js/sb-admin.min.js"></script>
+
+</body>

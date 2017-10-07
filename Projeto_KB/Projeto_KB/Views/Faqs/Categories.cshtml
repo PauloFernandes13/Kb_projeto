@@ -10,10 +10,9 @@
     @Scripts.Render("~/bundles/bootstrap")
 </head>
 
-
 @{Layout = null;
-
 }
+
 <div class="CategoryBody">
     <div class="row">
         <div class="col-xs-6">
@@ -36,7 +35,6 @@
     <h6>Got a problem? Here we can help you. </h6>
     <h4>Categories</h4>
     <div class="row text-center">
-
         @foreach (var subjects in Model)
             {
             <div class="col-md-3 col-sm-6" subject-feature>
@@ -47,7 +45,6 @@
                         <h4>@Html.ActionLink(subjects.Name, "Description", new { ID = subjects.ID }, null)</h4>
                     </div>
                 </div>
-
             </div>
            }
     </div>

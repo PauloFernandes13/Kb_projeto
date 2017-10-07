@@ -1,0 +1,74 @@
+﻿@model Projeto_KB.Models.Concept
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Concept</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Journey.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Journey.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Topic.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Topic.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Text)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Text)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContentDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContentDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KeyWords)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KeyWords)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

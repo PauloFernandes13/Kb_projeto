@@ -42,12 +42,6 @@ namespace Projeto_KB.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<Projeto_KB.Models.Concept> Concepts { get; set; }
-
-        public System.Data.Entity.DbSet<Projeto_KB.Models.Journey> Journeys { get; set; }
-
-        public System.Data.Entity.DbSet<Projeto_KB.Models.Subject> Subjects { get; set; }
-
-        public System.Data.Entity.DbSet<Projeto_KB.Models.Topic> Topics { get; set; }
+        
     }
 }
