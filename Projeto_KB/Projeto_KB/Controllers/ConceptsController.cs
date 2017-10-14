@@ -22,7 +22,7 @@ namespace Projeto_KB.Controllers
             var concepts = db.Concepts.Include(c => c.Journey).Include(c => c.Subject).Include(c => c.Topic);
             return View(await concepts.ToListAsync());
         }
-
+        
         // GET: Concepts/Details/5
         public async Task<ActionResult> Details(int? id)
         {

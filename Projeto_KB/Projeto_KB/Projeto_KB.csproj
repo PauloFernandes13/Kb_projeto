@@ -851,9 +851,9 @@
     <Content Include="Views\User\Delete.cshtml" />
     <Content Include="Views\Concepts\Create.cshtml" />
     <Content Include="Views\Concepts\Delete.cshtml" />
-    <Content Include="Views\Concepts\Details.cshtml" />
     <Content Include="Views\Concepts\Edit.cshtml" />
     <Content Include="Views\Concepts\Index.cshtml" />
+    <Content Include="Views\Concepts\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

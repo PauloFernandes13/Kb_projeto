@@ -5,6 +5,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Threading.Tasks;
 
 namespace Projeto_KB.DAL
 {
@@ -20,9 +21,8 @@ namespace Projeto_KB.DAL
         public DbSet<Faq> Faqs { get; set; }
         public DbSet<Milestone> Milestones { get; set; }
         public DbSet<Subject> Subjects { get; set; }
-        public DbSet<Topic> Topics { get; set; } 
-       
-
+        public DbSet<Topic> Topics { get; set; }
+        
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
