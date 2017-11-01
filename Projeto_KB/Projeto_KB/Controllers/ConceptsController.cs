@@ -10,11 +10,35 @@ using System.Web.Mvc;
 using Projeto_KB.DAL;
 using Projeto_KB.Models;
 
+
+
 namespace Projeto_KB.Controllers
 {
     public class ConceptsController : Controller
     {
         private KbaseContext db = new KbaseContext();
+
+        //Get Concepts to partial View
+        [ChildActionOnly]
+        public ActionResult ConceptsPartialView()
+        {
+            if (User.IsInRole("Admin"))
+            {
+                var conceptsPartial = db.Concepts.Include("Journey").Where(g => g.Journey.ID == 1).Include(c => c.Subject).Include(c => c.Topic);
+                return PartialView(conceptsPartial);
+            }
+            else if (User.IsInRole("Client_1"))
+            {
+                var conceptsPartial = db.Concepts.Include("Journey").Where(g => g.Journey.ID == 1 || g.Journey.ID == 2 ).Include(c => c.Subject).Include(c => c.Topic);
+                return PartialView(conceptsPartial);
+            }
+          else
+            {
+                var conceptsPartial = db.Concepts.Include(c => c.Journey).Include(c => c.Subject).Include(c => c.Topic);
+                return PartialView(conceptsPartial);
+            }
+
+        }
 
         // GET: Concepts
         public async Task<ActionResult> Index()
@@ -22,7 +46,6 @@ namespace Projeto_KB.Controllers
             var concepts = db.Concepts.Include(c => c.Journey).Include(c => c.Subject).Include(c => c.Topic);
             return View(await concepts.ToListAsync());
         }
-        
         // GET: Concepts/Details/5
         public async Task<ActionResult> Details(int? id)
         {
@@ -52,6 +75,7 @@ namespace Projeto_KB.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public async Task<ActionResult> Create([Bind(Include = "ID,Title,Text,ContentDate,KeyWords,JourneyID,TopicID,SubjectID")] Concept concept)
         {
             if (ModelState.IsValid)
@@ -68,6 +92,7 @@ namespace Projeto_KB.Controllers
         }
 
         // GET: Concepts/Edit/5
+        [ValidateInput(false)]
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)

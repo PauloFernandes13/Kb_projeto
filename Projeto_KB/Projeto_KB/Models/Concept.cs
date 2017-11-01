@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -9,6 +10,7 @@ namespace Projeto_KB.Models
     { 
         public int ID { get; set; }
         public string Title { get; set; }
+        [DataType(DataType.MultilineText)]
         public string Text { get; set; }
         public DateTime ContentDate { get; set; }
         public string KeyWords { get; set; }

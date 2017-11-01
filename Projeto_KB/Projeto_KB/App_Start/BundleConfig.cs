@@ -25,7 +25,7 @@ namespace Projeto_KB
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/Site.css"));
             // new bundle Added for the home view,diferent CSS and Version Bootstrap
             bundles.Add(new StyleBundle("~/Content/Template").Include(
                 "~/Content/Template/vendor/bootstrap/css/bootstrap.css",
@@ -35,7 +35,10 @@ namespace Projeto_KB
                 "~/Content/TemplateAdmin/vendor/bootstrap/css/bootstrap.css",
                 "~/Content/TemplateAdmin/css/sb-admin.css",
                 "~/Content/TemplateAdmin/scss/sb-admin.scss",
-                "~/Content/TemplateAdmin/vendor/font-awesome/css/font-awesome.min.css"));
+                "~/Content/TemplateAdmin/vendor/font-awesome/css/font-awesome.min.css",
+                "~/Content/TemplateAdmin/vendor/datatables/dataTables.bootstrap4.css",
+                "~/Content/TemplateAdmin/css/sb-admin.css",
+                "~/Content/Site.css"));
         }
     }
 }

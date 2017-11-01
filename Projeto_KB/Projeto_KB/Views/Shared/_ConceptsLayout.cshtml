@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title  Customer Success</title>
+    @Styles.Render("~/Content/TemplateAdmin")  <!--Template View in BundleConfig-->
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <a class="navbar-brand" href="@Url.Action("Index", "Home")"><img src="~/Content/Photo/logo-bullet-solutions-inv@2x.png" style="max-width:65px; margin-left: 50px;"></a>
+    </nav>
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            @RenderBody() 
+        </div>
+    </div>
+</body>
+</html>

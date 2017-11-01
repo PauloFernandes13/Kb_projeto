@@ -854,6 +854,9 @@
     <Content Include="Views\Concepts\Edit.cshtml" />
     <Content Include="Views\Concepts\Index.cshtml" />
     <Content Include="Views\Concepts\Details.cshtml" />
+    <Content Include="Views\Concepts\ConceptsPartialView.cshtml" />
+    <Content Include="Views\Shared\_Concepts.cshtml" />
+    <Content Include="Views\Shared\_ConceptsLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

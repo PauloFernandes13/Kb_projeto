@@ -3,10 +3,9 @@
 
 <link href="~/Content/StyleDescription.css" rel="stylesheet" />
 
-
 @helper Truncate(string input, int lenght)
 {
-if (input.Length <= lenght)
+if (input == null || input.Length <= lenght)
 {
         @input
 }
@@ -65,13 +64,13 @@ else
                 @Html.DisplayFor(modelItem => item.Topic.Name)
             </td>
             <td>
-                @Truncate(item.Description, 20)
+                @Truncate(item.Description, 25)
             </td>
             <td>
                 @Truncate(item.Question, 25)
             </td>
             <td>
-                @Truncate(item.Answer, 35)
+                @Truncate(item.Answer, 25)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |

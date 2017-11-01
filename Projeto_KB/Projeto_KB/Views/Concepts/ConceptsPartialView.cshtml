@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Projeto_KB.Models.Concept>
+<!--Partial view to render concepts Accordion-->
+@{int i = 0;}
+@{int a = 0;}
+@foreach (var subject in Model.GroupBy(s => s.Subject))
+{
+    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti_@i" data-parent="#exampleAccordion" style="margin-top:-20px">
+            <i class="fa fa-fw fa-sitemap"></i>
+            <span class="nav-link-text">
+                @Html.Encode(subject.Key.Name)
+            </span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="collapseMulti_@i">
+            @foreach (var topicGroup in subject)
+            {
+                <li>
+                    <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2_@a" style="margin-top:-20px">@Html.Encode(topicGroup.Topic.Name)</a>
+                    <ul class="sidenav-third-level collapse" id="collapseMulti2_@a">
+
+                        @foreach (var item in subject)
+                        {
+                            string searchTopic = topicGroup.Topic.Name;
+                            if (item.Topic.Name.Equals(searchTopic))
+                            {
+                                <li>
+                                    <a href="#" style="margin-top:-50px">@Html.ActionLink(item.Title, "Details", new { id = item.ID })</a>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </li>
+                a++;
+            }
+        </ul>
+    </li>
+    i++;
+}

@@ -8,7 +8,6 @@
 @Styles.Render("~/Content/Template")
 
 <body>
-    <!--Mudar em min.css a cor relativa a navbar, colocar a cornas referencias onde se encontre o #22222-->
     <!-- Navigation -->
     <nav class="navbar fixed-top navbar-toggleable-md navbar-inverse" id="mainNav">
         <div class="container">
@@ -31,7 +30,7 @@
                         <a class="nav-link" href="@Url.Action("Categories", "Faqs")">Faqs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index", "Concepts")">Concepts</a>
+                        <a class="nav-link" href="@Url.Action("Details", "Concepts", new { Id = 2 })">Concepts</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
