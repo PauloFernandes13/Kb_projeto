@@ -138,6 +138,7 @@ namespace Projeto_KB.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Edit([Bind(Include = "ID,Description,Question,Answer,UrlFaq,TopicID,SubjectID")] Faq faq)
         {
             if (ModelState.IsValid)

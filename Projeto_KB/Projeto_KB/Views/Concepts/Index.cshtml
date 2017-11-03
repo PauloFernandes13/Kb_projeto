@@ -2,76 +2,80 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title  Customer Success</title>
+    @{Layout = "~/Views/Shared/_ConceptsLayout.cshtml";}
 </head>
-@{Layout = "~/Views/Shared/_ConceptsLayout.cshtml";}
-<body>
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<div class="card mb-3">
-    <div class="card-header">
-        <i class="fa fa-table"></i>
-        Data Table Example
-    </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th>@Html.DisplayNameFor(model => model.Journey.Name)</th>
-                        <th>@Html.DisplayNameFor(model => model.Subject.Name)</th>
-                        <th>@Html.DisplayNameFor(model => model.Topic.Name)</th>
-                        <th>@Html.DisplayNameFor(model => model.Title)</th>
-                        <th>@Html.DisplayNameFor(model => model.Text)</th>
-                        <th>@Html.DisplayNameFor(model => model.ContentDate)</th>
-                        <th>@Html.DisplayNameFor(model => model.KeyWords)</th>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <tr>
-                        <th>@Html.DisplayNameFor(model => model.Journey.Name)</th>
-                        <th>@Html.DisplayNameFor(model => model.Subject.Name)</th>
-                        <th>@Html.DisplayNameFor(model => model.Topic.Name)</th>
-                        <th>@Html.DisplayNameFor(model => model.Title)</th>
-                        <th>@Html.DisplayNameFor(model => model.Text)</th>
-                        <th>@Html.DisplayNameFor(model => model.ContentDate)</th>
-                        <th>@Html.DisplayNameFor(model => model.KeyWords)</th>
+@{ViewBag.Title = "Concepts List";}
 
-                    </tr>
-                </tfoot>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>@Html.DisplayFor(modelItem => item.Journey.Name)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Subject.Name)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Topic.Name)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Title)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Text)</td>
-                            <td>@Html.DisplayFor(modelItem => item.ContentDate)</td>
-                            <td>@Html.DisplayFor(modelItem => item.KeyWords)</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+
+<div class="ConceptBody">
+    <h2 class="log" style="text-align:center">@ViewBag.Title</h2>
+    <div class="registerFeature">
+        <div style="text-align:center">
+            <p>@Html.ActionLink("Insert", "Create", "Concepts", null, new { @class = "btn btn-info button-small" })</p>
         </div>
     </div>
-    <div class="card-footer small text-muted">
-        Updated yesterday at 11:59 PM
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-table"></i>
+            Data Table Concepts
+        </div>
+        <div class="card-body">
+            <div class="table responsive">
+                <table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Journey.Name)</th>
+                            <th>@Html.DisplayNameFor(model => model.Subject.Name)</th>
+                            <th>@Html.DisplayNameFor(model => model.Topic.Name)</th>
+                            <th>@Html.DisplayNameFor(model => model.Title)</th>
+                            <th>@Html.DisplayNameFor(model => model.Text)</th>
+                            <th>@Html.DisplayNameFor(model => model.ContentDate)</th>
+                            <th>@Html.DisplayNameFor(model => model.KeyWords)</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Journey.Name)</th>
+                            <th>@Html.DisplayNameFor(model => model.Subject.Name)</th>
+                            <th>@Html.DisplayNameFor(model => model.Topic.Name)</th>
+                            <th>@Html.DisplayNameFor(model => model.Title)</th>
+                            <th>@Html.DisplayNameFor(model => model.Text)</th>
+                            <th>@Html.DisplayNameFor(model => model.ContentDate)</th>
+                            <th>@Html.DisplayNameFor(model => model.KeyWords)</th>
+
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Journey.Name)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Subject.Name)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Topic.Name)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Text)</td>
+                                <td>@Html.DisplayFor(modelItem => item.ContentDate)</td>
+                                <td>@Html.DisplayFor(modelItem => item.KeyWords)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer small text-muted">
+            Bullet Concepts
+        </div>
     </div>
 </div>
-    <!-- Bootstrap core JavaScript -->
-    <script src="~/Content/TemplateAdmin/vendor/jquery/jquery.min.js"></script>
-    <script src="~/Content/TemplateAdmin/vendor/popper/popper.min.js"></script>
-    <script src="~/Content/TemplateAdmin/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Plugin JavaScript -->
-    <script src="~/Content/TemplateAdmin/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="~/Content/TemplateAdmin/vendor/chart.js/Chart.min.js"></script>
-    <script src="~/Content/TemplateAdmin/vendor/datatables/jquery.dataTables.js"></script>
-    <script src="~/Content/TemplateAdmin/vendor/datatables/dataTables.bootstrap4.js"></script>
-    <!-- Custom scripts for this template -->
-    <script src="~/Content/TemplateAdmin/js/sb-admin.min.js"></script>
-</body>
+<!-- Bootstrap core JavaScript -->
+<script src="~/Content/TemplateAdmin/vendor/jquery/jquery.min.js"></script>
+<script src="~/Content/TemplateAdmin/vendor/popper/popper.min.js"></script>
+<script src="~/Content/TemplateAdmin/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!-- Plugin JavaScript -->
+<script src="~/Content/TemplateAdmin/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="~/Content/TemplateAdmin/vendor/chart.js/Chart.min.js"></script>
+<script src="~/Content/TemplateAdmin/vendor/datatables/jquery.dataTables.js"></script>
+<script src="~/Content/TemplateAdmin/vendor/datatables/dataTables.bootstrap4.js"></script>
+<!-- Custom scripts for this template -->
+<script src="~/Content/TemplateAdmin/js/sb-admin.min.js"></script>

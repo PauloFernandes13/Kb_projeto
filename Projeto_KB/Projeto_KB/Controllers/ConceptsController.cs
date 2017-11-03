@@ -22,12 +22,12 @@ namespace Projeto_KB.Controllers
         [ChildActionOnly]
         public ActionResult ConceptsPartialView()
         {
-            if (User.IsInRole("Admin"))
+            if (User.IsInRole("Client_1"))
             {
                 var conceptsPartial = db.Concepts.Include("Journey").Where(g => g.Journey.ID == 1).Include(c => c.Subject).Include(c => c.Topic);
                 return PartialView(conceptsPartial);
             }
-            else if (User.IsInRole("Client_1"))
+            else if (User.IsInRole("Client_2"))
             {
                 var conceptsPartial = db.Concepts.Include("Journey").Where(g => g.Journey.ID == 1 || g.Journey.ID == 2 ).Include(c => c.Subject).Include(c => c.Topic);
                 return PartialView(conceptsPartial);

@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -31,7 +32,6 @@ textarea {
     font-size: 13px;
     letter-spacing: 1px;
     font-weight: 400;
-    text-transform: uppercase;
     color: white;
     padding: .10em 0;
 }
@@ -47,7 +47,7 @@ textarea {
 /*used in Category and Description*/
 .thumbnail {
     background-color: whitesmoke;
-    border: 1px solid #ffffff;
+    border: 1px solid #ffffff;  
     padding: 40px;
     padding-bottom: 50px;
     padding-top: 50px;
@@ -112,7 +112,7 @@ ul.listCat {
 /*Used in Concept View*/
 .ConceptBody {
     margin-top: 30px;
-    padding-left:20px;
+    padding-left:5px;
 }
     .ConceptBody h2{
                 color: #ecd553;
@@ -121,7 +121,10 @@ ul.listCat {
                 margin-bottom: 20px;
                 font-size: 220%;
         }
-
+.FaqBody{
+font-family:sans-serif;
+font-weight:lighter;
+}
 /*Used in Category View*/
 .CategoryBody {
     padding-left: 100px;
@@ -144,7 +147,12 @@ ul.listCat {
     .CategoryBody h4 {
         margin-bottom: 0px;
     }
+.CreateConcept{
+    font-family: sans-serif;
+    padding-left: 100px;
+    padding-right: 100px;
 
+}
     .CategoryBody h6 {
         margin-bottom: 90px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -213,13 +221,30 @@ h2.details {
     margin-top: 20px;
     margin-bottom: 20px;
 }
-
+.headers{
+    font-family:Arial;
+    color: darkcyan;
+    font-weight:initial;    
+}
+.headers2{
+font-family:sans-serif;
+    color: darkcyan;
+    font-weight:600; 
+}
 .breadcrumb {
     padding: 8px 0px;
     margin-bottom: 20px;
     list-style: none;
     background-color: white;
 }
+
+h3.new{
+    color: #ecd553;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 40px;
+    margin-top: 60px;
+}
+
 
 .onSearchFaq .breadcrumb {
     background-color: whitesmoke;
@@ -263,6 +288,7 @@ h2.log {
     background-color: #ecd553;
     border-color: orange;
     box-shadow: none;
+   
 }
 .btn-size{
      height: 28px; 
@@ -273,6 +299,40 @@ h2.log {
      
     
 }
+
+.button-small{
+    height: 25px; 
+     width: 68px;
+     text-align: center;
+     padding-top: 4px;
+     margin-right: 10px;
+     padding-bottom: 20px;
+     border-spacing: 4px;
+     line-height: 12px;
+     background-color: #ecd553;
+     border-color: orange;
+     box-shadow: none;
+     
+
+}
+
+.button-create{
+    height: 25px; 
+     width: 68px;
+     text-align: center;
+     padding-top: 4px;
+     margin-right: 10px;
+     padding-bottom: 20px;
+     border-spacing: 4px;
+     line-height:20px;
+     background-color: #ecd553;
+     border-color: orange;
+     box-shadow: none;
+     
+
+}
+
+
 
 .registerFeature p{
     margin-bottom: 35px;
@@ -293,8 +353,3 @@ footer {
     margin: 50px 0;
 }
 /*Footer concepts*/
-
-.sticky-footer
-{
-    margin-bottom:15px;
-}

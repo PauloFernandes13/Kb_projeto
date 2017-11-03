@@ -18,22 +18,19 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
+                        <a class="nav-link" href="#portfolio">Journey</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#portfolio">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Categories", "Faqs")">Faqs</a>
+                        <a class="nav-link" href="@Url.Action("Categories", "Faqs")">FAQs</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="@Url.Action("Details", "Concepts", new { Id = 2 })">Concepts</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
                     </li>
                     @if (User.IsInRole("Admin"))
                     {  <li class="nav-item">
