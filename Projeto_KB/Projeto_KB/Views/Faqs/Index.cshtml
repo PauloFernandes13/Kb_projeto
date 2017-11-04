@@ -1,7 +1,10 @@
 ﻿@model IEnumerable<Projeto_KB.Models.Faq>
-
-
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 @{Layout = "~/Views/Shared/_ConceptsLayout.cshtml";}
+</head>
+@{ViewBag.Title = "Faqs List";}
 
 @helper Truncate(string input, int lenght)
 {
@@ -17,67 +20,98 @@ else
 
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "FAQs List";
 }
+<div class="ConceptBody">
+    <h2 class="log" style="text-align:center">@ViewBag.Title</h2>
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-file-text-o"></i>
+            @Html.ActionLink("New FAQ", "Create", "Faqs")
+        </div>
+        <div class="card-body">
+            <div class="table responsive">
+                <table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Subject.Name)</th>
+                            <th>@Html.DisplayNameFor(model => model.Topic.Name)</th>
+                            <th>@Html.DisplayNameFor(model => model.Description)</th>
+                            <th>@Html.DisplayNameFor(model => model.Question)</th>
+                            <th>@Html.DisplayNameFor(model => model.Answer)</th>
+                            <th>Manage FAQs</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Subject.Name)</th>
+                            <th>@Html.DisplayNameFor(model => model.Topic.Name)</th>
+                            <th>@Html.DisplayNameFor(model => model.Description)</th>
+                            <th>@Html.DisplayNameFor(model => model.Question)</th>
+                            <th>@Html.DisplayNameFor(model => model.Answer)</th>
+                            <th>Manage FAQs</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Subject.Name)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Topic.Name)</td>
+                                <td>@Truncate(item.Description, 25)</td>
+                                <td>@Truncate(item.Question, 25)</td>
+                                <td>@Truncate(item.Answer, 25)</td>
+                                <td>
+                                @Html.ActionLink("View", "Details", new { id = item.ID }) |
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer small text-muted">
+            Bullet Concepts
+        </div>
+    </div>
+</div>
+<!-- Bootstrap core JavaScript -->
+<script src="~/Content/TemplateAdmin/vendor/jquery/jquery.min.js"></script>
+<script src="~/Content/TemplateAdmin/vendor/popper/popper.min.js"></script>
+<script src="~/Content/TemplateAdmin/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!-- Plugin JavaScript -->
+<script src="~/Content/TemplateAdmin/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="~/Content/TemplateAdmin/vendor/chart.js/Chart.min.js"></script>
+<script src="~/Content/TemplateAdmin/vendor/datatables/jquery.dataTables.js"></script>
+<script src="~/Content/TemplateAdmin/vendor/datatables/dataTables.bootstrap4.js"></script>
+<!-- Custom scripts for this template -->
+<script src="~/Content/TemplateAdmin/js/sb-admin.min.js"></script>
 
-<h2 class="details">Faq List</h2>
 
-    <form class="create" method="get">
-        <div class="inner-addon right-addon">
-            <i class="glyphicon glyphicon-search"></i>
-        <input type="text" class="form-control" placeholder="Category" name="searchTerm" />
-          </div>
-    </form>
-    
-    
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Subject.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Topic.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Question)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Answer)
-        </th>
-        
-    </tr>
 
-    @foreach (var item in Model)
-            {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Subject.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Topic.Name)
-            </td>
-            <td>
-                @Truncate(item.Description, 25)
-            </td>
-            <td>
-                @Truncate(item.Question, 25)
-            </td>
-            <td>
-                @Truncate(item.Answer, 25)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-            </td>
-        </tr>
-    }
 
-</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   

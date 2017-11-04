@@ -44,6 +44,7 @@ textarea {
         color: #fed136;
     }
 
+
 /*used in Category and Description*/
 .thumbnail {
     background-color: whitesmoke;
@@ -224,7 +225,8 @@ h2.details {
 .headers{
     font-family:Arial;
     color: darkcyan;
-    font-weight:initial;    
+    font-style:italic;
+      
 }
 .headers2{
 font-family:sans-serif;
@@ -308,7 +310,7 @@ h2.log {
      margin-right: 10px;
      padding-bottom: 20px;
      border-spacing: 4px;
-     line-height: 12px;
+     line-height: 15px;
      background-color: #ecd553;
      border-color: orange;
      box-shadow: none;

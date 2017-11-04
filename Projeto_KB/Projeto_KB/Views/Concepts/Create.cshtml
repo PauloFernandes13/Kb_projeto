@@ -15,7 +15,7 @@
             @Html.AntiForgeryToken()
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <h3 class="new">New Concept</h3>
-            <div class="form-inline" >
+            <div class="form-inline">
                 <div class="form-group form-group sm">
                     <span class="headers2">@Html.LabelFor(model => model.JourneyID, "Journey", htmlAttributes: new { @class = "control-label" })</span>
                     <div>
@@ -44,7 +44,7 @@
                     </div>
                 </div>
             </div>
-                <hr />
+            <hr />
                 <div class="form-horizontal">
                     <div class="form-group">
                         <span class="headers2">
@@ -58,7 +58,8 @@
 
                     <div class="form-group">
                         <span class="headers2">
-                            @Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" })</span>
+                            @Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" })
+                        </span>
                         <div class="col-md-10">
                             @Html.TextAreaFor(model => model.Text, new { @id = "editor1", @name = "editor1" })
                             <script type="text/javascript">
@@ -68,25 +69,27 @@
                                 });</script>
                             @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
                         </div>
-</div>
+                    </div>
 
                     <div class="form-group">
                         <span class="headers2">
-                            @Html.LabelFor(model => model.ContentDate, htmlAttributes: new { @class = "control-label col-md-2" })</span>
+                            @Html.LabelFor(model => model.ContentDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                        </span>
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.ContentDate, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.ContentDate, "", new { @class = "text-danger" })
                         </div>
-</div>
+                    </div>
 
                     <div class="form-group">
                         <span class="headers2">
-                            @Html.LabelFor(model => model.KeyWords, htmlAttributes: new { @class = "control-label col-md-2" })</span>
+                            @Html.LabelFor(model => model.KeyWords, htmlAttributes: new { @class = "control-label col-md-2" })
+                        </span>
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.KeyWords, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.KeyWords, "", new { @class = "text-danger" })
                         </div>
-</div>
+                    </div>
 
 
                     <div class="form-group">
@@ -97,9 +100,10 @@
                 </div>
         }
 
-        
+
     </div>
-    <div>
-        @Html.ActionLink("Concepts List", "Index")
-    </div>
+    <p><div>
+        <i class="fa fa-list"> @Html.ActionLink("  Concepts List", "Index")</i>
+    </div><p/>
+
 </body>

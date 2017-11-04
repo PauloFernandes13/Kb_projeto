@@ -265,6 +265,10 @@
     <Compile Include="Migrations\201709160923017_Change nullable_ForeignKey.Designer.cs">
       <DependentUpon>201709160923017_Change nullable_ForeignKey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711041004054_Data Validacion Teste.cs" />
+    <Compile Include="Migrations\201711041004054_Data Validacion Teste.Designer.cs">
+      <DependentUpon>201711041004054_Data Validacion Teste.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Concept.cs" />
@@ -916,6 +920,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709160923017_Change nullable_ForeignKey.resx">
       <DependentUpon>201709160923017_Change nullable_ForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711041004054_Data Validacion Teste.resx">
+      <DependentUpon>201711041004054_Data Validacion Teste.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

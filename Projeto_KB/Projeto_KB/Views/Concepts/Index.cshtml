@@ -7,18 +7,23 @@
 
 @{ViewBag.Title = "Concepts List";}
 
-
+@helper Truncate(string input, int lenght)
+{
+if (input == null || input.Length <= lenght)
+{
+        @input
+}
+else
+{
+        @input.Substring(0, lenght)<text>...</text>
+}
+}
 <div class="ConceptBody">
     <h2 class="log" style="text-align:center">@ViewBag.Title</h2>
-    <div class="registerFeature">
-        <div style="text-align:center">
-            <p>@Html.ActionLink("Insert", "Create", "Concepts", null, new { @class = "btn btn-info button-small" })</p>
-        </div>
-    </div>
     <div class="card mb-3">
         <div class="card-header">
-            <i class="fa fa-table"></i>
-            Data Table Concepts
+            <i class="fa fa-file-text-o"></i>
+            @Html.ActionLink("New Concept", "Create", "Concepts")
         </div>
         <div class="card-body">
             <div class="table responsive">
@@ -30,8 +35,7 @@
                             <th>@Html.DisplayNameFor(model => model.Topic.Name)</th>
                             <th>@Html.DisplayNameFor(model => model.Title)</th>
                             <th>@Html.DisplayNameFor(model => model.Text)</th>
-                            <th>@Html.DisplayNameFor(model => model.ContentDate)</th>
-                            <th>@Html.DisplayNameFor(model => model.KeyWords)</th>
+                            <th>Manage Concept</th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -41,8 +45,7 @@
                             <th>@Html.DisplayNameFor(model => model.Topic.Name)</th>
                             <th>@Html.DisplayNameFor(model => model.Title)</th>
                             <th>@Html.DisplayNameFor(model => model.Text)</th>
-                            <th>@Html.DisplayNameFor(model => model.ContentDate)</th>
-                            <th>@Html.DisplayNameFor(model => model.KeyWords)</th>
+                            <th>Manage Concept</th>
 
                         </tr>
                     </tfoot>
@@ -50,13 +53,14 @@
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <td>@Html.DisplayFor(modelItem => item.Journey.Name)</td>
+                                <td>@Truncate(item.Journey.Name, 25)</td>
                                 <td>@Html.DisplayFor(modelItem => item.Subject.Name)</td>
                                 <td>@Html.DisplayFor(modelItem => item.Topic.Name)</td>
                                 <td>@Html.DisplayFor(modelItem => item.Title)</td>
-                                <td>@Html.DisplayFor(modelItem => item.Text)</td>
-                                <td>@Html.DisplayFor(modelItem => item.ContentDate)</td>
-                                <td>@Html.DisplayFor(modelItem => item.KeyWords)</td>
+                                <td>@Truncate(item.Text, 25)</td>
+                                <td>@Html.ActionLink("View", "Details", new { id = item.ID }) |
+                                 @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ID })</td>
                             </tr>
                         }
                     </tbody>

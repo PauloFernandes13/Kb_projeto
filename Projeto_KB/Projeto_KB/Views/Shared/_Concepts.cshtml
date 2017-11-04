@@ -15,7 +15,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-                <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Dashboard">
+                <li class="nav-item active" data-toggle="tooltip" data-placement="right" title="Bullet Concepts">
                     <a class="nav-link" href="#">
                         <i class="fa fa-fw fa-dashboard"></i>
                         <span class="nav-link-text">
@@ -23,26 +23,37 @@
                         </span>
                     </a>
                 </li>
-                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-                    <a class="nav-link" href="#">
-                        <i class="fa fa-fw fa-area-chart"></i>
-                        <span class="nav-link-text">
-                            BTT
-                        </span>
-                    </a>
+                @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+                {
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Concepts">
+                        <a class="nav-link" href="@Url.Action("Index", "Concepts")">
+                            <i class="fa fa-list"></i>
+                            List Concepts
+                        </a>
+                    </li>
+                }
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="">
+                 
+                        <a class="space nav-link" href="#">
+                            <i class="fa fa-level-down"></i>
+                            <span class="nav-link-text">
+                                Navigation Levels
+                            </span>
+                        </a>
+                   
                 </li>
-                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+                <!-- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
                     <a class="nav-link" href="#">
                         <i class="fa fa-fw fa-table"></i>
                         <span class="nav-link-text">
                             BC
                         </span>
                     </a>
-                </li>
+                </li>-->
                 @{Html.RenderAction("ConceptsPartialView", "Concepts");} <!--Render View Concepts Accordion-->
-                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="FAQs">
                     <a class="nav-link" href="@Url.Action("Categories", "Faqs")">
-                        <i class="fa fa-fw fa-link"></i>
+                        <i class="fa fa-fw fa-link" style="color:#fed136"></i>
                         <span class="nav-link-text">
                             FAQs
                         </span>
@@ -57,11 +68,12 @@
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
+               
                 <li class="nav-item">
-                    <form class="form-inline my-2 my-lg-0 mr-lg-2">
+                    <form class="form-inline my-2 my-lg-0 mr-lg-2" method="get" action="@Url.Action("SearchConcept", "Concepts")">
                         <div class="input-group-sm">
-                            <input type="text" class="form-control" placeholder="Search our content...">
-                            
+                            <input type="text" class="form-control" placeholder="Search our content..." name="SearchConcepts">
+
                         </div>
                     </form>
                 </li>
@@ -95,6 +107,5 @@
     <script src="~/Content/TemplateAdmin/vendor/datatables/dataTables.bootstrap4.js"></script>
     <!-- Custom scripts for this template -->
     <script src="~/Content/TemplateAdmin/js/sb-admin.min.js"></script>
-
 </body>
 </html>

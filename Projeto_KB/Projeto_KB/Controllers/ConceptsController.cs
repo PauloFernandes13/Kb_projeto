@@ -18,6 +18,18 @@ namespace Projeto_KB.Controllers
     {
         private KbaseContext db = new KbaseContext();
 
+
+        //Search Concepts
+        public ActionResult SearchConcept(string SearchConcepts)
+        {
+            ViewBag.dataSearch = SearchConcepts;
+            var searchGeral = db.Concepts.Include(f => f.Subject).Include(f => f.Topic)
+                    .Where(r => r.KeyWords.Contains(SearchConcepts) || r.Text.Contains(SearchConcepts) || r.Text.Contains(SearchConcepts));
+
+            return View("Details");
+
+        }
+
         //Get Concepts to partial View
         [ChildActionOnly]
         public ActionResult ConceptsPartialView()
