@@ -25,11 +25,17 @@
                 </li>
                 @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
                 {
-                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Concepts">
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="FAQs List">
+                        <a class="nav-link" href="@Url.Action("Index", "Faqs")">
+                            <i class="fa fa-list"></i>
+                            <span class="nav-link-text">FAQs List</span>
+</a>
+                    </li>
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Concepts List">
                         <a class="nav-link" href="@Url.Action("Index", "Concepts")">
                             <i class="fa fa-list"></i>
-                            List Concepts
-                        </a>
+                            <span class="nav-link-text">Concepts List</span>
+</a>
                     </li>
                 }
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="">

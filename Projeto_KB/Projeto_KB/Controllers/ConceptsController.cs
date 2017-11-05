@@ -22,11 +22,39 @@ namespace Projeto_KB.Controllers
         //Search Concepts
         public ActionResult SearchConcept(string SearchConcepts)
         {
-            ViewBag.dataSearch = SearchConcepts;
-            var searchGeral = db.Concepts.Include(f => f.Subject).Include(f => f.Topic)
-                    .Where(r => r.KeyWords.Contains(SearchConcepts) || r.Text.Contains(SearchConcepts) || r.Text.Contains(SearchConcepts));
+            if (User.IsInRole("Client_1"))
+            {
+                 ViewBag.dataSearch = SearchConcepts;
+                var search = db.Concepts.Include(f => f.Journey).Where(g => g.Journey.ID == 1).Include(f => f.Subject).Include(f => f.Topic)
+                        .Where(r => r.KeyWords.Contains(SearchConcepts) || r.Text.Contains(SearchConcepts) || r.Subject.Name.Contains(SearchConcepts)
+                        || r.Topic.Name.Contains(SearchConcepts));
 
-            return View("Details");
+                return View(search);
+            }
+            else if (User.IsInRole("Client_2"))
+            {
+                ViewBag.dataSearch = SearchConcepts;
+                var search = db.Concepts.Include(f => f.Journey).Where(g => g.Journey.ID == 1 || g.JourneyID == 2).Include(f => f.Subject).Include(f => f.Topic)
+                        .Where(r => r.KeyWords.Contains(SearchConcepts) || r.Text.Contains(SearchConcepts) || r.Subject.Name.Contains(SearchConcepts)
+                        || r.Topic.Name.Contains(SearchConcepts));
+
+                return View(search);
+            }
+            else
+            {
+                ViewBag.dataSearch = SearchConcepts;
+                var search = db.Concepts.Include(f => f.Journey).Include(f => f.Subject).Include(f => f.Topic)
+                        .Where(r => r.KeyWords.Contains(SearchConcepts) || r.Text.Contains(SearchConcepts) || r.Subject.Name.Contains(SearchConcepts)
+                        || r.Topic.Name.Contains(SearchConcepts));
+
+                return View(search);
+            }
+            ////ViewBag.dataSearch = SearchConcepts;
+            //var search = db.Concepts.Include(f => f.Subject).Include(f => f.Topic).Include(f=>f.Journey)
+            //        .Where(r => r.KeyWords.Contains(SearchConcepts) || r.Text.Contains(SearchConcepts) || r.Subject.Name.Contains(SearchConcepts)
+            //        || r.Topic.Name.Contains(SearchConcepts));
+
+            //return View(search);
 
         }
 

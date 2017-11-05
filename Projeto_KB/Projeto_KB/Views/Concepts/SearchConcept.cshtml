@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Projeto_KB.Models.Concept>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title  Customer Success</title>
+</head>
+
+@{Layout = "~/Views/Shared/_Concepts.cshtml";}
+@helper Truncate(string input, int lenght)
+{
+if (input == null || input.Length <= lenght)
+{
+        @Html.Raw(input)
+}
+else
+{
+       
+        var Concept = input.Substring(0, lenght);
+        @Html.Raw(Concept)
+
+    //@input.Substring(0, lenght)<text>...</text>
+}
+}
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Concepts</li>
+    <li class="breadcrumb-item active">Search Results</li>
+</ol>
+
+
+    @if (@Model.Count() == 1)
+    {
+
+        <p class="searchConcept"> @Model.Count() RESULT FOR <span style="color:darkcyan;"><i>"@ViewBag.dataSearch"</i></span></p>
+
+    }
+    else if (@Model.Count() == 0)
+
+    {
+        <p class="searchConcept">NO RESULTS FOR <span style="color:darkcyan;"><i>"@ViewBag.dataSearch"</i></span></p>
+    }
+    else
+    {
+        <p class="searchConcept">@Model.Count() RESULTS FOR <span style="color:darkcyan;"><i>@ViewBag.dataSearch</i></span></p>
+
+    }
+    <div class="ConceptBody">
+        <hr />
+        @foreach (var item in Model)
+
+        {
+            <h2>@Html.DisplayFor(modelItem => item.Title)</h2>
+            <p> @Truncate(item.Text, 250)...</p>
+            <div class="onSearchFaq">
+                <ol class="breadcrumb">
+                    <li class="onSearchFaq breadcrumb-item">@Html.DisplayFor(modelItem => item.Subject.Name)</li>
+                    <li class="onSearchFaq breadcrumb-item">@Html.DisplayFor(modelItem => item.Topic.Name)</li>
+                    <li class="onSearchFaq breadcrumb-item">@Html.ActionLink(item.Title, "Details", new { id = item.ID })</li>
+                </ol>
+            </div>
+        }
+
+
+    </div>

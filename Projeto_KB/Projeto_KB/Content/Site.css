@@ -122,6 +122,7 @@ ul.listCat {
                 margin-bottom: 20px;
                 font-size: 220%;
         }
+
 .FaqBody{
 font-family:sans-serif;
 font-weight:lighter;
@@ -208,6 +209,10 @@ form.create {
     padding-right: 100px;
 }
 
+.searchConcept{
+    font-size:160%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 .colorSearch {
     color: #5e5454;
 }

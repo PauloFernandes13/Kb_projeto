@@ -26,17 +26,25 @@
                     <li class="nav-item">
                         <a class="nav-link" href="@Url.Action("Details", "Concepts", new { Id = 2 })">Concepts</a>
                     </li>
-                    <li class="nav-item">
+                    <!--<li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about">About</a>
-                    </li>
+                    </li>-->
                     @if (User.IsInRole("Admin"))
                     {  <li class="nav-item">
                        <a class="nav-link" href="@Url.Action("Index", "User")">Admin</a>    
                        </li>
                     }
+                    else if (User.IsInRole("Manager"))
+                    {
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Faqs")">Manager</a>
+                    </li>
+                    
+                    }
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

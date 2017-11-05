@@ -13,15 +13,22 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Categories", "Faqs")">
+                    <a class="nav-link" style="color: #ecd553" href="@Url.Action("Index", "Faqs")">
                         FAQs
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Details", "Concepts", new { Id = 2 })">
+                    <a class="nav-link" style="color: #ecd553" href="@Url.Action("Index", "Concepts", new { Id = 2 })">
                         Concepts
                     </a>
                 </li>
+                @if (User.IsInRole("Admin")) { 
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #ecd553" href="@Url.Action("Index", "User")">
+                        ADMIN
+                    </a>
+                </li>
+                }
             </ul>
         </div>
     </nav>
@@ -30,10 +37,12 @@
         <hr />
         <footer>
 
+
+
             <!--@Html.ActionLink("About", "About", "Home") @Html.ActionLink("Contact", "Contact", "Home")-->
             <p align="center">&copy; @DateTime.Now.Year - Powered by Bullet Solutions</p>
         </footer>
     </div>
-    
+
 </body>
 </html>

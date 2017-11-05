@@ -23,22 +23,19 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Categories", "Faqs")">FAQS</a>
-                    </li>
                     <li class="dropdown nav-item">
-                        <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">ADMIN<span class="caret"></span></a>
+                        <a class="dropdown-toggle nav-link" data-toggle="dropdown" style="color: #ecd553" href="#">ADMIN<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Subjecs</a></li>
-                            <li><a href="@Url.Action("Index", "User")">Users</li>
-                            <li><a href="@Url.Action("Index", "Faqs")">Faqs</a></li>
-                            <li><a href="@Url.Action("Index", "Journeys")">Journeys</a></li>
-                            <li>@Html.ActionLink("Role", "Index", "Role")</li>
+                            <li><a href="@Url.Action("Index", "User")">USERS LIST</a></li>
+                            <li><a href="@Url.Action("Register", "Account")">REGISTRATION</a></li>
+                            <li><a href="@Url.Action("Index", "Role")">ROLES</a></li>
+                            <li><a href="@Url.Action("Index", "Journeys")">JOURNEY</a></li>
+                            <li><a href="@Url.Action("Index", "Faqs")">MANAGER</a></li>
+                        </ul>
                         </ul>
                     </li>
                     
                 </ul>
-              
             </div>
         </div>
     </div>

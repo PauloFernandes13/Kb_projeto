@@ -861,6 +861,7 @@
     <Content Include="Views\Concepts\ConceptsPartialView.cshtml" />
     <Content Include="Views\Shared\_Concepts.cshtml" />
     <Content Include="Views\Shared\_ConceptsLayout.cshtml" />
+    <Content Include="Views\Concepts\SearchConcept.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
