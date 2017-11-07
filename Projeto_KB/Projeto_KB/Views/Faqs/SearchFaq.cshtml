@@ -14,6 +14,21 @@
 }
 
 @{ Layout = null;}
+@helper Truncate(string input, int lenght)
+{
+if (input == null || input.Length <= lenght)
+{
+        @Html.Raw(input)
+}
+else
+{
+
+    var Concept = input.Substring(0, lenght);
+        @Html.Raw(Concept)
+
+    //@input.Substring(0, lenght)<text>...</text>
+}
+}
 
 <div class="CategoryBody">
     <div class="row">
@@ -62,9 +77,9 @@ else
         @foreach (var item in Model)
         {
             <div class="container-fluid thumbnail">
-                <div class="col-sm-6">
+                <div class="col-sm-10">
                     <h4 class="questionSearch">@Html.ActionLink(item.Question, "Details", new { id = item.ID})</h4>
-                    <h5>@Html.Raw(item.Answer)</h5>
+                    <h5>@Truncate(item.Answer,250)...</h5>
                     <div class="onSearchFaq">
                         <ol class="breadcrumb">
                             <li class="onSearchFaq">@Html.ActionLink(Html.DisplayFor(model => item.Subject.Name).ToString(), "Description", new { ID = item.SubjectID })</li>
@@ -81,3 +96,7 @@ else
     </div>
 
 </div>
+<footer>
+    <!--@Html.ActionLink("About", "About", "Home") @Html.ActionLink("Contact", "Contact", "Home")-->
+    <p align="center">&copy; @DateTime.Now.Year - Powered by Bullet Solutions</p>
+</footer>

@@ -155,6 +155,7 @@ namespace Projeto_KB.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public async Task<ActionResult> Edit([Bind(Include = "ID,Title,Text,ContentDate,KeyWords,JourneyID,TopicID,SubjectID")] Concept concept)
         {
             if (ModelState.IsValid)

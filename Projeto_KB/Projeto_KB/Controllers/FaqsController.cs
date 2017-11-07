@@ -28,7 +28,7 @@ namespace Projeto_KB.Controllers
         {
             ViewBag.dataSearch = SearchFaqs;
             var searchGeral = db.Faqs.Include(f => f.Subject).Include(f => f.Topic)
-                    .Where(r => r.Answer.Contains(SearchFaqs) || r.Question.Contains(SearchFaqs) || r.Description.Contains(SearchFaqs));
+                    .Where(r => r.Answer.Contains(SearchFaqs) || r.Question.Contains(SearchFaqs) || r.Description.Contains(SearchFaqs) || r.Subject.Name.Contains(SearchFaqs));
 
             return View(searchGeral);
 
