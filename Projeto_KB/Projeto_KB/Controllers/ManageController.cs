@@ -10,7 +10,7 @@ using Projeto_KB.Models;
 
 namespace Projeto_KB.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class ManageController : Controller
     {
         private ApplicationSignInManager _signInManager;

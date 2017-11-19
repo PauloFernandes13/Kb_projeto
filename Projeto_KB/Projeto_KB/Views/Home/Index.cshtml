@@ -1,7 +1,18 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
+<head>
+    <script>
+        function journeyLevelTwo() {
+            document.getElementById("journeyTwo").innerHTML = "To have access to New Best Contents you need to <strong>finish all steps</strong> from your <strong>Journey Level One</strong>";
+        }
+    </script>
+    <script>
+        function journeyLevelThree() {
+            document.getElementById("journeyThree").innerHTML = "To have access to New Best Contents you need to <strong>finish all steps</strong> from your <strong>Journey Level Two</strong>";
+        }
+    </script>
+</head>
 @{Layout = null;
 }
 
@@ -23,10 +34,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="@Url.Action("Categories", "Faqs")">FAQs</a>
                     </li>
-                    @if (User.Identity.IsAuthenticated) { 
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Details", "Concepts", new { Id = 2 })">Concepts</a>
-                    </li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Details", "Concepts", new { Id = 2 })">BEST</a>
+                        </li>
                     }
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
@@ -35,16 +47,17 @@
                         <a class="nav-link" href="#about">About</a>
                     </li>-->
                     @if (User.IsInRole("Admin"))
-                    {  <li class="nav-item">
-                       <a class="nav-link" href="@Url.Action("Index", "User")">Admin</a>    
-                       </li>
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "User")">Admin</a>
+                        </li>
                     }
                     else if (User.IsInRole("Manager"))
                     {
-                    <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index", "Faqs")">Manager</a>
-                    </li>
-                    
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Faqs")">Manager</a>
+                        </li>
+
                     }
 
                 </ul>
@@ -72,13 +85,13 @@
             </div>
             <div class="row">
                 <div class="col-md-4 col-sm-6 portfolio-item">
-                     <div class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+                    <div class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img class="img-fluid" src="~/Content/Template/img/portfolio/Capturar.jpg" alt="">
+                        <img class="img-fluid" src="~/Content/Template/img/portfolio/Install.jpg" alt="">
                     </div>
                     <div class="portfolio-caption">
                         <h4>Level 1</h4>
@@ -93,7 +106,7 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img class="img-fluid" src="~/Content/Template/img/portfolio/generation.jpg" alt="">
+                        <img class="img-fluid" src="~/Content/Template/img/portfolio/Timetabler.jpg" alt="">
                     </div>
                     <div class="portfolio-caption">
                         <h4>Level 2</h4>
@@ -107,7 +120,7 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img class="img-fluid" src="~/Content/Template/img/portfolio/rsz_imagem_bc.jpg" alt="">
+                        <img class="img-fluid" src="~/Content/Template/img/portfolio/CalendarNew.jpg" alt="">
                     </div>
                     <div class="portfolio-caption">
                         <h4>Level 3</h4>
@@ -135,17 +148,24 @@
                                 <!-- Project Details Go Here -->
                                 <h2 style="color:#fed136">Install & Data Importacion</h2>
                                 <p class="item-intro text-muted" style="color:#444040">The first step will be to import your institution’s data into Bullet TimeTabler, the schedule generator.</p>
-                                <img class="img-fluid d-block mx-auto" src="~/Content/Images/images.jpg" alt="">
-                                <p>These are four (4) files that must be filled regarding information about General Data, Curriculum, Entities and Classes.</p>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <img class="img-fluid d-block mx-auto" src="~/Content/Images/xml-file.jpg" width="195" height="195" />
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <img class="img-fluid d-block mx-auto" src="~/Content/Images/CsvOne.png" width="195" height="195" />
+                                    </div>
+                                </div>
+                                <p id="teste">Four files must be filled with information about <strong>General Data</strong>, <strong>Curriculum</strong>, <strong>Entities</strong> and <strong>Classes</strong>.</p>
                                 <ul class="list-inline">
                                     <li>I)	Importation by XML</li>
                                     <li>II)	Importation by XLS (excel files)</li>
-                                    
                                 </ul>
                                 @if (User.Identity.IsAuthenticated)
                                 {
-                                <a href="@Url.Action("Details", "Concepts", new { Id = 2 })" class="btn btn-primary"><i class="fa fa-times"></i>Bullet Concepts</a>
+                                    <a href="@Url.Action("Details", "Concepts", new { Id = 2 })" class="btn btn-primary"><i class="fa fa-times"></i>Best Concepts</a>
                                 }
+
                             </div>
                         </div>
                     </div>
@@ -168,16 +188,27 @@
                         <div class="col-lg-8 offset-lg-2">
                             <div class="modal-body">
                                 <!-- Project Details Go Here -->
-                                <h2>Teste relativo a projeto</h2>
-                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                <img class="img-fluid d-block mx-auto" src="img/portfolio/02-full.jpg" alt="">
-                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                <h2 style="color:#fed136">Automatic Schedule Generation</h2>
+                                <p class="item-intro text-muted" style="color:#444040">Bullet TimeTabler Education is a product for generating school timetables, fully automatic and optimized, targeted to the Education.</p>
+                                <img class="img-fluid d-block mx-auto" src="~/Content/Template/img/portfolio/Optimezed.JPG" width="500" height="300" />
+                                <p id="teste">Easy handling conciliates and <strong>optimizes several objectives</strong> in accordance with the interests of the Institution, academic staff, students, and physical resources (classrooms, materials, etc.).</p>
                                 <ul class="list-inline">
-                                    <li>Date: January 2017</li>
-                                    <li>Client: Explore</li>
-                                    <li>Category: Graphic Design</li>
+                                    <li>Optimized management of timetables and resources;</li>
+                                    <li>Relieving human resources for other productive projects.</li>
                                 </ul>
-                                <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fa fa-times"></i> Close Project</button>
+                                <p class="modelP" id="journeyTwo"></p>
+
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    if (User.IsInRole("Client_1"))
+                                    {
+                                        <button onclick="journeyLevelTwo()" class="btn btn-primary"><i class="fa fa-times"></i>Best Concepts</button>
+                                    }
+                                    else
+                                    {
+                                        <a href="@Url.Action("Details", "Concepts", new { Id = 2 })" class="btn btn-primary"><i class="fa fa-times"></i>Best Concepts</a>
+                                    }
+                                }
                             </div>
                         </div>
                     </div>
@@ -200,16 +231,28 @@
                         <div class="col-lg-8 offset-lg-2">
                             <div class="modal-body">
                                 <!-- Project Details Go Here -->
-                                <h2>Project Name</h2>
-                                <p class="item-intro text-muted">Lorem ip</p>
-                                <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
-                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                <h2 style="color:#fed136">Schedule Adjustments and Visualization</h2>
+                                <p class="item-intro text-muted" style="color:#444040">Bullet Calendar is a decision support system, which enables the daily management of all activities in the Institution (lessons and occasional events).</p>
+                                <img class="img-fluid d-block mx-auto" src="~/Content/Template/img/portfolio/BC.JPG" width="500" height="300" />
+                                <p id="teste">It works as a schedule/agenda that <strong>controls resources occupation</strong> (academic staff, student groups and classrooms), communicating with all the remaining BEST applications.</p>
                                 <ul class="list-inline">
-                                    <li>Date: January 2017</li>
-                                    <li>Client: Finish</li>
-                                    <li>Category: Identity</li>
+                                    <li>Flexible agenda, with easy parameterization;</li>
+                                    <li>Efficient daily management of events and resources through a decision support system;</li>
+                                    <li>Real-time information about the occupation of the resources.</li>
                                 </ul>
-                                <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fa fa-times"></i> Close Project</button>
+                                <p class="modelP" id="journeyThree"></p>
+
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    if (User.IsInRole("Client_1") || User.IsInRole("Client_2"))
+                                    {
+                                        <button onclick="journeyLevelThree()" class="btn btn-primary"><i class="fa fa-times"></i>Best Concepts</button>
+                                    }
+                                    else
+                                    {
+                                        <a href="@Url.Action("Details", "Concepts", new { Id = 2 })" class="btn btn-primary"><i class="fa fa-times"></i>Best Concepts</a>
+                                    }
+                                }
                             </div>
                         </div>
                     </div>
@@ -267,7 +310,7 @@
                     <span class="copyright">Customer Success Department</span>
                 </div>
                 <div class="col-md-4">
-                    
+
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline quicklinks">
@@ -283,13 +326,13 @@
         </div>
     </footer>
 
-        <!-- Bootstrap core JavaScript -->
-        <script src="~/Content/Template/vendor/jquery/jquery.min.js"></script>
-        <script src="~/Content/Template/vendor/tether/tether.min.js"></script>
-        <script src="~/Content/Template/vendor/bootstrap/js/bootstrap.min.js"></script>
-        <!-- Plugin JavaScript -->
-        <script src="~/Content/Template/vendor/jquery-easing/jquery.easing.min.js"></script>
-        <!-- Custom scripts for this template -->
-        <script src="~/Content/Template/js/agency.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/Content/Template/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Content/Template/vendor/tether/tether.min.js"></script>
+    <script src="~/Content/Template/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="~/Content/Template/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for this template -->
+    <script src="~/Content/Template/js/agency.min.js"></script>
 
 </body>

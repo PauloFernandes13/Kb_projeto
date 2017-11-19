@@ -11,6 +11,7 @@ using Projeto_KB.Models;
 
 namespace Projeto_KB.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class JourneysController : Controller
     {
         private KbaseContext db = new KbaseContext();

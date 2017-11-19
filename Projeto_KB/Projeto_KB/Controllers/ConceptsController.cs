@@ -13,7 +13,8 @@ using Projeto_KB.Models;
 
 
 namespace Projeto_KB.Controllers
-{
+{   
+    [Authorize]
     public class ConceptsController : Controller
     {
         private KbaseContext db = new KbaseContext();
@@ -81,6 +82,7 @@ namespace Projeto_KB.Controllers
         }
 
         // GET: Concepts
+        [Authorize(Roles = "Admin, Manager")]
         public async Task<ActionResult> Index()
         {
             var concepts = db.Concepts.Include(c => c.Journey).Include(c => c.Subject).Include(c => c.Topic);
@@ -102,6 +104,7 @@ namespace Projeto_KB.Controllers
         }
 
         // GET: Concepts/Create
+        [Authorize(Roles = "Admin, Manager")]
         public ActionResult Create()
         {
             ViewBag.JourneyID = new SelectList(db.Journeys, "ID", "Name");
@@ -113,6 +116,7 @@ namespace Projeto_KB.Controllers
         // POST: Concepts/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin, Manager")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
@@ -132,6 +136,7 @@ namespace Projeto_KB.Controllers
         }
 
         // GET: Concepts/Edit/5
+        [Authorize(Roles = "Admin, Manager")]
         [ValidateInput(false)]
         public async Task<ActionResult> Edit(int? id)
         {
@@ -153,6 +158,7 @@ namespace Projeto_KB.Controllers
         // POST: Concepts/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin, Manager")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
@@ -171,6 +177,7 @@ namespace Projeto_KB.Controllers
         }
 
         // GET: Concepts/Delete/5
+        [Authorize(Roles = "Admin, Manager")]
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
@@ -186,6 +193,7 @@ namespace Projeto_KB.Controllers
         }
 
         // POST: Concepts/Delete/5
+        [Authorize(Roles = "Admin, Manager")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)

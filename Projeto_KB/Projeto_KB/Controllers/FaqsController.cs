@@ -16,6 +16,7 @@ namespace Projeto_KB.Controllers
         private KbaseContext db = new KbaseContext();
 
         // GET: Faqs
+        [Authorize(Roles ="Admin, Manager")]
         public ActionResult Index(string searchTerm = null)
         {
             var faqs = db.Faqs.Include(f => f.Subject).Include(f => f.Topic)
@@ -87,17 +88,18 @@ namespace Projeto_KB.Controllers
 
 
         // GET: Faqs/Create
-
+        [Authorize(Roles = "Admin, Manager")]
         public ActionResult Create()
         {
             ViewBag.SubjectID = new SelectList(db.Subjects, "ID", "Name");
             ViewBag.TopicID = new SelectList(db.Topics, "ID", "Name");
             return View();
         }
-
+        [Authorize(Roles = "Admin, Manager")]
         // POST: Faqs/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin, Manager")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
@@ -116,6 +118,7 @@ namespace Projeto_KB.Controllers
         }
 
         // GET: Faqs/Edit/5
+        [Authorize(Roles = "Admin, Manager")]
         [ValidateInput(false)] //não permite as validações para que o texto com Markup de CKEditor retorne da B.D.
         public ActionResult Edit(int? id)
         {
@@ -136,6 +139,7 @@ namespace Projeto_KB.Controllers
         // POST: Faqs/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin, Manager")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
@@ -153,6 +157,7 @@ namespace Projeto_KB.Controllers
         }
 
         // GET: Faqs/Delete/5
+        [Authorize(Roles = "Admin, Manager")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -168,6 +173,7 @@ namespace Projeto_KB.Controllers
         }
 
         // POST: Faqs/Delete/5
+        [Authorize(Roles = "Admin, Manager")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

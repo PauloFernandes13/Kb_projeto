@@ -13,6 +13,7 @@ using System.Net;
 
 namespace Projeto_KB.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class UserController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

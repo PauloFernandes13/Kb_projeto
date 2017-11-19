@@ -13,9 +13,10 @@ using System.Collections.Generic;
 
 namespace Projeto_KB.Controllers
 {
-    
+    [Authorize(Roles ="Admin")]
     public class AccountController : Controller
     {
+       
         private ApplicationDbContext db = new ApplicationDbContext();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
@@ -154,7 +155,7 @@ namespace Projeto_KB.Controllers
 
         //
         // GET: /Account/Register
-        [AllowAnonymous]
+      
         public ActionResult Register()
         {
             //acesso a roles and add to list (use ViewBag(allows to share dynamic objects between control. and View) to store list Item) 
@@ -172,7 +173,7 @@ namespace Projeto_KB.Controllers
         //
         // POST: /Account/Register
         [HttpPost]
-        [AllowAnonymous]
+     
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)     //Initially UserName it was Email,
         {                                                                    // it was introduced Parameter UserName
@@ -218,7 +219,6 @@ namespace Projeto_KB.Controllers
 
         //
         // GET: /Account/ConfirmEmail
-        [AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
         {
             if (userId == null || code == null)
@@ -232,7 +232,6 @@ namespace Projeto_KB.Controllers
         
         //
         // GET: /Account/ForgotPassword
-        [AllowAnonymous]
         public async Task<ActionResult> ForgotPassword(string id)
         {
             var user = await UserManager.FindByIdAsync(id);
@@ -246,7 +245,6 @@ namespace Projeto_KB.Controllers
         //
         // POST: /Account/ForgotPassword
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
         {
@@ -273,7 +271,6 @@ namespace Projeto_KB.Controllers
 
         //
         // GET: /Account/ForgotPasswordConfirmation
-        [AllowAnonymous]
         public ActionResult ForgotPasswordConfirmation()
         {
             return View();
@@ -281,7 +278,6 @@ namespace Projeto_KB.Controllers
 
         //
         // GET: /Account/ResetPassword
-        [AllowAnonymous]
         public ActionResult ResetPassword(string code)
         {
             return code == null ? View("Error") : View();
@@ -290,7 +286,6 @@ namespace Projeto_KB.Controllers
         //
         // POST: /Account/ResetPassword
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
         {
@@ -315,7 +310,6 @@ namespace Projeto_KB.Controllers
 
         //
         // GET: /Account/ResetPasswordConfirmation
-        [AllowAnonymous]
         public ActionResult ResetPasswordConfirmation()
         {
             return View();
@@ -437,6 +431,7 @@ namespace Projeto_KB.Controllers
 
         //
         // POST: /Account/LogOff
+        [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
