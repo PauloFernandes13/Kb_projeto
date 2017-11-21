@@ -1,0 +1,22 @@
+﻿@model Projeto_KB.Models.Topic
+
+@{Layout = "~/Views/Shared/_ConceptsLayout.cshtml";}
+@{
+    ViewBag.Title = "Delete Topic";
+}
+<div class="SubjectBody">
+    <h2 class="log" style="text-align:center">@ViewBag.Title</h2>
+    <h3 class="new">Are you sure you want to delete <span class="headers">@Html.DisplayFor(c => c.Name)</span> ?</h3>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="registerFeature">
+            <div style="text-align:center">
+                <input type="submit" value="YES" class="btn btn-info button-small" />
+                @Html.ActionLink("NO", "Index", "Topics", null, new { @class = "btn btn-info button-small" })
+            </div>
+        </div>
+    }
+</div>
+

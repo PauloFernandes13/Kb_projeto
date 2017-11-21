@@ -202,6 +202,8 @@
     <Compile Include="Controllers\JourneysController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="Controllers\SubjectsController.cs" />
+    <Compile Include="Controllers\TopicsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\KbaseContext.cs" />
     <Compile Include="DAL\KbaseInitializer.cs" />
@@ -862,6 +864,14 @@
     <Content Include="Views\Shared\_Concepts.cshtml" />
     <Content Include="Views\Shared\_ConceptsLayout.cshtml" />
     <Content Include="Views\Concepts\SearchConcept.cshtml" />
+    <Content Include="Views\Subjects\Create.cshtml" />
+    <Content Include="Views\Subjects\Delete.cshtml" />
+    <Content Include="Views\Subjects\Edit.cshtml" />
+    <Content Include="Views\Subjects\Index.cshtml" />
+    <Content Include="Views\Topics\Create.cshtml" />
+    <Content Include="Views\Topics\Delete.cshtml" />
+    <Content Include="Views\Topics\Edit.cshtml" />
+    <Content Include="Views\Topics\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

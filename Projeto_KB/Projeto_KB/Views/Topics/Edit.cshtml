@@ -1,8 +1,10 @@
-﻿@model Projeto_KB.Models.RoleViewModel
+﻿@model Projeto_KB.Models.Topic
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
 }
+
+@{Layout = "~/Views/Shared/_ConceptsLayout.cshtml";}
 <body>
     <div class="CreateConcept">
         @using (Html.BeginForm())
@@ -10,10 +12,9 @@
             @Html.AntiForgeryToken()
 
             <div class="form-horizontal">
-                <h3 class="new">New Role</h3>
+                <h3 class="new">Edit Topic</h3>
 
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
                 <div class="form-group">
                     @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
@@ -24,7 +25,7 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Insert" class="btn btn-info button-small" />
+                        <input type="submit" value="Edit" class="btn btn-info button-small" />
                     </div>
                 </div>
             </div>
@@ -32,8 +33,7 @@
     </div>
     <p>
         <div>
-            <i class="fa fa-list"> @Html.ActionLink("  Roles List", "Index")</i>
+            <i class="fa fa-list"> @Html.ActionLink("  Topics List", "Index")</i>
         </div>
     <p />
-
 </body>

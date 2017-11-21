@@ -1,7 +1,8 @@
-﻿@model IEnumerable<Projeto_KB.Models.RoleViewModel>
+﻿@model IEnumerable<Projeto_KB.Models.Subject>
 
+@{Layout = "~/Views/Shared/_ConceptsLayout.cshtml";}
 
-@{ViewBag.Title = "Role List";}
+@{ViewBag.Title = "Subject List";}
 
 <div class="SubjectBody">
     <h2 class="title" style="text-align:center">@ViewBag.Title</h2>
@@ -13,16 +14,16 @@
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td style="text-align:right">
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
                 </td>
             </tr>
         }
-
     </table>
     <div class="registerFeature">
         <div style="text-align:center">
-            <p>@Html.ActionLink("Insert", "Create", "Role", null, new { @class = "btn btn-info button-small" })</p>
+            <p>@Html.ActionLink("Insert", "Create", "Subjects", null, new { @class = "btn btn-info button-small" })</p>
         </div>
     </div>
+
 </div>
