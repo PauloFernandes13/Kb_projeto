@@ -45,6 +45,7 @@ else
                     <tfoot>
                         <tr>
                             <th>@Html.DisplayNameFor(model => model.Subject.Name)</th>
+                            <th>@Html.DisplayNameFor(model => model.Topic.Name)</th>
                             <th>@Html.DisplayNameFor(model => model.Description)</th>
                             <th>@Html.DisplayNameFor(model => model.Question)</th>
                             <th>@Html.DisplayNameFor(model => model.Answer)</th>
@@ -57,9 +58,9 @@ else
                             <tr>
                                 <td>@Html.DisplayFor(modelItem => item.Subject.Name)</td>
                                 <td>@Html.DisplayFor(modelItem => item.Topic.Name)</td>
-                                <td>@Truncate(item.Description, 25)</td>
-                                <td>@Truncate(item.Question, 25)</td>
-                                <td>@Truncate(item.Answer, 25)</td>
+                                <td>@Truncate(item.Description, 20)</td>
+                                <td>@Truncate(item.Question, 20)</td>
+                                <td>@Truncate(item.Answer, 20)</td>
                                 <td>
                                 @Html.ActionLink("View", "Details", new { id = item.ID }) |
                                 @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |

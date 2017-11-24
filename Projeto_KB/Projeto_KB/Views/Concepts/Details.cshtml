@@ -6,25 +6,25 @@
 </head>
 
 @{Layout = "~/Views/Shared/_Concepts.cshtml";}
+<div>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">@Html.DisplayFor(model => model.Journey.Name)</li>
+        <li class="breadcrumb-item">@Html.DisplayFor(model => model.Subject.Name)</li>
+        <li class="breadcrumb-item active">@Html.DisplayFor(model => model.Topic.Name)</li>
+    </ol>
+    <div class="ConceptBody">
 
-<ol class="breadcrumb">
-    <li class="breadcrumb-item">@Html.DisplayFor(model => model.Journey.Name)</li>
-    <li class="breadcrumb-item">@Html.DisplayFor(model => model.Subject.Name)</li>
-    <li class="breadcrumb-item active">@Html.DisplayFor(model => model.Topic.Name)</li>
-</ol>
-<div class="ConceptBody">
-    
-    <h2>@Html.DisplayFor(model => model.Title)</h2>
-    
-    <dl class="dl-horizontal">
+        <h2>@Html.DisplayFor(model => model.Title)</h2>
 
-        <dd>
-            @Html.Raw(Model.Text)
-        </dd>
+        <dl class="dl-horizontal">
 
-    </dl>
+            <dd>
+                @Html.Raw(Model.Text)
+            </dd>
+
+        </dl>
+    </div>
 </div>
-
 
 
 

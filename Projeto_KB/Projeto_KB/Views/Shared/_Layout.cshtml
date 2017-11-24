@@ -29,7 +29,6 @@
                             <li><a href="@Url.Action("Index", "User")">USERS LIST</a></li>
                             <li><a href="@Url.Action("Register", "Account")">REGISTRATION</a></li>
                             <li><a href="@Url.Action("Index", "Role")">ROLES</a></li>
-                            <li><a href="@Url.Action("Index", "Journeys")">JOURNEY</a></li>
                             <li><a href="@Url.Action("Index", "Faqs")">MANAGER</a></li>
                         </ul>
                         </ul>
@@ -42,7 +41,7 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
+        <footer class="footerFAQ">
 
             <!--@Html.ActionLink("About", "About", "Home") @Html.ActionLink("Contact", "Contact", "Home")-->
             <p align="center">&copy; @DateTime.Now.Year - Powered by Bullet Solutions</p>

@@ -14,6 +14,7 @@ namespace Projeto_KB.Models
         [DataType(DataType.MultilineText)]
         public string Text { get; set; }
         public DateTime ContentDate { get; set; }
+        [DisplayName("Order Content")]
         public string KeyWords { get; set; }
         public int JourneyID { get; set; }
         public int TopicID { get; set; }

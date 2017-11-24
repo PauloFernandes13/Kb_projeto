@@ -1,42 +1,20 @@
 ﻿@model Projeto_KB.Models.UserViewModel
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>UserViewModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
+@{
+    ViewBag.Title = "Delete User";
+}
 
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UserName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UserName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
+<div class="SubjectBody">
+    <h2 class="log" style="text-align:center">@ViewBag.Title</h2>
+    <h3 class="new">Are you sure you want to delete <span class="headers">@Html.DisplayFor(model=>model.AccountName)</span> ?</h3>
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+        <div class="registerFeature">
+            <div style="text-align:center">
+                <input type="submit" value="YES" class="btn btn-info button-small" />
+                @Html.ActionLink("NO", "Index", "User", null, new { @class = "btn btn-info button-small" })
+            </div>
         </div>
     }
 </div>

@@ -65,17 +65,17 @@ namespace Projeto_KB.Controllers
         {
             if (User.IsInRole("Client_1"))
             {
-                var conceptsPartial = db.Concepts.Include("Journey").Where(g => g.Journey.ID == 1).Include(c => c.Subject).Include(c => c.Topic);
+                var conceptsPartial = db.Concepts.Include("Journey").Where(g => g.Journey.ID == 1).OrderBy(c=>c.KeyWords).Include(c => c.Subject).OrderBy(c=>c.JourneyID).Include(c => c.Topic);
                 return PartialView(conceptsPartial);
             }
             else if (User.IsInRole("Client_2"))
             {
-                var conceptsPartial = db.Concepts.Include("Journey").Where(g => g.Journey.ID == 1 || g.Journey.ID == 2 ).Include(c => c.Subject).Include(c => c.Topic);
+                var conceptsPartial = db.Concepts.Include("Journey").Where(g => g.Journey.ID == 1 || g.Journey.ID == 2).Include(c => c.Subject).OrderBy(c => c.JourneyID).Include(c => c.Topic);
                 return PartialView(conceptsPartial);
             }
           else
             {
-                var conceptsPartial = db.Concepts.Include(c => c.Journey).Include(c => c.Subject).Include(c => c.Topic);
+                var conceptsPartial = db.Concepts.Include(c => c.Journey).Include(c => c.Subject).OrderBy(c => c.JourneyID).Include(c => c.Topic);
                 return PartialView(conceptsPartial);
             }
 

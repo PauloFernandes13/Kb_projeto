@@ -1,80 +1,22 @@
 ﻿@model Projeto_KB.Models.Concept
 
+@{Layout = "~/Views/Shared/_ConceptsLayout.cshtml";}
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Delete Concept";
 }
 
-<h2>Delete</h2>
+<div class="SubjectBody">
+    <h2 class="log" style="text-align:center">@ViewBag.Title</h2>
+    <h3 class="new">Are you sure you want to delete <span class="headers">@Html.DisplayFor(model => model.Title)</span> ?</h3>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Concept</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Journey.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Journey.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Subject.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Subject.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Topic.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Topic.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Text)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Text)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ContentDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ContentDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.KeyWords)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.KeyWords)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+        <div class="registerFeature">
+            <div style="text-align:center">
+                <input type="submit" value="YES" class="btn btn-info button-small" />
+                @Html.ActionLink("NO", "Index", "Concepts", null, new { @class = "btn btn-info button-small" })
+            </div>
         </div>
     }
 </div>
