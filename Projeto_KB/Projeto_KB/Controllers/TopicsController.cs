@@ -12,6 +12,7 @@ using Projeto_KB.Models;
 
 namespace Projeto_KB.Controllers
 {
+    [Authorize(Roles = "Admin, Manager")]
     public class TopicsController : Controller
     {
         private KbaseContext db = new KbaseContext();

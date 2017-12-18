@@ -210,39 +210,39 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations.Identity\201707042052209_InitialCreate.cs" />
-    <Compile Include="Migrations.Identity\201707042052209_InitialCreate.Designer.cs">
+    <Compile Include="App_Start\Migrations.Identity\201707042052209_InitialCreate.cs" />
+    <Compile Include="App_Start\Migrations.Identity\201707042052209_InitialCreate.Designer.cs">
       <DependentUpon>201707042052209_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations.Identity\201707281116097_AddRoles.cs" />
-    <Compile Include="Migrations.Identity\201707281116097_AddRoles.Designer.cs">
+    <Compile Include="App_Start\Migrations.Identity\201707281116097_AddRoles.cs" />
+    <Compile Include="App_Start\Migrations.Identity\201707281116097_AddRoles.Designer.cs">
       <DependentUpon>201707281116097_AddRoles.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations.Identity\201707290750484_Add UserViewModel.cs" />
-    <Compile Include="Migrations.Identity\201707290750484_Add UserViewModel.Designer.cs">
+    <Compile Include="App_Start\Migrations.Identity\201707290750484_Add UserViewModel.cs" />
+    <Compile Include="App_Start\Migrations.Identity\201707290750484_Add UserViewModel.Designer.cs">
       <DependentUpon>201707290750484_Add UserViewModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations.Identity\201708101528017_Name_Migration.cs" />
-    <Compile Include="Migrations.Identity\201708101528017_Name_Migration.Designer.cs">
+    <Compile Include="App_Start\Migrations.Identity\201708101528017_Name_Migration.cs" />
+    <Compile Include="App_Start\Migrations.Identity\201708101528017_Name_Migration.Designer.cs">
       <DependentUpon>201708101528017_Name_Migration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations.Identity\201708160031365_DeleteUserViewModel.cs" />
-    <Compile Include="Migrations.Identity\201708160031365_DeleteUserViewModel.Designer.cs">
+    <Compile Include="App_Start\Migrations.Identity\201708160031365_DeleteUserViewModel.cs" />
+    <Compile Include="App_Start\Migrations.Identity\201708160031365_DeleteUserViewModel.Designer.cs">
       <DependentUpon>201708160031365_DeleteUserViewModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations.Identity\201708160117210_UserListViewModel.cs" />
-    <Compile Include="Migrations.Identity\201708160117210_UserListViewModel.Designer.cs">
+    <Compile Include="App_Start\Migrations.Identity\201708160117210_UserListViewModel.cs" />
+    <Compile Include="App_Start\Migrations.Identity\201708160117210_UserListViewModel.Designer.cs">
       <DependentUpon>201708160117210_UserListViewModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations.Identity\201708160129014_Fixed_ViewModel.cs" />
-    <Compile Include="Migrations.Identity\201708160129014_Fixed_ViewModel.Designer.cs">
+    <Compile Include="App_Start\Migrations.Identity\201708160129014_Fixed_ViewModel.cs" />
+    <Compile Include="App_Start\Migrations.Identity\201708160129014_Fixed_ViewModel.Designer.cs">
       <DependentUpon>201708160129014_Fixed_ViewModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations.Identity\201708171458107_new Parameters_User.cs" />
-    <Compile Include="Migrations.Identity\201708171458107_new Parameters_User.Designer.cs">
+    <Compile Include="App_Start\Migrations.Identity\201708171458107_new Parameters_User.cs" />
+    <Compile Include="App_Start\Migrations.Identity\201708171458107_new Parameters_User.Designer.cs">
       <DependentUpon>201708171458107_new Parameters_User.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations.Identity\Configuration.cs" />
+    <Compile Include="App_Start\Migrations.Identity\Configuration.cs" />
     <Compile Include="Migrations\201706091055174_InitialCreate.cs" />
     <Compile Include="Migrations\201706091055174_InitialCreate.Designer.cs">
       <DependentUpon>201706091055174_InitialCreate.cs</DependentUpon>
@@ -740,16 +740,101 @@
     <Content Include="ckeditor\skins\moono-lisa\images\refresh.png" />
     <Content Include="ckeditor\skins\moono-lisa\images\spinner.gif" />
     <Content Include="ckeditor\styles.js" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\AcademicAreas.JPG" />
+    <Content Include="Content\Images\BC.JPG" />
+    <Content Include="Content\Images\BC_event.JPG" />
+    <Content Include="Content\Images\CsvOne.png" />
+    <Content Include="Content\Images\GeneralData.JPG" />
+    <Content Include="Content\Images\GeneralData2.JPG" />
+    <Content Include="Content\Images\GeneralData3.JPG" />
+    <Content Include="Content\Images\Report.png" />
+    <Content Include="Content\Images\Report2.png" />
+    <Content Include="Content\Images\rsz_capturar.jpg" />
+    <Content Include="Content\Images\Staff.JPG" />
+    <Content Include="Content\Images\xml-file.jpg" />
+    <Content Include="Content\Images\xml.png" />
+    <Content Include="Content\Image\Capturar.JPG" />
+    <Content Include="Content\Image\header-bg.jpg" />
+    <Content Include="Content\Photo\customer.png" />
     <Content Include="Content\Photo\logo-bullet-solutions-inv%402x.png" />
     <Content Include="Content\Photo\logo-bullet-solutions.png" />
     <Content Include="Content\Photo\picture2.png" />
     <Content Include="Content\Photo\picture_1.png" />
     <Content Include="Content\StyleDescription.css" />
+    <Content Include="Content\TemplateAdmin\css\sb-admin.css" />
+    <Content Include="Content\TemplateAdmin\css\sb-admin.min.css" />
+    <Content Include="Content\TemplateAdmin\js\sb-admin.js" />
+    <Content Include="Content\TemplateAdmin\js\sb-admin.min.js" />
+    <Content Include="Content\TemplateAdmin\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Content\TemplateAdmin\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Content\TemplateAdmin\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Content\TemplateAdmin\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\TemplateAdmin\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\TemplateAdmin\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\TemplateAdmin\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\TemplateAdmin\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\TemplateAdmin\vendor\chart.js\Chart.bundle.js" />
+    <Content Include="Content\TemplateAdmin\vendor\chart.js\Chart.bundle.min.js" />
+    <Content Include="Content\TemplateAdmin\vendor\chart.js\Chart.js" />
+    <Content Include="Content\TemplateAdmin\vendor\chart.js\Chart.min.js" />
+    <Content Include="Content\TemplateAdmin\vendor\datatables\dataTables.bootstrap4.css" />
+    <Content Include="Content\TemplateAdmin\vendor\datatables\dataTables.bootstrap4.js" />
+    <Content Include="Content\TemplateAdmin\vendor\datatables\jquery.dataTables.js" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\TemplateAdmin\vendor\jquery-easing\jquery.easing.compatibility.js" />
+    <Content Include="Content\TemplateAdmin\vendor\jquery-easing\jquery.easing.js" />
+    <Content Include="Content\TemplateAdmin\vendor\jquery-easing\jquery.easing.min.js" />
+    <Content Include="Content\TemplateAdmin\vendor\jquery\jquery.js" />
+    <Content Include="Content\TemplateAdmin\vendor\jquery\jquery.min.js" />
+    <Content Include="Content\TemplateAdmin\vendor\popper\popper.js" />
+    <Content Include="Content\TemplateAdmin\vendor\popper\popper.min.js" />
+    <Content Include="Content\Template\css\agency.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Template\css\agency.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Template\img\customer.png" />
+    <Content Include="Content\Template\img\portfolio\BC.JPG" />
+    <Content Include="Content\Template\img\portfolio\CalendarNew.jpg" />
+    <Content Include="Content\Template\img\portfolio\database.jpg" />
+    <Content Include="Content\Template\img\portfolio\generation.jpg" />
+    <Content Include="Content\Template\img\portfolio\images.jpg" />
+    <Content Include="Content\Template\img\portfolio\Install.jpg" />
+    <Content Include="Content\Template\img\portfolio\Optimezed.JPG" />
+    <Content Include="Content\Template\img\portfolio\Timetabler.jpg" />
+    <Content Include="Content\Template\js\agency.js" />
+    <Content Include="Content\Template\js\agency.min.js" />
+    <Content Include="Content\Template\js\contact_me.js" />
+    <Content Include="Content\Template\js\jqBootstrapValidation.js" />
+    <Content Include="Content\Template\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Content\Template\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Content\Template\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Content\Template\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\Template\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\Template\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\Template\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\Template\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\Template\vendor\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\Template\vendor\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\Template\vendor\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Template\vendor\jquery-easing\jquery.easing.compatibility.js" />
+    <Content Include="Content\Template\vendor\jquery-easing\jquery.easing.js" />
+    <Content Include="Content\Template\vendor\jquery-easing\jquery.easing.min.js" />
+    <Content Include="Content\Template\vendor\jquery\jquery.js" />
+    <Content Include="Content\Template\vendor\jquery\jquery.min.js" />
+    <Content Include="Content\Template\vendor\tether\tether.js" />
+    <Content Include="Content\Template\vendor\tether\tether.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -784,6 +869,89 @@
     <Content Include="ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
     <Content Include="ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="ckeditor\skins\moono-lisa\readme.md" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\TemplateAdmin\scss\sb-admin.scss" />
+    <Content Include="Content\TemplateAdmin\scss\_cards.scss" />
+    <Content Include="Content\TemplateAdmin\scss\_footer.scss" />
+    <Content Include="Content\TemplateAdmin\scss\_global.scss" />
+    <Content Include="Content\TemplateAdmin\scss\_login.scss" />
+    <Content Include="Content\TemplateAdmin\scss\_mixins.scss" />
+    <Content Include="Content\TemplateAdmin\scss\_navbar.scss" />
+    <Content Include="Content\TemplateAdmin\scss\_navbar_fixed.scss" />
+    <Content Include="Content\TemplateAdmin\scss\_navbar_static.scss" />
+    <Content Include="Content\TemplateAdmin\scss\_navbar_toggle.scss" />
+    <Content Include="Content\TemplateAdmin\scss\_utilities.scss" />
+    <Content Include="Content\TemplateAdmin\scss\_variables.scss" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\less\animated.less" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\less\core.less" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\less\fixed-width.less" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\less\font-awesome.less" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\less\icons.less" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\less\larger.less" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\less\list.less" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\less\mixins.less" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\less\path.less" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\less\screen-reader.less" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\less\stacked.less" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\less\variables.less" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\scss\_animated.scss" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\scss\_core.scss" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\scss\_icons.scss" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\scss\_larger.scss" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\scss\_list.scss" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\scss\_mixins.scss" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\scss\_path.scss" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\scss\_stacked.scss" />
+    <Content Include="Content\TemplateAdmin\vendor\font-awesome\scss\_variables.scss" />
+    <Content Include="Content\Template\vendor\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Template\vendor\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Template\vendor\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Template\vendor\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Template\vendor\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\Template\vendor\font-awesome\less\animated.less" />
+    <Content Include="Content\Template\vendor\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Content\Template\vendor\font-awesome\less\core.less" />
+    <Content Include="Content\Template\vendor\font-awesome\less\fixed-width.less" />
+    <Content Include="Content\Template\vendor\font-awesome\less\font-awesome.less" />
+    <Content Include="Content\Template\vendor\font-awesome\less\icons.less" />
+    <Content Include="Content\Template\vendor\font-awesome\less\larger.less" />
+    <Content Include="Content\Template\vendor\font-awesome\less\list.less" />
+    <Content Include="Content\Template\vendor\font-awesome\less\mixins.less" />
+    <Content Include="Content\Template\vendor\font-awesome\less\path.less" />
+    <Content Include="Content\Template\vendor\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Content\Template\vendor\font-awesome\less\screen-reader.less" />
+    <Content Include="Content\Template\vendor\font-awesome\less\stacked.less" />
+    <Content Include="Content\Template\vendor\font-awesome\less\variables.less" />
+    <Content Include="Content\Template\vendor\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Content\Template\vendor\font-awesome\scss\_animated.scss" />
+    <Content Include="Content\Template\vendor\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Content\Template\vendor\font-awesome\scss\_core.scss" />
+    <Content Include="Content\Template\vendor\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Content\Template\vendor\font-awesome\scss\_icons.scss" />
+    <Content Include="Content\Template\vendor\font-awesome\scss\_larger.scss" />
+    <Content Include="Content\Template\vendor\font-awesome\scss\_list.scss" />
+    <Content Include="Content\Template\vendor\font-awesome\scss\_mixins.scss" />
+    <Content Include="Content\Template\vendor\font-awesome\scss\_path.scss" />
+    <Content Include="Content\Template\vendor\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Content\Template\vendor\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="Content\Template\vendor\font-awesome\scss\_stacked.scss" />
+    <Content Include="Content\Template\vendor\font-awesome\scss\_variables.scss" />
+    <None Include="Properties\PublishProfiles\Customer Success.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -796,7 +964,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -875,14 +1045,26 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Images\" />
-    <Folder Include="Content\TemplateAdmin\css\" />
-    <Folder Include="Content\TemplateAdmin\js\" />
-    <Folder Include="Content\TemplateAdmin\scss\" />
-    <Folder Include="Content\TemplateAdmin\vendor\" />
-    <Folder Include="Content\Template\css\" />
-    <Folder Include="Content\Template\js\" />
-    <Folder Include="Content\Template\vendor\" />
+    <Folder Include="Content\Mytemplate\css\" />
+    <Folder Include="Content\Mytemplate\img\about\" />
+    <Folder Include="Content\Mytemplate\img\logos\" />
+    <Folder Include="Content\Mytemplate\img\portfolio\" />
+    <Folder Include="Content\Mytemplate\img\team\" />
+    <Folder Include="Content\Mytemplate\js\" />
+    <Folder Include="Content\Mytemplate\less\" />
+    <Folder Include="Content\Mytemplate\mail\" />
+    <Folder Include="Content\Mytemplate\scss\" />
+    <Folder Include="Content\Mytemplate\vendor\bootstrap\css\" />
+    <Folder Include="Content\Mytemplate\vendor\bootstrap\fonts\" />
+    <Folder Include="Content\Mytemplate\vendor\bootstrap\js\" />
+    <Folder Include="Content\Mytemplate\vendor\font-awesome\css\" />
+    <Folder Include="Content\Mytemplate\vendor\font-awesome\fonts\" />
+    <Folder Include="Content\Mytemplate\vendor\font-awesome\less\" />
+    <Folder Include="Content\Mytemplate\vendor\font-awesome\scss\" />
+    <Folder Include="Content\Mytemplate\vendor\jquery\" />
+    <Folder Include="Content\Template\img\about\" />
+    <Folder Include="Content\Template\img\logos\" />
+    <Folder Include="Content\Template\img\team\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -890,28 +1072,28 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations.Identity\201707042052209_InitialCreate.resx">
+    <EmbeddedResource Include="App_Start\Migrations.Identity\201707042052209_InitialCreate.resx">
       <DependentUpon>201707042052209_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations.Identity\201707281116097_AddRoles.resx">
+    <EmbeddedResource Include="App_Start\Migrations.Identity\201707281116097_AddRoles.resx">
       <DependentUpon>201707281116097_AddRoles.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations.Identity\201707290750484_Add UserViewModel.resx">
+    <EmbeddedResource Include="App_Start\Migrations.Identity\201707290750484_Add UserViewModel.resx">
       <DependentUpon>201707290750484_Add UserViewModel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations.Identity\201708101528017_Name_Migration.resx">
+    <EmbeddedResource Include="App_Start\Migrations.Identity\201708101528017_Name_Migration.resx">
       <DependentUpon>201708101528017_Name_Migration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations.Identity\201708160031365_DeleteUserViewModel.resx">
+    <EmbeddedResource Include="App_Start\Migrations.Identity\201708160031365_DeleteUserViewModel.resx">
       <DependentUpon>201708160031365_DeleteUserViewModel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations.Identity\201708160117210_UserListViewModel.resx">
+    <EmbeddedResource Include="App_Start\Migrations.Identity\201708160117210_UserListViewModel.resx">
       <DependentUpon>201708160117210_UserListViewModel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations.Identity\201708160129014_Fixed_ViewModel.resx">
+    <EmbeddedResource Include="App_Start\Migrations.Identity\201708160129014_Fixed_ViewModel.resx">
       <DependentUpon>201708160129014_Fixed_ViewModel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations.Identity\201708171458107_new Parameters_User.resx">
+    <EmbeddedResource Include="App_Start\Migrations.Identity\201708171458107_new Parameters_User.resx">
       <DependentUpon>201708171458107_new Parameters_User.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706091055174_InitialCreate.resx">
@@ -935,6 +1117,9 @@
     <EmbeddedResource Include="Migrations\201711041004054_Data Validacion Teste.resx">
       <DependentUpon>201711041004054_Data Validacion Teste.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -27,7 +27,7 @@ namespace Projeto_KB
                       "~/Content/bootstrap.css",
                       "~/Content/Site.css"));
             // new bundle Added for the home view,diferent CSS and Version Bootstrap
-            bundles.Add(new StyleBundle("~/Content/Template").Include(
+            bundles.Add(new StyleBundle("~/Content/Template/css").Include(
                 "~/Content/Template/vendor/bootstrap/css/bootstrap.css",
                 "~/Content/Template/css/agency.css"));
             //new bundle Added for Concepts
