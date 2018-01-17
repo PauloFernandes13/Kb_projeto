@@ -1,0 +1,20 @@
+﻿@model Projeto_KB.Models.TopicConcept
+
+@{Layout = "~/Views/Shared/_ConceptsLayout.cshtml";}
+@{ViewBag.Title = "Apagar Tópico BEST";}
+<div class="SubjectBody">
+    <h2 class="log" style="text-align:center">@ViewBag.Title</h2>
+    <h3 class="new">De certeza que pretende apagar <span class="headers">@Html.DisplayFor(c => c.Name)</span> ?</h3>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="registerFeature">
+            <div style="text-align:center">
+                <input type="submit" value="SIM" class="btn btn-info button-small" />
+                @Html.ActionLink("NÃO", "Index", "TopicConcepts", null, new { @class = "btn btn-info button-small" })
+            </div>
+        </div>
+
+    }
+</div>

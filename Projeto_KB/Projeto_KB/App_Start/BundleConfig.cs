@@ -3,6 +3,7 @@ using System.Web.Optimization;
 
 namespace Projeto_KB
 {
+   
     public class BundleConfig
     {
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
@@ -38,6 +39,8 @@ namespace Projeto_KB
                 "~/Content/TemplateAdmin/vendor/datatables/dataTables.bootstrap4.css",
                 "~/Content/TemplateAdmin/css/sb-admin.css",
                 "~/Content/Site.css"));
+
+                 BundleTable.EnableOptimizations = false; //in deploy mode don´t use Bundle to not generate conflits.....
         }
     }
 }

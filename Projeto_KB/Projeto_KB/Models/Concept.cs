@@ -17,13 +17,13 @@ namespace Projeto_KB.Models
         [DisplayName("Order Content")]
         public string KeyWords { get; set; }
         public int JourneyID { get; set; }
-        public int TopicID { get; set; }
-        public int SubjectID { get; set; }
+        public int PhaseID { get; set; }
+        public int? TopicConceptID { get; set; }
         public virtual ICollection<Image> Images { get; set; }     //hold multiple entities Image
-        public virtual Subject Subject { get; set; }
+        public virtual Phase Phase { get; set; }
         public virtual Journey Journey { get; set; }               //navigation property from foreign Key, one Concept associated to one Journey
-        public virtual Topic Topic { get; set; }
+        public virtual TopicConcept TopicConcept { get; set; }
      
 
     }
-} 
+}  

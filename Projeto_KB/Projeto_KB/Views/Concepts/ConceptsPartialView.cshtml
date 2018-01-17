@@ -1,39 +1,90 @@
 ﻿@model IEnumerable<Projeto_KB.Models.Concept>
 <!--Partial view to render concepts Accordion-->
+<head>
+    <meta charset="utf-8" />
+</head>
 @{int i = 0;}
 @{int a = 0;}
-@foreach (var subject in Model.GroupBy(s => s.Subject))
+
+@foreach (var groupPhase in Model.GroupBy(p => p.Phase))
+
 {
-    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="@Html.Encode(subject.Key.Name)">
+    var phaseTopic = groupPhase.FirstOrDefault().TopicConcept;
 
-        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti_@i" data-parent="#exampleAccordion" style="margin-top:-20px">
-            <i class="fa fa-circle-o" style="font-size:10px"></i>
-            <span class="nav-link-text">
-                @Html.Encode(subject.Key.Name)
-            </span>
-        </a>
-        <ul class="sidenav-second-level collapse" id="collapseMulti_@i">
-            @foreach (var topicGroup in subject.GroupBy(t=>t.Topic))
-            {
-                <li>
-                    <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2_@a" style="margin-top:-20px">@Html.Encode(topicGroup.Key.Name)</a>
-                    <ul class="sidenav-third-level collapse" id="collapseMulti2_@a">
+    if (phaseTopic == null)
+    {
+        int phaseId = groupPhase.FirstOrDefault().ID;
 
-                        @foreach (var item in subject)
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="@groupPhase.Key.Name">
+            <a class="nav-link" style="margin-top:-20px" href="@Url.Action("Details", "Concepts", new { id = phaseId})">
+                <i class="fa fa-circle-o" style="font-size:10px"></i>
+                <span class="nav-link-text">
+                    @groupPhase.Key.Name
+                </span>
+            </a>
+        </li>
+    }
+    else
+    {
+        var phaseTitle = groupPhase.FirstOrDefault().Title;
+        if (phaseTitle == null)
+        {
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="@groupPhase.Key.Name">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" style="margin-top:-20px" href="#collapseMulti_@i">
+                    <i class="fa fa-circle-o" style="font-size:10px"></i>
+                    <span class="nav-link-text">
+                        @groupPhase.Key.Name
+                    </span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="collapseMulti_@i">
+
+                    @foreach (var topicGroup in groupPhase.GroupBy(t => t.TopicConcept))
+                    {
+                        foreach (var item in topicGroup)
                         {
-                            string searchTopic = topicGroup.Key.Name;
-                            if (item.Topic.Name.Equals(searchTopic))
-                            {
-                                <li>
-                                    <a href="#" style="margin-top:-50px">@Html.ActionLink(item.Title, "Details", new { id = item.ID })</a>
-                                </li>
-                            }
+                            <li>
+                                <a class="nav-link" href="@Url.Action("Details", "Concepts", new { id = item.ID})" style="margin-top:-20px">@topicGroup.Key.Name</a>
+                            </li>
                         }
-                    </ul>
-                </li>
-                a++;
-            }
-        </ul>
-    </li>
+                    }
+                </ul>
+            </li>
+        }
+        else
+        {
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="@groupPhase.Key.Name">
+
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti_@i" data-parent="#exampleAccordion" style="margin-top:-20px">
+                    <i class="fa fa-circle-o" style="font-size:10px"></i>
+                    <span class="nav-link-text">
+                        @groupPhase.Key.Name
+                    </span>
+                </a>
+                <ul class="sidenav-second-level collapse" id="collapseMulti_@i">
+                    @foreach (var topicGroup in groupPhase.GroupBy(t => t.TopicConcept))
+                    {
+                        <li>
+                            <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2_@a" style="margin-top:-20px">@Html.Encode(topicGroup.Key.Name)</a>
+                            <ul class="sidenav-third-level collapse" id="collapseMulti2_@a">
+
+                                @foreach (var item in groupPhase)
+                                {
+                                    string searchTopic = topicGroup.Key.Name;
+                                    if (item.TopicConcept.Name.Equals(searchTopic))
+                                    {
+                                        <li>
+                                            <a href="#" style="margin-top:-50px">@Html.ActionLink(item.Title, "Details", new { id = item.ID })</a>
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </li>
+                        a++;
+                    }
+                </ul>
+            </li>
+
+        }
+    }
     i++;
 }

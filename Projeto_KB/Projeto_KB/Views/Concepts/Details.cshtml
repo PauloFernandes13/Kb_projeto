@@ -1,7 +1,6 @@
 ﻿@model Projeto_KB.Models.Concept
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title  Customer Success</title>
 </head>
 
@@ -9,8 +8,8 @@
 <div>
     <ol class="breadcrumb">
         <li class="breadcrumb-item">@Html.DisplayFor(model => model.Journey.Name)</li>
-        <li class="breadcrumb-item">@Html.DisplayFor(model => model.Subject.Name)</li>
-        <li class="breadcrumb-item active">@Html.DisplayFor(model => model.Topic.Name)</li>
+        <li class="breadcrumb-item">@Html.DisplayFor(model => model.Phase.Name)</li>
+        <li class="breadcrumb-item active">@Html.DisplayFor(model => model.TopicConcept.Name)</li>
     </ol>
     <div class="ConceptBody">
 

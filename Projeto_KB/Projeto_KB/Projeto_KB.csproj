@@ -201,8 +201,10 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JourneysController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PhasesController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\SubjectsController.cs" />
+    <Compile Include="Controllers\TopicConceptsController.cs" />
     <Compile Include="Controllers\TopicsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\KbaseContext.cs" />
@@ -271,6 +273,22 @@
     <Compile Include="Migrations\201711041004054_Data Validacion Teste.Designer.cs">
       <DependentUpon>201711041004054_Data Validacion Teste.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712211439311_Name_Migration.cs" />
+    <Compile Include="Migrations\201712211439311_Name_Migration.Designer.cs">
+      <DependentUpon>201712211439311_Name_Migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712211501111_Validacão Assunto.cs" />
+    <Compile Include="Migrations\201712211501111_Validacão Assunto.Designer.cs">
+      <DependentUpon>201712211501111_Validacão Assunto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712211725440_Novas tabelas relação ConceitoBest.cs" />
+    <Compile Include="Migrations\201712211725440_Novas tabelas relação ConceitoBest.Designer.cs">
+      <DependentUpon>201712211725440_Novas tabelas relação ConceitoBest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801050932267_TopicConcAllowNull.cs" />
+    <Compile Include="Migrations\201801050932267_TopicConcAllowNull.Designer.cs">
+      <DependentUpon>201801050932267_TopicConcAllowNull.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Concept.cs" />
@@ -280,9 +298,11 @@
     <Compile Include="Models\Journey.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Milestone.cs" />
+    <Compile Include="Models\Phase.cs" />
     <Compile Include="Models\RoleViewModel.cs" />
     <Compile Include="Models\Subject.cs" />
     <Compile Include="Models\Topic.cs" />
+    <Compile Include="Models\TopicConcept.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -973,7 +993,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -1042,6 +1064,14 @@
     <Content Include="Views\Topics\Delete.cshtml" />
     <Content Include="Views\Topics\Edit.cshtml" />
     <Content Include="Views\Topics\Index.cshtml" />
+    <Content Include="Views\Phases\Create.cshtml" />
+    <Content Include="Views\Phases\Delete.cshtml" />
+    <Content Include="Views\Phases\Edit.cshtml" />
+    <Content Include="Views\Phases\Index.cshtml" />
+    <Content Include="Views\TopicConcepts\Create.cshtml" />
+    <Content Include="Views\TopicConcepts\Delete.cshtml" />
+    <Content Include="Views\TopicConcepts\Edit.cshtml" />
+    <Content Include="Views\TopicConcepts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1116,6 +1146,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711041004054_Data Validacion Teste.resx">
       <DependentUpon>201711041004054_Data Validacion Teste.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712211439311_Name_Migration.resx">
+      <DependentUpon>201712211439311_Name_Migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712211501111_Validacão Assunto.resx">
+      <DependentUpon>201712211501111_Validacão Assunto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712211725440_Novas tabelas relação ConceitoBest.resx">
+      <DependentUpon>201712211725440_Novas tabelas relação ConceitoBest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801050932267_TopicConcAllowNull.resx">
+      <DependentUpon>201801050932267_TopicConcAllowNull.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

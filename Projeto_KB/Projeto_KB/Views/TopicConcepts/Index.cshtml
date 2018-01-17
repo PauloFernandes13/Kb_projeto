@@ -1,8 +1,8 @@
-﻿@model IEnumerable<Projeto_KB.Models.Subject>
+﻿@model IEnumerable<Projeto_KB.Models.TopicConcept>
 
 @{Layout = "~/Views/Shared/_ConceptsLayout.cshtml";}
 
-@{ViewBag.Title = "Lista de Assuntos";}
+@{ViewBag.Title = "Lista de Tópicos BEST";}
 
 <div class="SubjectBody">
     <h2 class="title" style="text-align:center">@ViewBag.Title</h2>
@@ -22,7 +22,7 @@
     </table>
     <div class="registerFeature">
         <div style="text-align:center">
-            <p>@Html.ActionLink("Inserir", "Create", "Subjects", null, new { @class = "btn btn-info button-small" })</p>
+            <p>@Html.ActionLink("Inserir", "Create", "TopicConcepts", null, new { @class = "btn btn-info button-small" })</p>
         </div>
     </div>
 

@@ -23,30 +23,31 @@ namespace Projeto_KB.Controllers
         //Search Concepts
         public ActionResult SearchConcept(string SearchConcepts)
         {
+           
             if (User.IsInRole("Client_1"))
             {
                  ViewBag.dataSearch = SearchConcepts;
-                var search = db.Concepts.Include(f => f.Journey).Where(g => g.Journey.ID == 1).Include(f => f.Subject).Include(f => f.Topic)
-                        .Where(r => r.KeyWords.Contains(SearchConcepts) || r.Text.Contains(SearchConcepts) || r.Subject.Name.Contains(SearchConcepts)
-                        || r.Topic.Name.Contains(SearchConcepts));
+                var search = db.Concepts.Include(f => f.Journey).Where(g => g.Journey.ID == 1).Include(f => f.Phase).Include(f => f.TopicConcept)
+                        .Where(r => r.KeyWords.Contains(SearchConcepts) || r.Text.Contains(SearchConcepts) || r.Phase.Name.Contains(SearchConcepts)
+                        || r.TopicConcept.Name.Contains(SearchConcepts));
 
                 return View(search);
             }
             else if (User.IsInRole("Client_2"))
             {
                 ViewBag.dataSearch = SearchConcepts;
-                var search = db.Concepts.Include(f => f.Journey).Where(g => g.Journey.ID == 1 || g.JourneyID == 2).Include(f => f.Subject).Include(f => f.Topic)
-                        .Where(r => r.KeyWords.Contains(SearchConcepts) || r.Text.Contains(SearchConcepts) || r.Subject.Name.Contains(SearchConcepts)
-                        || r.Topic.Name.Contains(SearchConcepts));
+                var search = db.Concepts.Include(f => f.Journey).Where(g => g.Journey.ID == 1 || g.JourneyID == 2).Include(f => f.Phase).Include(f => f.TopicConcept)
+                        .Where(r => r.KeyWords.Contains(SearchConcepts) || r.Text.Contains(SearchConcepts) || r.Phase.Name.Contains(SearchConcepts)
+                        || r.TopicConcept.Name.Contains(SearchConcepts));
 
                 return View(search);
             }
             else
             {
                 ViewBag.dataSearch = SearchConcepts;
-                var search = db.Concepts.Include(f => f.Journey).Include(f => f.Subject).Include(f => f.Topic)
-                        .Where(r => r.KeyWords.Contains(SearchConcepts) || r.Text.Contains(SearchConcepts) || r.Subject.Name.Contains(SearchConcepts)
-                        || r.Topic.Name.Contains(SearchConcepts));
+                var search = db.Concepts.Include(f => f.Journey).Include(f => f.Phase).Include(f => f.TopicConcept)
+                        .Where(r => r.KeyWords.Contains(SearchConcepts) || r.Text.Contains(SearchConcepts) || r.Phase.Name.Contains(SearchConcepts)
+                        || r.TopicConcept.Name.Contains(SearchConcepts));
 
                 return View(search);
             }
@@ -63,19 +64,22 @@ namespace Projeto_KB.Controllers
         [ChildActionOnly]
         public ActionResult ConceptsPartialView()
         {
+
+           
+
             if (User.IsInRole("Client_1"))
             {
-                var conceptsPartial = db.Concepts.Include("Journey").Where(g => g.Journey.ID == 1).OrderBy(c=>c.KeyWords).Include(c => c.Subject).OrderBy(c=>c.JourneyID).Include(c => c.Topic);
+                var conceptsPartial = db.Concepts.Include("Journey").Where(g => g.Journey.ID == 1).OrderBy(c => c.KeyWords).Include(c => c.Phase).OrderBy(c => c.JourneyID).Include(c => c.TopicConcept);
                 return PartialView(conceptsPartial);
             }
             else if (User.IsInRole("Client_2"))
             {
-                var conceptsPartial = db.Concepts.Include("Journey").Where(g => g.Journey.ID == 1 || g.Journey.ID == 2).Include(c => c.Subject).OrderBy(c => c.JourneyID).Include(c => c.Topic);
+                var conceptsPartial = db.Concepts.Include("Journey").Where(g => g.Journey.ID == 1 || g.Journey.ID == 2).Include(c => c.Phase).OrderBy(c => c.JourneyID).Include(c => c.TopicConcept);
                 return PartialView(conceptsPartial);
             }
-          else
+            else
             {
-                var conceptsPartial = db.Concepts.Include(c => c.Journey).Include(c => c.Subject).OrderBy(c => c.JourneyID).Include(c => c.Topic);
+                var conceptsPartial = db.Concepts.Include(c => c.Journey).Include(c => c.Phase).OrderBy(c => c.JourneyID).Include(c => c.TopicConcept);
                 return PartialView(conceptsPartial);
             }
 
@@ -85,7 +89,7 @@ namespace Projeto_KB.Controllers
         [Authorize(Roles = "Admin, Manager")]
         public async Task<ActionResult> Index()
         {
-            var concepts = db.Concepts.Include(c => c.Journey).Include(c => c.Subject).Include(c => c.Topic);
+            var concepts = db.Concepts.Include(c => c.Journey).Include(c => c.Phase).Include(c => c.TopicConcept);
             return View(await concepts.ToListAsync());
         }
         // GET: Concepts/Details/5
@@ -108,8 +112,8 @@ namespace Projeto_KB.Controllers
         public ActionResult Create()
         {
             ViewBag.JourneyID = new SelectList(db.Journeys, "ID", "Name");
-            ViewBag.SubjectID = new SelectList(db.Subjects, "ID", "Name");
-            ViewBag.TopicID = new SelectList(db.Topics, "ID", "Name");
+            ViewBag.PhaseID = new SelectList(db.Phases, "ID", "Name");
+            ViewBag.TopicConceptID = new SelectList(db.TopicConcepts, "ID", "Name");
             return View();
         }
 
@@ -120,7 +124,7 @@ namespace Projeto_KB.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
-        public async Task<ActionResult> Create([Bind(Include = "ID,Title,Text,ContentDate,KeyWords,JourneyID,TopicID,SubjectID")] Concept concept)
+        public async Task<ActionResult> Create([Bind(Include = "ID,Title,Text,ContentDate,KeyWords,JourneyID,TopicConceptID,PhaseID")] Concept concept)
         {
             if (ModelState.IsValid)
             {
@@ -130,8 +134,8 @@ namespace Projeto_KB.Controllers
             }
 
             ViewBag.JourneyID = new SelectList(db.Journeys, "ID", "Name", concept.JourneyID);
-            ViewBag.SubjectID = new SelectList(db.Subjects, "ID", "Name", concept.SubjectID);
-            ViewBag.TopicID = new SelectList(db.Topics, "ID", "Name", concept.TopicID);
+            ViewBag.PhaseID = new SelectList(db.Phases, "ID", "Name", concept.PhaseID);
+            ViewBag.TopicConceptID = new SelectList(db.TopicConcepts, "ID", "Name", concept.TopicConceptID);
             return View(concept);
         }
 
@@ -150,8 +154,8 @@ namespace Projeto_KB.Controllers
                 return HttpNotFound();
             }
             ViewBag.JourneyID = new SelectList(db.Journeys, "ID", "Name", concept.JourneyID);
-            ViewBag.SubjectID = new SelectList(db.Subjects, "ID", "Name", concept.SubjectID);
-            ViewBag.TopicID = new SelectList(db.Topics, "ID", "Name", concept.TopicID);
+            ViewBag.PhaseID = new SelectList(db.Phases, "ID", "Name", concept.PhaseID);
+            ViewBag.TopicConceptID = new SelectList(db.TopicConcepts, "ID", "Name", concept.TopicConceptID);
             return View(concept);
         }
 
@@ -162,7 +166,7 @@ namespace Projeto_KB.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
-        public async Task<ActionResult> Edit([Bind(Include = "ID,Title,Text,ContentDate,KeyWords,JourneyID,TopicID,SubjectID")] Concept concept)
+        public async Task<ActionResult> Edit([Bind(Include = "ID,Title,Text,ContentDate,KeyWords,JourneyID,TopicConceptID,PhaseID")] Concept concept)
         {
             if (ModelState.IsValid)
             {
@@ -171,8 +175,8 @@ namespace Projeto_KB.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.JourneyID = new SelectList(db.Journeys, "ID", "Name", concept.JourneyID);
-            ViewBag.SubjectID = new SelectList(db.Subjects, "ID", "Name", concept.SubjectID);
-            ViewBag.TopicID = new SelectList(db.Topics, "ID", "Name", concept.TopicID);
+            ViewBag.PhaseID = new SelectList(db.Phases, "ID", "Name", concept.PhaseID);
+            ViewBag.TopicConceptID = new SelectList(db.TopicConcepts, "ID", "Name", concept.TopicConceptID);
             return View(concept);
         }
 

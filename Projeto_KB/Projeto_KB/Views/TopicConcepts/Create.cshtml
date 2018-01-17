@@ -1,20 +1,17 @@
-﻿@model Projeto_KB.Models.Subject
+﻿@model Projeto_KB.Models.TopicConcept
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Create";
 }
+
 @{Layout = "~/Views/Shared/_ConceptsLayout.cshtml";}
-
-
 <body>
     <div class="CreateConcept">
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
-
             <div class="form-horizontal">
-                <h3 class="new">Editar Assunto</h3>
-
+                <h3 class="new">Novo Tópico Best</h3>
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
                     <div class="col-md-10">
@@ -25,18 +22,16 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Editar" class="btn btn-info button-small" />
+                        <input type="submit" value="Inserir" class="btn btn-info button-small" />
                     </div>
                 </div>
             </div>
 
         }
-        <div>
-        </div>
     </div>
     <p>
         <div>
-            <i class="fa fa-list"> @Html.ActionLink("  Lista de Assuntos", "Index")</i>
+            <i class="fa fa-list"> @Html.ActionLink("  Lista de Tópicos BEST", "Index")</i>
         </div>
     <p />
 </body>

@@ -1,12 +1,14 @@
-﻿@model Projeto_KB.Models.Subject
+﻿@model Projeto_KB.Models.Phase
 
 @{Layout = "~/Views/Shared/_ConceptsLayout.cshtml";}
-@{ViewBag.Title = "Apagar Assunto";}
+@{ViewBag.Title = "Apagar Etapa de Implementação";}
+
 <div class="SubjectBody">
-<h2 class="log" style="text-align:center">@ViewBag.Title</h2>
-<h3 class="new">De certeza que pretende apagar <span class="headers">@Html.DisplayFor(c=>c.Name)</span> ?</h3>
-    
-    @using (Html.BeginForm()) {
+    <h2 class="log" style="text-align:center">@ViewBag.Title</h2>
+    <h3 class="new">De certeza que pretende apagar <span class="headers">@Html.DisplayFor(c => c.Name)</span> ?</h3>
+
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
         <div class="registerFeature">
             <div style="text-align:center">

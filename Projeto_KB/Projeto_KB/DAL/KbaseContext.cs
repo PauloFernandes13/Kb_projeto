@@ -22,7 +22,9 @@ namespace Projeto_KB.DAL
         public DbSet<Milestone> Milestones { get; set; }
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<Topic> Topics { get; set; }
-        
+        public DbSet<Phase> Phases { get; set; }
+        public DbSet<TopicConcept> TopicConcepts { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

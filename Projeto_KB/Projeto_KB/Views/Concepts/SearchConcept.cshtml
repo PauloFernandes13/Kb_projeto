@@ -53,8 +53,8 @@ else
             <p> @Truncate(item.Text, 250)...</p>
             <div class="onSearchFaq">
                 <ol class="breadcrumb">
-                    <li class="onSearchFaq breadcrumb-item">@Html.DisplayFor(modelItem => item.Subject.Name)</li>
-                    <li class="onSearchFaq breadcrumb-item">@Html.DisplayFor(modelItem => item.Topic.Name)</li>
+                    <li class="onSearchFaq breadcrumb-item">@Html.DisplayFor(modelItem => item.Phase.Name)</li>
+                    <li class="onSearchFaq breadcrumb-item">@Html.DisplayFor(modelItem => item.TopicConcept.Name)</li>
                     <li class="onSearchFaq breadcrumb-item">@Html.ActionLink(item.Title, "Details", new { id = item.ID })</li>
                 </ol>
             </div>

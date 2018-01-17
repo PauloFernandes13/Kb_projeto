@@ -7,14 +7,12 @@ using System.Web;
 
 namespace Projeto_KB.Models
 {
-    public class Subject
+    public class Phase
     {
         public int ID { get; set; }
-        [StringLength(18, ErrorMessage = "O campo relativo a Assunto não pode ter mais de 18 caracteres")]
-        [DisplayName("Assunto")]
+        [DisplayName("Etapas BEST")]
         public string Name { get; set; }
-        public virtual ICollection<Faq> Faqs { get; set; }
-     
+        public virtual ICollection<Concept> Concepts { get; set; }
 
 
     }
