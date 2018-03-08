@@ -289,6 +289,18 @@
     <Compile Include="Migrations\201801050932267_TopicConcAllowNull.Designer.cs">
       <DependentUpon>201801050932267_TopicConcAllowNull.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802071657035_OrderConcepts.cs" />
+    <Compile Include="Migrations\201802071657035_OrderConcepts.Designer.cs">
+      <DependentUpon>201802071657035_OrderConcepts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802211512143_order to Order.cs" />
+    <Compile Include="Migrations\201802211512143_order to Order.Designer.cs">
+      <DependentUpon>201802211512143_order to Order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802211655471_Keywords%28ConceptsModel%29 to Order.cs" />
+    <Compile Include="Migrations\201802211655471_Keywords%28ConceptsModel%29 to Order.Designer.cs">
+      <DependentUpon>201802211655471_Keywords%28ConceptsModel%29 to Order.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Concept.cs" />
@@ -1158,6 +1170,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801050932267_TopicConcAllowNull.resx">
       <DependentUpon>201801050932267_TopicConcAllowNull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802071657035_OrderConcepts.resx">
+      <DependentUpon>201802071657035_OrderConcepts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802211512143_order to Order.resx">
+      <DependentUpon>201802211512143_order to Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802211655471_Keywords%28ConceptsModel%29 to Order.resx">
+      <DependentUpon>201802211655471_Keywords%28ConceptsModel%29 to Order.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

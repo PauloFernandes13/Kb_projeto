@@ -1,29 +1,60 @@
 ﻿@model IEnumerable<Projeto_KB.Models.TopicConcept>
-
-@{Layout = "~/Views/Shared/_ConceptsLayout.cshtml";}
+<head>
+    <meta charset="utf-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @{Layout = "~/Views/Shared/_ConceptsLayout.cshtml";}
+</head>
 
 @{ViewBag.Title = "Lista de Tópicos BEST";}
 
-<div class="SubjectBody">
-    <h2 class="title" style="text-align:center">@ViewBag.Title</h2>
-    <table class="table table-responsive table-striped table-bordered table-hove">
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td style="text-align:right">
-                    @Html.ActionLink("Editar", "Edit", new { id = item.ID }) |
-                    @Html.ActionLink("Apagar", "Delete", new { id = item.ID })
-                </td>
-            </tr>
-        }
-    </table>
-    <div class="registerFeature">
-        <div style="text-align:center">
-            <p>@Html.ActionLink("Inserir", "Create", "TopicConcepts", null, new { @class = "btn btn-info button-small" })</p>
+<div class="ConceptBody">
+    <h2 class="log" style="text-align:center">@ViewBag.Title</h2>
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fa fa-file-text-o"></i>
+            @Html.ActionLink("New Topic", "Create", "Topics", new { @class = "colorLink" })
+        </div>
+        <div class="card-body">
+            <div class="table responsive">
+                <table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Name)</th>
+                            <th>@Html.DisplayNameFor(model => model.Order)</th>
+                            <th>Manage Phase</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Name)</th>
+                            <th>@Html.DisplayNameFor(model => model.Order)</th>
+                            <th>Manage Concept</th>
+
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Order)
+                                </td>
+                                <td style="color:#b6ff00">
+                                    @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "colorLink" }) |
+                                    @Html.ActionLink("Apagar", "Delete", new { id = item.ID }, new { @class = "colorLink" })
+                                </td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer small text-muted">
+            BEST Topics
         </div>
     </div>
-
 </div>

@@ -3,12 +3,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title  Customer Success</title>
-    <script type="text/javascript" src="~/ckeditor/ckeditor.js"></script>
+    @{Layout = "~/Views/Shared/_ConceptsLayout.cshtml";}
 </head>
 @{
     ViewBag.Title = "Create";
 }
-@{Layout = "~/Views/Shared/_ConceptsLayout.cshtml";}
+
 <body>
     <div class="CreateConcept">
         @using (Html.BeginForm())
@@ -19,9 +19,16 @@
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
                     @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
+                    <div class="col-lg-10">
                         @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                    <div style="padding-top:10px">
+                        @Html.LabelFor(model => model.Order, htmlAttributes: new { @class = "control-label col-md-2" })
+                    </div>
+                    <div class="col-lg-2">
+                        @Html.EditorFor(model => model.Order, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Order, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
@@ -35,7 +42,7 @@
     </div>
     <p>
         <div>
-            <i class="fa fa-list"> @Html.ActionLink("  Lista de Etapas de Implementação", "Index")</i>
+            <i class="fa fa-list"> @Html.ActionLink("  Etapas de Implementação", "Index", "Phases", new { @class = "colorLink" })</i>
         </div>
     <p />
 </body>

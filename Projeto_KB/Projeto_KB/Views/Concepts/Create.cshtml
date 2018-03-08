@@ -4,6 +4,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title  Customer Success</title>
     <script type="text/javascript" src="~/ckeditor/ckeditor.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    
+    <script>
+        $(document).ready(function () {
+            if ($("#selectPhase").val() == "Importacao") {
+                $("#selectTopic").attr('disabled', 'disabled');
+            }
+            else {
+                $("#selectTopic").removeAttr('disabled');
+            }
+
+
+            $("#selectPhase").change(function () {
+
+                if ($(this).val() == "Importacao") {
+
+                    $("#selectTopic").attr('disabled', 'disabled');
+                }
+                else {
+                    $("#selectTopic").removeAttr('disabled');
+                }
+            });
+        });
+    </script>
 </head>
 
 @{Layout = "~/Views/Shared/_ConceptsLayout.cshtml";}
@@ -29,7 +53,7 @@
                     <span class="headers2"> @Html.LabelFor(model => model.PhaseID, "Etapa", htmlAttributes: new { @class = "control-label" })</span>
                     <div>
                         <div class="col-md-10">
-                            @Html.DropDownList("PhaseID", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.DropDownList("PhaseID", null, htmlAttributes: new { @class = "form-control", @id="selectPhase" })
                             @Html.ValidationMessageFor(model => model.PhaseID, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -38,7 +62,7 @@
                     <span class="headers2">@Html.LabelFor(model => model.TopicConceptID, "Tópico", htmlAttributes: new { @class = "control-label" })</span>
                     <div>
                         <div class="col-md-10">
-                            @Html.DropDownList("TopicConceptID", null,"", htmlAttributes: new { @class = "form-control" })
+                            @Html.DropDownList("TopicConceptID", null,"", htmlAttributes: new { @class = "form-control", @id="selectTopic" })
                             @Html.ValidationMessageFor(model => model.TopicConceptID, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -83,11 +107,11 @@
 
                     <div class="form-group">
                         <span class="headers2">
-                            @Html.LabelFor(model => model.KeyWords, htmlAttributes: new { @class = "control-label col-md-2" })
+                            @Html.LabelFor(model => model.Order, htmlAttributes: new { @class = "control-label col-md-2" })
                         </span>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.KeyWords, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.KeyWords, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.Order, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Order, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
@@ -105,5 +129,4 @@
     <p><div>
         <i class="fa fa-list"> @Html.ActionLink("  BEST Concepts List", "Index")</i>
     </div><p/>
-
 </body>

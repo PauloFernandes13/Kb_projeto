@@ -28,7 +28,7 @@ namespace Projeto_KB.Controllers
             {
                  ViewBag.dataSearch = SearchConcepts;
                 var search = db.Concepts.Include(f => f.Journey).Where(g => g.Journey.ID == 1).Include(f => f.Phase).Include(f => f.TopicConcept)
-                        .Where(r => r.KeyWords.Contains(SearchConcepts) || r.Text.Contains(SearchConcepts) || r.Phase.Name.Contains(SearchConcepts)
+                        .Where(r => r.Order.Contains(SearchConcepts) || r.Text.Contains(SearchConcepts) || r.Phase.Name.Contains(SearchConcepts)
                         || r.TopicConcept.Name.Contains(SearchConcepts));
 
                 return View(search);
@@ -37,7 +37,7 @@ namespace Projeto_KB.Controllers
             {
                 ViewBag.dataSearch = SearchConcepts;
                 var search = db.Concepts.Include(f => f.Journey).Where(g => g.Journey.ID == 1 || g.JourneyID == 2).Include(f => f.Phase).Include(f => f.TopicConcept)
-                        .Where(r => r.KeyWords.Contains(SearchConcepts) || r.Text.Contains(SearchConcepts) || r.Phase.Name.Contains(SearchConcepts)
+                        .Where(r => r.Order.Contains(SearchConcepts) || r.Text.Contains(SearchConcepts) || r.Phase.Name.Contains(SearchConcepts)
                         || r.TopicConcept.Name.Contains(SearchConcepts));
 
                 return View(search);
@@ -46,7 +46,7 @@ namespace Projeto_KB.Controllers
             {
                 ViewBag.dataSearch = SearchConcepts;
                 var search = db.Concepts.Include(f => f.Journey).Include(f => f.Phase).Include(f => f.TopicConcept)
-                        .Where(r => r.KeyWords.Contains(SearchConcepts) || r.Text.Contains(SearchConcepts) || r.Phase.Name.Contains(SearchConcepts)
+                        .Where(r => r.Order.Contains(SearchConcepts) || r.Text.Contains(SearchConcepts) || r.Phase.Name.Contains(SearchConcepts)
                         || r.TopicConcept.Name.Contains(SearchConcepts));
 
                 return View(search);
@@ -69,17 +69,17 @@ namespace Projeto_KB.Controllers
 
             if (User.IsInRole("Client_1"))
             {
-                var conceptsPartial = db.Concepts.Include("Journey").Where(g => g.Journey.ID == 1).OrderBy(c => c.KeyWords).Include(c => c.Phase).OrderBy(c => c.JourneyID).Include(c => c.TopicConcept);
+                var conceptsPartial = db.Concepts.Include("Journey").Where(g => g.Journey.ID == 1).Include(c => c.Phase).Include(c => c.TopicConcept).OrderBy(c => c.TopicConcept.Order);
                 return PartialView(conceptsPartial);
             }
             else if (User.IsInRole("Client_2"))
             {
-                var conceptsPartial = db.Concepts.Include("Journey").Where(g => g.Journey.ID == 1 || g.Journey.ID == 2).Include(c => c.Phase).OrderBy(c => c.JourneyID).Include(c => c.TopicConcept);
+                var conceptsPartial = db.Concepts.Include("Journey").Where(g => g.Journey.ID == 1 || g.Journey.ID == 2).Include(c => c.Phase).Include(c => c.TopicConcept).OrderBy(c=>c.TopicConcept.Order);
                 return PartialView(conceptsPartial);
             }
             else
             {
-                var conceptsPartial = db.Concepts.Include(c => c.Journey).Include(c => c.Phase).OrderBy(c => c.JourneyID).Include(c => c.TopicConcept);
+                var conceptsPartial = db.Concepts.Include(c => c.Journey).Include(c => c.Phase).Include(c => c.TopicConcept).OrderBy(c => c.TopicConcept.Order);
                 return PartialView(conceptsPartial);
             }
 

@@ -38,13 +38,13 @@ namespace Projeto_KB.DAL
             {
                 new
                 Concept {JourneyID=1,Title="Reunião de Arranque",Text="Deadlines Implementacion",
-                         ContentDate=DateTime.Parse("2016-03-21"),KeyWords="Meetings"},
+                         ContentDate=DateTime.Parse("2016-03-21"),Order="Meetings"},
                 new
                 Concept {JourneyID=2,Title="Installation",Text="Deadlines Installation",
-                         ContentDate=DateTime.Parse("2016-04-21"),KeyWords="Installation"},
+                         ContentDate=DateTime.Parse("2016-04-21"),Order="Installation"},
                 new
                 Concept {JourneyID=3,Title="Generation", Text="Formation",
-                         ContentDate=DateTime.Parse("2016-04-22"),KeyWords="Formation"},
+                         ContentDate=DateTime.Parse("2016-04-22"),Order="Formation"},
 
 
             };

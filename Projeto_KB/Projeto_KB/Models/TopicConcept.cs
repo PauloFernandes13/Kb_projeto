@@ -12,6 +12,7 @@ namespace Projeto_KB.Models
         public int ID { get; set; }
         [DisplayName("Tópicos BEST")]
         public string Name { get; set; }
+        public int Order { get; set; }
         public virtual ICollection<Concept> Concepts { get; set; }
     }
 }

@@ -6,10 +6,7 @@
 </head>
 @{int i = 0;}
 @{int a = 0;}
-
-
-
-@foreach (var groupPhase in Model.GroupBy(p => p.Phase))
+@foreach (var groupPhase in Model.GroupBy(p => p.Phase).OrderBy(p => p.Key.Order))
 {
     int phaseConcepts = groupPhase.Count();
 
@@ -37,23 +34,28 @@
             </a>
             <ul class="sidenav-second-level collapse" id="collapseMulti_@i">
 
+
                 @foreach (var topicGroup in groupPhase.GroupBy(t => t.TopicConcept))
                 {
                     int topicConcepts = topicGroup.Count();
-                    var topic = topicGroup.FirstOrDefault().TopicConcept;
-                    if (topicConcepts == 1 && topic != null)
+                    var topic = topicGroup.FirstOrDefault();
+                    if (topicConcepts == 1 && topic.TopicConcept != null)
                     {
                         <li>
-                            <a class="nav-link" href="#collapseMulti2_@a" style="margin-top:-20px">@Html.Encode(topicGroup.Key.Name)</a>
+                            <a class="nav-link" href="@Url.Action("Details", "Concepts", new { id = topic.ID})" style="margin-top:-20px">@Html.Encode(topicGroup.Key.Name)</a>
                         </li>
                     }
 
                     else if (topicConcepts > 1)
                     {
+                        
                         <li>
-                            <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2_@a" style="margin-top:-20px">@Html.Encode(topicGroup.Key.Name)</a>
+                            <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2_@a" style="margin-top:-20px">
+                                <span onclick = "window.location = '@Url.Action("Details", "Concepts", new { id = topic.ID})';">
+                                    @Html.Encode(topicGroup.Key.Name)
+                                </span></a>
 
-                            @foreach (var item in topicGroup)
+                            @foreach (var item in topicGroup.OrderBy(t=>t.Order))
                             {
                                 if (item.Title != null)
                                 {
@@ -68,7 +70,7 @@
 
                     }
                     a++;
-                }
+                
 
                 }
             </ul>

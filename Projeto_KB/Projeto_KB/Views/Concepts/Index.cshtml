@@ -23,7 +23,7 @@ else
     <div class="card mb-3">
         <div class="card-header">
             <i class="fa fa-file-text-o"></i>
-            @Html.ActionLink("New Concept", "Create", "Concepts")
+            @Html.ActionLink("New Concept", "Create", "Concepts", new { @class="colorLink"})
         </div>
         <div class="card-body">
             <div class="table responsive">
@@ -31,8 +31,8 @@ else
                     <thead>
                         <tr>
                             <th>@Html.DisplayNameFor(model => model.Journey.Name)</th>
-                            <th><a href="@Url.Action("Index", "Phases")">Etapas BEST</a></th>
-                            <th><a href="@Url.Action("Index", "TopicConcepts")">Tópicos BEST</a></th>
+                            <th class="colorLink"><a class="colorLink" href="@Url.Action("Index", "Phases")">Etapas BEST</a></th>
+                            <th class="colorLink"><a class="colorLink" href="@Url.Action("Index", "TopicConcepts")">Tópicos BEST</a></th>
                             <th>@Html.DisplayNameFor(model => model.Title)</th>
                             <th>@Html.DisplayNameFor(model => model.Text)</th>
                             <th>Manage Concept</th>
@@ -58,9 +58,9 @@ else
                                 <td>@Html.DisplayFor(modelItem => item.TopicConcept.Name)</td>
                                 <td>@Html.DisplayFor(modelItem => item.Title)</td>
                                 <td>@Truncate(item.Text, 25)</td>
-                                <td>@Html.ActionLink("View", "Details", new { id = item.ID }) |
-                                 @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = item.ID })</td>
+                                <td style="color:#b6ff00">@Html.ActionLink("View", "Details", new { id = item.ID }, new { @class="colorLink"}) |
+                                 @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "colorLink" }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "colorLink" })</td>
                             </tr>
                         }
                     </tbody>

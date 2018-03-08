@@ -48,7 +48,7 @@ namespace Projeto_KB.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID,Name")] TopicConcept topicConcept)
+        public async Task<ActionResult> Create([Bind(Include = "ID,Name,Order")] TopicConcept topicConcept)
         {
             if (ModelState.IsValid)
             {
@@ -80,7 +80,7 @@ namespace Projeto_KB.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ID,Name")] TopicConcept topicConcept)
+        public async Task<ActionResult> Edit([Bind(Include = "ID,Name,Order")] TopicConcept topicConcept)
         {
             if (ModelState.IsValid)
             {
