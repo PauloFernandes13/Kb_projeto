@@ -116,7 +116,7 @@ namespace Projeto_KB.Controllers
             ViewBag.comparePhase = JsonConvert.SerializeObject(uniquePhase); 
 
             ViewBag.JourneyID = new SelectList(db.Journeys, "ID", "Name");
-            ViewBag.PhaseID = new SelectList(db.Phases, "Name", "Name");
+            ViewBag.PhaseID = new SelectList(db.Phases, "ID", "Name");
             ViewBag.TopicConceptID = new SelectList(db.TopicConcepts, "ID", "Name");
             return View();
         }

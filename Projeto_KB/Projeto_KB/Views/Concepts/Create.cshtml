@@ -7,18 +7,19 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     <script>
         var phases = @Html.Raw(ViewBag.comparePhase);
+        
+        //verificar sincronização.
         $(document).ready(function () {
+            var phaseDropDown = $("select#selectPhase").val();
+            ////*$("#selectPhase").change(function () {
+            //    if ($(this).val  == "IIS") {
 
-            $("#selectPhase").change(function () {
-
-                if ($(this).val  == "IIS") {
-
-                    $("#selectTopic").prop('disabled', true);
-                }
-                else {
-                    $("#selectTopic").removeAttr('disabled');
-                }
-            });
+            //        $("#selectTopic").prop('disabled', true);
+            //    }
+            //    else {
+            //        $("#selectTopic").removeAttr('disabled');
+            //    }
+            //});
         });
     </script>
 </head>

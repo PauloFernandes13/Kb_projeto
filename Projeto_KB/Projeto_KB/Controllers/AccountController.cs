@@ -13,11 +13,11 @@ using System.Collections.Generic;
 
 namespace Projeto_KB.Controllers
 {
-    //teste
+    
     [Authorize(Roles ="Admin")]
     public class AccountController : Controller
     {
-       //teste 2
+       
         private ApplicationDbContext db = new ApplicationDbContext();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
