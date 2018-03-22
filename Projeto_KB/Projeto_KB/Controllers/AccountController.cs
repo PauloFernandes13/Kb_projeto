@@ -13,6 +13,7 @@ using System.Collections.Generic;
 
 namespace Projeto_KB.Controllers
 {
+    //teste
     [Authorize(Roles ="Admin")]
     public class AccountController : Controller
     {
