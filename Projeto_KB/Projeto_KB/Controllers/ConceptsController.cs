@@ -111,12 +111,15 @@ namespace Projeto_KB.Controllers
         [Authorize(Roles = "Admin, Manager")]
         public ActionResult Create()
         {
+            //if(conceptsPhase.Count()==1)
+            ViewBag.uniquePhase = (from dbPhases in db.Concepts
+                               select dbPhases.Phase.ID).Distinct().OrderBy(name => name); //nome da variavel é irrelevante em Order, já foi feito o Select, só irá ordenar os nomes
             ViewBag.JourneyID = new SelectList(db.Journeys, "ID", "Name");
-            ViewBag.PhaseID = new SelectList(db.Phases, "ID", "Name");
+            ViewBag.PhaseID = new SelectList(db.Phases, "Name", "Name");
             ViewBag.TopicConceptID = new SelectList(db.TopicConcepts, "ID", "Name");
             return View();
         }
-
+        
         // POST: Concepts/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.

@@ -5,22 +5,13 @@
     <title>@ViewBag.Title  Customer Success</title>
     <script type="text/javascript" src="~/ckeditor/ckeditor.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-    
     <script>
         $(document).ready(function () {
-            if ($("#selectPhase").val() == "Importacao") {
-                $("#selectTopic").attr('disabled', 'disabled');
-            }
-            else {
-                $("#selectTopic").removeAttr('disabled');
-            }
-
-
             $("#selectPhase").change(function () {
 
-                if ($(this).val() == "Importacao") {
+                if ($(this).ViewBag.uniquePhase == "IIS") {
 
-                    $("#selectTopic").attr('disabled', 'disabled');
+                    $("#selectTopic").prop('disabled', true);
                 }
                 else {
                     $("#selectTopic").removeAttr('disabled');
@@ -53,7 +44,7 @@
                     <span class="headers2"> @Html.LabelFor(model => model.PhaseID, "Etapa", htmlAttributes: new { @class = "control-label" })</span>
                     <div>
                         <div class="col-md-10">
-                            @Html.DropDownList("PhaseID", null, htmlAttributes: new { @class = "form-control", @id="selectPhase" })
+                            @Html.DropDownList("PhaseID", null,htmlAttributes: new { @class = "form-control", @id="selectPhase"})
                             @Html.ValidationMessageFor(model => model.PhaseID, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -129,4 +120,9 @@
     <p><div>
         <i class="fa fa-list"> @Html.ActionLink("  BEST Concepts List", "Index")</i>
     </div><p/>
+   
 </body>
+
+
+
+    
