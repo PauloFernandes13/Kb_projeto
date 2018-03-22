@@ -6,10 +6,12 @@
     <script type="text/javascript" src="~/ckeditor/ckeditor.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     <script>
+        var phases = @Html.Raw(ViewBag.comparePhase);
         $(document).ready(function () {
+
             $("#selectPhase").change(function () {
 
-                if ($(this).ViewBag.uniquePhase == "IIS") {
+                if ($(this).val  == "IIS") {
 
                     $("#selectTopic").prop('disabled', true);
                 }

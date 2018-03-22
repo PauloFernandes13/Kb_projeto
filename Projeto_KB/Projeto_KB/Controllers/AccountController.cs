@@ -16,7 +16,7 @@ namespace Projeto_KB.Controllers
     [Authorize(Roles ="Admin")]
     public class AccountController : Controller
     {
-       
+       teste2
         private ApplicationDbContext db = new ApplicationDbContext();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;

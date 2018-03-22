@@ -9,8 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using Projeto_KB.DAL;
 using Projeto_KB.Models;
-
-
+using Newtonsoft.Json;
 
 namespace Projeto_KB.Controllers
 {   
@@ -111,9 +110,11 @@ namespace Projeto_KB.Controllers
         [Authorize(Roles = "Admin, Manager")]
         public ActionResult Create()
         {
-            //if(conceptsPhase.Count()==1)
-            ViewBag.uniquePhase = (from dbPhases in db.Concepts
-                               select dbPhases.Phase.ID).Distinct().OrderBy(name => name); //nome da variavel é irrelevante em Order, já foi feito o Select, só irá ordenar os nomes
+            
+            var uniquePhase = (from dbPhases in db.Concepts //etapas para validar inserção de conteudos
+            select dbPhases.Phase.ID).Distinct().OrderBy(name => name); //nome da variavel é irrelevante em Order, já foi feito o Select, só irá ordenar os nomes
+            ViewBag.comparePhase = JsonConvert.SerializeObject(uniquePhase); 
+
             ViewBag.JourneyID = new SelectList(db.Journeys, "ID", "Name");
             ViewBag.PhaseID = new SelectList(db.Phases, "Name", "Name");
             ViewBag.TopicConceptID = new SelectList(db.TopicConcepts, "ID", "Name");
