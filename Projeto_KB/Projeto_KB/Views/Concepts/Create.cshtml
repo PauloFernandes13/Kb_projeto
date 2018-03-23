@@ -8,9 +8,14 @@
     <script>
         var phases = @Html.Raw(ViewBag.comparePhase);
         
-        //verificar sincronização.
         $(document).ready(function () {
-            var phaseDropDown = $("select#selectPhase").val();
+            var showMessageA = function () {
+                alert($('#selectPhase option:selected').val());
+            }
+
+            $('#checkA').on('click', showMessageA);
+
+            //var phaseDropDown = $('select[name=PhaseID]').val();
             ////*$("#selectPhase").change(function () {
             //    if ($(this).val  == "IIS") {
 
@@ -123,6 +128,8 @@
     <p><div>
         <i class="fa fa-list"> @Html.ActionLink("  BEST Concepts List", "Index")</i>
     </div><p/>
+    
+    <button id="checkA">Check first selector in the code</button>
    
 </body>
 
