@@ -6,19 +6,30 @@
     <script type="text/javascript" src="~/ckeditor/ckeditor.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     <script>
-        var phases = @Html.Raw(ViewBag.comparePhase);
-        //Teste sincronização
         $(document).ready(function () {
-            var showMessageA = function () {
-                alert($('#selectPhase option:selected').val());
+            var phases = @Html.Raw(ViewBag.comparePhase);
+               
+            
+            $("#selectPhase").change(function(){
+            var selectPhase = $("#selectPhase option:selected").val();
+            var intParsePhase = parseInt(selectPhase); 
+            
+            if($.inArray(intParsePhase, phases) > -1)
+            {
+                $("#selectTopic").prop('disabled', true);
+                $("#selectTopic option:selected").attr("selected", null);
+                
             }
-
-            $('#checkA').on('click', showMessageA);
-
-            //var phaseDropDown = $('select[name=PhaseID]').val();
-            ////*$("#selectPhase").change(function () {
-            //    if ($(this).val  == "IIS") {
-
+            else
+            {
+                $("#selectTopic").removeAttr('disabled', "");
+               
+            }
+            });
+            
+            //$.each(phases,function(index, element){
+            //    if (element  === intParsePhase ) {
+                    
             //        $("#selectTopic").prop('disabled', true);
             //    }
             //    else {
@@ -52,7 +63,7 @@
                     <span class="headers2"> @Html.LabelFor(model => model.PhaseID, "Etapa", htmlAttributes: new { @class = "control-label" })</span>
                     <div>
                         <div class="col-md-10">
-                            @Html.DropDownList("PhaseID", null,htmlAttributes: new { @class = "form-control", @id="selectPhase"})
+                            @Html.DropDownList("PhaseID", null, htmlAttributes: new { @class = "form-control", @id = "selectPhase" })
                             @Html.ValidationMessageFor(model => model.PhaseID, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -61,78 +72,79 @@
                     <span class="headers2">@Html.LabelFor(model => model.TopicConceptID, "Tópico", htmlAttributes: new { @class = "control-label" })</span>
                     <div>
                         <div class="col-md-10">
-                            @Html.DropDownList("TopicConceptID", null,"", htmlAttributes: new { @class = "form-control", @id="selectTopic" })
+                            @Html.DropDownList("TopicConceptID", null, "", htmlAttributes: new { @class = "form-control", @id = "selectTopic" })
                             @Html.ValidationMessageFor(model => model.TopicConceptID, "", new { @class = "text-danger" })
                         </div>
                     </div>
                 </div>
             </div>
             <hr />
-                <div class="form-horizontal">
-                    <div class="form-group">
-                        <span class="headers2">
-                            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-                        </span>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <span class="headers2">
-                            @Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" })
-                        </span>
-                        <div class="col-md-10">
-                            @Html.TextAreaFor(model => model.Text, new { @id = "editor1", @name = "editor1" })
-                            <script type="text/javascript">
-                                CKEDITOR.replace('editor1', {
-                                    filebrowserImageBrowseUrl: '/home/uploadPartial',
-                                    filebrowserImageUploadUrl: '/home/uploadnow'
-                                });</script>
-                            @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <span class="headers2">
-                            @Html.LabelFor(model => model.ContentDate, htmlAttributes: new { @class = "control-label col-md-2" })
-                        </span>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.ContentDate, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.ContentDate, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <span class="headers2">
-                            @Html.LabelFor(model => model.Order, htmlAttributes: new { @class = "control-label col-md-2" })
-                        </span>
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Order, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Order, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Insert" class="btn btn-info button-small" />
-                        </div>
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <span class="headers2">
+                        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                    </span>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <span class="headers2">
+                        @Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" })
+                    </span>
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Text, new { @id = "editor1", @name = "editor1" })
+                        <script type="text/javascript">
+                            CKEDITOR.replace('editor1', {
+                                filebrowserImageBrowseUrl: '/home/uploadPartial',
+                                filebrowserImageUploadUrl: '/home/uploadnow'
+                            });</script>
+                        @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <span class="headers2">
+                        @Html.LabelFor(model => model.ContentDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                    </span>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ContentDate, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ContentDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <span class="headers2">
+                        @Html.LabelFor(model => model.Order, htmlAttributes: new { @class = "control-label col-md-2" })
+                    </span>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Order, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Order, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Insert" class="btn btn-info button-small" />
+                    </div>
+                </div>
+            </div>
         }
 
 
     </div>
-    <p><div>
-        <i class="fa fa-list"> @Html.ActionLink("  BEST Concepts List", "Index")</i>
-    </div><p/>
-    
-    <button id="checkA">Check first selector in the code</button>
-   
+    <p>
+        <div>
+            <i class="fa fa-list"> @Html.ActionLink("  BEST Concepts List", "Index")</i>
+        </div>
+    <p />
+
+
 </body>
 
 
 
-    
+
