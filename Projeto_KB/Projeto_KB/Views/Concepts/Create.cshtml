@@ -13,20 +13,29 @@
             $("#selectPhase").change(function(){
             var selectPhase = $("#selectPhase option:selected").val();
             var intParsePhase = parseInt(selectPhase); 
-            
-            if($.inArray(intParsePhase, phases) > -1)
+
+                if ($.inArray(intParsePhase, phases) === -1)    //if exist...> -1 if not exist ....=== 1
             {
-                $("#selectTopic").prop('disabled', true);
-                $("#selectTopic option:selected").attr("selected", null);
-                
+                  
+                    $("#selectTopic, #Title").prop('disabled', true)
+                                             .val('');
+                    
+                    //$("#selectPhase option:[value='']").attr("selected", true);
+            
             }
             else
             {
-                $("#selectTopic").removeAttr('disabled', "");
+                $("#selectTopic, #Title").removeAttr('disabled', "");
                
             }
             });
-            
+
+             //re-enable the form when is submit
+            //$("form").submit(function () {
+              //  $("#yourDropdown").prop("disabled", false);
+            //});
+
+
             //$.each(phases,function(index, element){
             //    if (element  === intParsePhase ) {
                     
