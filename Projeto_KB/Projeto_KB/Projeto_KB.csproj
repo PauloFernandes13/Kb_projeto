@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -300,6 +301,10 @@
     <Compile Include="Migrations\201802211655471_Keywords%28ConceptsModel%29 to Order.cs" />
     <Compile Include="Migrations\201802211655471_Keywords%28ConceptsModel%29 to Order.Designer.cs">
       <DependentUpon>201802211655471_Keywords%28ConceptsModel%29 to Order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803291348504_adicionar journey a Phase.cs" />
+    <Compile Include="Migrations\201803291348504_adicionar journey a Phase.Designer.cs">
+      <DependentUpon>201803291348504_adicionar journey a Phase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -1179,6 +1184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802211655471_Keywords%28ConceptsModel%29 to Order.resx">
       <DependentUpon>201802211655471_Keywords%28ConceptsModel%29 to Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803291348504_adicionar journey a Phase.resx">
+      <DependentUpon>201803291348504_adicionar journey a Phase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

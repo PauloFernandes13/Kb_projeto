@@ -64,8 +64,6 @@ namespace Projeto_KB.Controllers
         public ActionResult ConceptsPartialView()
         {
 
-           
-
             if (User.IsInRole("Client_1"))
             {
                 var conceptsPartial = db.Concepts.Include("Journey").Where(g => g.Journey.ID == 1).Include(c => c.Phase).Include(c => c.TopicConcept).OrderBy(c => c.TopicConcept.Order);
@@ -110,10 +108,14 @@ namespace Projeto_KB.Controllers
         [Authorize(Roles = "Admin, Manager")]
         public ActionResult Create()
         {
-            
+
+            var uniqueTopic = (from dbTopics in db.Concepts 
+            select dbTopics.TopicConceptID).Distinct().OrderBy(name => name) ; //topicos para validar inserção de conteúdos
+            ViewBag.compareTopic = JsonConvert.SerializeObject(uniqueTopic);//valores podem vir nulos.
+
             var uniquePhase = (from dbPhases in db.Concepts //etapas para validar inserção de conteudos
-            select dbPhases.Phase.ID).Distinct().OrderBy(name => name); //nome da variavel é irrelevante em Order, já foi feito o Select, só irá ordenar os nomes
-            ViewBag.comparePhase = JsonConvert.SerializeObject(uniquePhase); 
+            select dbPhases.PhaseID).Distinct().OrderBy(name => name); //nome da variavel é irrelevante em Order, já foi feito o Select, só irá ordenar os nomes
+            ViewBag.comparePhase = JsonConvert.SerializeObject(uniquePhase);//valores podem vir nulos.
 
             ViewBag.JourneyID = new SelectList(db.Journeys, "ID", "Name");
             ViewBag.PhaseID = new SelectList(db.Phases, "ID", "Name");

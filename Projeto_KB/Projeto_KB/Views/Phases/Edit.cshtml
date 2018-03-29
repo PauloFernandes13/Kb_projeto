@@ -25,6 +25,13 @@
                         @Html.EditorFor(model => model.Order, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Order, "", new { @class = "text-danger" })
                     </div>
+                    <div style="padding-top:10px">
+                        @Html.LabelFor(model => model.JourneyID, "Journey", htmlAttributes: new { @class = "control-label col-md-2" })
+                    </div>
+                    <div class="col-lg-2">
+                        @Html.DropDownList("JourneyID", null, "", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.JourneyID, "", new { @class = "text-danger" })
+                    </div>
                 </div>
 
                 <div class="form-group">

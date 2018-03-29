@@ -8,20 +8,18 @@
     <script>
         $(document).ready(function () {
             var phases = @Html.Raw(ViewBag.comparePhase);
-               
-            
+            var topics = @Html.Raw(ViewBag.compareTopic);  
+
+            //JQUERY valida inserção relacionada com Etapas
             $("#selectPhase").change(function(){
             var selectPhase = $("#selectPhase option:selected").val();
             var intParsePhase = parseInt(selectPhase); 
 
-                if ($.inArray(intParsePhase, phases) === -1)    //if exist...> -1 if not exist ....=== 1
+                if ($.inArray(intParsePhase, phases) === -1)    //if exist...> -1 if not exist ....=== - 1
             {
                   
                     $("#selectTopic, #Title").prop('disabled', true)
                                              .val('');
-                    
-                    //$("#selectPhase option:[value='']").attr("selected", true);
-            
             }
             else
             {
@@ -29,22 +27,23 @@
                
             }
             });
+            //JQUERY valida inserção relacionada com Topicos
+            $("#selectPhase").change(function () {
+                var selectPhase = $("#selectPhase option:selected").val();
+                var intParsePhase = parseInt(selectPhase);
 
-             //re-enable the form when is submit
-            //$("form").submit(function () {
-              //  $("#yourDropdown").prop("disabled", false);
-            //});
+                if ($.inArray(intParsePhase, phases) === -1)    //if exist...> -1 if not exist ....=== - 1
+                {
 
+                    $("#selectTopic, #Title").prop('disabled', true)
+                        .val('');
+                }
+                else {
+                    $("#selectTopic, #Title").removeAttr('disabled', "");
 
-            //$.each(phases,function(index, element){
-            //    if (element  === intParsePhase ) {
-                    
-            //        $("#selectTopic").prop('disabled', true);
-            //    }
-            //    else {
-            //        $("#selectTopic").removeAttr('disabled');
-            //    }
-            //});
+                }
+            });
+             
         });
     </script>
 </head>
