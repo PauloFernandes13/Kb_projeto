@@ -12,7 +12,7 @@ using Projeto_KB.Models;
 using Newtonsoft.Json;
 
 namespace Projeto_KB.Controllers
-{   
+{
     [Authorize]
     public class ConceptsController : Controller
     {
@@ -22,10 +22,10 @@ namespace Projeto_KB.Controllers
         //Search Concepts
         public ActionResult SearchConcept(string SearchConcepts)
         {
-           
+
             if (User.IsInRole("Client_1"))
             {
-                 ViewBag.dataSearch = SearchConcepts;
+                ViewBag.dataSearch = SearchConcepts;
                 var search = db.Concepts.Include(f => f.Journey).Where(g => g.Journey.ID == 1).Include(f => f.Phase).Include(f => f.TopicConcept)
                         .Where(r => r.Order.Contains(SearchConcepts) || r.Text.Contains(SearchConcepts) || r.Phase.Name.Contains(SearchConcepts)
                         || r.TopicConcept.Name.Contains(SearchConcepts));
@@ -71,7 +71,7 @@ namespace Projeto_KB.Controllers
             }
             else if (User.IsInRole("Client_2"))
             {
-                var conceptsPartial = db.Concepts.Include("Journey").Where(g => g.Journey.ID == 1 || g.Journey.ID == 2).Include(c => c.Phase).Include(c => c.TopicConcept).OrderBy(c=>c.TopicConcept.Order);
+                var conceptsPartial = db.Concepts.Include("Journey").Where(g => g.Journey.ID == 1 || g.Journey.ID == 2).Include(c => c.Phase).Include(c => c.TopicConcept).OrderBy(c => c.TopicConcept.Order);
                 return PartialView(conceptsPartial);
             }
             else
@@ -109,20 +109,21 @@ namespace Projeto_KB.Controllers
         public ActionResult Create()
         {
 
-            var uniqueTopic = (from dbTopics in db.Concepts 
-            select dbTopics.TopicConceptID).Distinct().OrderBy(name => name) ; //topicos para validar inserção de conteúdos
+            var uniqueTopic = (from dbTopics in db.Concepts
+                               select dbTopics.TopicConceptID).Distinct().OrderBy(name => name); //topicos para validar inserção de conteúdos
             ViewBag.compareTopic = JsonConvert.SerializeObject(uniqueTopic);//valores podem vir nulos.
 
             var uniquePhase = (from dbPhases in db.Concepts //etapas para validar inserção de conteudos
-            select dbPhases.PhaseID).Distinct().OrderBy(name => name); //nome da variavel é irrelevante em Order, já foi feito o Select, só irá ordenar os nomes
+                               select dbPhases.Phase.ID).Distinct().OrderBy(name => name); //nome da variavel é irrelevante em Order, já foi feito o Select, só irá ordenar os nomes
             ViewBag.comparePhase = JsonConvert.SerializeObject(uniquePhase);//valores podem vir nulos.
 
-            ViewBag.JourneyID = new SelectList(db.Journeys, "ID", "Name");
+            ViewBag.JourneyList = new SelectList(GetJourneyList(), "ID", "Name"); 
+            //ViewBag.JourneyID = new SelectList(db.Journeys, "ID", "Name");
             ViewBag.PhaseID = new SelectList(db.Phases, "ID", "Name");
             ViewBag.TopicConceptID = new SelectList(db.TopicConcepts, "ID", "Name");
             return View();
         }
-        
+
         // POST: Concepts/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -143,6 +144,21 @@ namespace Projeto_KB.Controllers
             ViewBag.PhaseID = new SelectList(db.Phases, "ID", "Name", concept.PhaseID);
             ViewBag.TopicConceptID = new SelectList(db.TopicConcepts, "ID", "Name", concept.TopicConceptID);
             return View(concept);
+        }
+
+        //GET: Lista de Journeys para ligar(Bind) em DropDown, Jorney, Phases e TopicConcept ....
+        public List<Journey> GetJourneyList()
+        {
+            List<Journey> journeys = db.Journeys.ToList();
+            return journeys;
+        }
+
+        //GET: Lista de Phases para ligar(Bind) em DropDown, Jorney, Phases e TopicConcept ....
+        public List<Phase> GetPhaseList(int journeyId)
+        {
+            List<Phase> phaseList = db.Phases.Where(x => x.JourneyID == journeyId).ToList();
+            return phaseList; 
+
         }
 
         // GET: Concepts/Edit/5

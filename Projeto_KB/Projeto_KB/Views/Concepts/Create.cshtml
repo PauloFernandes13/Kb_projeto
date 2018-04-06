@@ -8,27 +8,10 @@
     <script>
         $(document).ready(function () {
             var phases = @Html.Raw(ViewBag.comparePhase);
-            var topics = @Html.Raw(ViewBag.compareTopic);  
+            var topics = @Html.Raw(ViewBag.compareTopic);
 
             //JQUERY valida inserção relacionada com Etapas
             $("#selectPhase").change(function(){
-            var selectPhase = $("#selectPhase option:selected").val();
-            var intParsePhase = parseInt(selectPhase); 
-
-                if ($.inArray(intParsePhase, phases) === -1)    //if exist...> -1 if not exist ....=== - 1
-            {
-                  
-                    $("#selectTopic, #Title").prop('disabled', true)
-                                             .val('');
-            }
-            else
-            {
-                $("#selectTopic, #Title").removeAttr('disabled', "");
-               
-            }
-            });
-            //JQUERY valida inserção relacionada com Topicos
-            $("#selectPhase").change(function () {
                 var selectPhase = $("#selectPhase option:selected").val();
                 var intParsePhase = parseInt(selectPhase);
 
@@ -36,14 +19,31 @@
                 {
 
                     $("#selectTopic, #Title").prop('disabled', true)
-                        .val('');
+                                             .val('');
                 }
-                else {
+                else
+                {
                     $("#selectTopic, #Title").removeAttr('disabled', "");
 
                 }
             });
-             
+            //JQUERY valida inserção relacionada com Topicos
+            $("#selectTopic").change(function () {
+                var selectTopic = $("#selectTopic option:selected").val();
+                var intParseTopic = parseInt(selectTopic);
+
+                if ($.inArray(intParseTopic, topics) === -1)    //if exist...> -1 if not exist ....=== - 1
+                {
+
+                    $("#Title").prop('disabled', true)
+                        .val('');
+                }
+                else {
+                    $("#Title").removeAttr('disabled', "");
+
+                }
+            });
+
         });
     </script>
 </head>
@@ -62,8 +62,11 @@
                     <span class="headers2">@Html.LabelFor(model => model.JourneyID, "Journey", htmlAttributes: new { @class = "control-label" })</span>
                     <div>
                         <div class="col-md-10">
-                            @Html.DropDownList("JourneyID", null, htmlAttributes: new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.JourneyID, "", new { @class = "text-danger" })
+                            @if (ViewBag.JourneyList != null)
+                            {
+                                @Html.DropDownListFor(x => x.ID, ViewBag.JourneysList as SelectList, "--Select Journey--", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.JourneyID, "", new { @class = "text-danger" })
+                            }
                         </div>
                     </div>
                 </div>
@@ -71,7 +74,7 @@
                     <span class="headers2"> @Html.LabelFor(model => model.PhaseID, "Etapa", htmlAttributes: new { @class = "control-label" })</span>
                     <div>
                         <div class="col-md-10">
-                            @Html.DropDownList("PhaseID", null, htmlAttributes: new { @class = "form-control", @id = "selectPhase" })
+                            @Html.DropDownListFor(x => x.PhaseID, new SelectList(""), "--Select Phase--", htmlAttributes: new { @class = "form-control", @id = "selectPhase" })
                             @Html.ValidationMessageFor(model => model.PhaseID, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -152,7 +155,3 @@
 
 
 </body>
-
-
-
-
