@@ -154,11 +154,11 @@ namespace Projeto_KB.Controllers
         }
 
         //GET: Lista de Phases para ligar(Bind) em DropDown, Jorney, Phases e TopicConcept ....
-        public List<Phase> GetPhaseList(int journeyId)
+        public ActionResult GetPhaseList(int journeyId)
         {
             List<Phase> phaseList = db.Phases.Where(x => x.JourneyID == journeyId).ToList();
-            return phaseList; 
-
+            ViewBag.PhaseOption = new SelectList(phaseList, "ID", "Name");
+            return PartialView("PhaseOptionsPartial");
         }
 
         // GET: Concepts/Edit/5

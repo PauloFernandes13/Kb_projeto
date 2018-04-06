@@ -1089,6 +1089,7 @@
     <Content Include="Views\TopicConcepts\Delete.cshtml" />
     <Content Include="Views\TopicConcepts\Edit.cshtml" />
     <Content Include="Views\TopicConcepts\Index.cshtml" />
+    <Content Include="Views\Shared\PhaseOptionsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

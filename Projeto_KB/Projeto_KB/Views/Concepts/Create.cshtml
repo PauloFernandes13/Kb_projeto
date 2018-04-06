@@ -40,11 +40,39 @@
                 }
                 else {
                     $("#Title").removeAttr('disabled', "");
-
+                    
                 }
             });
+            //JQUERY para a DropdwnCascading
+            $("#ID").change(function () {
 
+                var journeyID = $(this).val();
+
+                $.ajax({
+
+                    type: "Post",
+                    url: "/Concepts/GetPhaseList?journeyId=" + journeyID,
+                    success: function (response) {
+
+                        $("#PhaseID").empty;
+                        $("#PhaseID").append(response);
+
+                    }
+
+                   })
+            
+            
+                });
+
+
+
+
+
+            });
         });
+
+    
+
     </script>
 </head>
 
@@ -64,7 +92,7 @@
                         <div class="col-md-10">
                             @if (ViewBag.JourneyList != null)
                             {
-                                @Html.DropDownListFor(x => x.ID, ViewBag.JourneysList as SelectList, "--Select Journey--", htmlAttributes: new { @class = "form-control" })
+                                @Html.DropDownListFor(x => x.ID, ViewBag.JourneyList as SelectList, htmlAttributes: new { @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.JourneyID, "", new { @class = "text-danger" })
                             }
                         </div>
@@ -74,7 +102,7 @@
                     <span class="headers2"> @Html.LabelFor(model => model.PhaseID, "Etapa", htmlAttributes: new { @class = "control-label" })</span>
                     <div>
                         <div class="col-md-10">
-                            @Html.DropDownListFor(x => x.PhaseID, new SelectList(""), "--Select Phase--", htmlAttributes: new { @class = "form-control", @id = "selectPhase" })
+                            @Html.DropDownListFor(x => x.PhaseID, new SelectList(""), "Select Phase", htmlAttributes: new { @class = "form-control", @id = "selectPhase" })
                             @Html.ValidationMessageFor(model => model.PhaseID, "", new { @class = "text-danger" })
                         </div>
                     </div>
