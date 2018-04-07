@@ -1,9 +1,10 @@
 ﻿
+<option value="">Select Phase</option value>
 @if (ViewBag.PhaseOption != null) {
 
     foreach (var item in ViewBag.PhaseOption)
 
     {
-        
+        <option value="@item.Value">@item.Text</option>
     }
 }

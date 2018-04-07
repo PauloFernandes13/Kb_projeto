@@ -14,6 +14,20 @@
             $("#selectPhase").change(function(){
                 var selectPhase = $("#selectPhase option:selected").val();
                 var intParsePhase = parseInt(selectPhase);
+                var phaseID = $(this).val();
+                $.ajax({
+
+                    type: "Post",
+                    url: "/Concepts/GetTopicList?phaseId=" + phaseID,
+                    contentType:"html",
+                    success: function (response) { //Retorna a parcialView(retorna uma string)
+
+                        $("#selectTopic").empty(); //coloca a box Vazia
+                        $("#selectTopic").append(response); //retorna as opções da PartialView
+                       
+                    }
+
+                })
 
                 if ($.inArray(intParsePhase, phases) === -1)    //if exist...> -1 if not exist ....=== - 1
                 {
@@ -43,35 +57,26 @@
                     
                 }
             });
-            //JQUERY para a DropdwnCascading
+            //JQUERY para a DropdwnCascading Post Phases in DropDown
             $("#ID").change(function () {
 
                 var journeyID = $(this).val();
-
+                
                 $.ajax({
 
                     type: "Post",
                     url: "/Concepts/GetPhaseList?journeyId=" + journeyID,
-                    success: function (response) {
+                    contentType:"html",
+                    success: function (response) { //Retorna a parcialView(retorna uma string)
 
-                        $("#PhaseID").empty;
-                        $("#PhaseID").append(response);
-
+                        $("#selectPhase").empty(); //coloca a box Vazia
+                        $("#selectPhase").append(response); //retorna as opções da PartialView
+                       
                     }
 
-                   })
-            
-            
-                });
-
-
-
-
-
+                   })         
             });
         });
-
-    
 
     </script>
 </head>
@@ -85,29 +90,30 @@
             @Html.AntiForgeryToken()
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <h3 class="new">New Concept</h3>
-            <div class="form-inline">
-                <div class="form-group form-group sm">
+            <div class="form-horizontal
+                 ">
+                <div class="form-group">
                     <span class="headers2">@Html.LabelFor(model => model.JourneyID, "Journey", htmlAttributes: new { @class = "control-label" })</span>
                     <div>
                         <div class="col-md-10">
                             @if (ViewBag.JourneyList != null)
                             {
-                                @Html.DropDownListFor(x => x.ID, ViewBag.JourneyList as SelectList, htmlAttributes: new { @class = "form-control" })
+                                @Html.DropDownListFor(x => x.ID, ViewBag.JourneyList as SelectList,"Select Journey" ,htmlAttributes: new { @class = "form-control" })
                                 @Html.ValidationMessageFor(model => model.JourneyID, "", new { @class = "text-danger" })
                             }
                         </div>
                     </div>
                 </div>
-                <div class="form-inline form-group-sm">
+                <div class="form-group">
                     <span class="headers2"> @Html.LabelFor(model => model.PhaseID, "Etapa", htmlAttributes: new { @class = "control-label" })</span>
                     <div>
                         <div class="col-md-10">
-                            @Html.DropDownListFor(x => x.PhaseID, new SelectList(""), "Select Phase", htmlAttributes: new { @class = "form-control", @id = "selectPhase" })
+                            @Html.DropDownListFor(x => x.PhaseID, new SelectList(""), "", htmlAttributes: new { @class = "form-control", @id = "selectPhase" })
                             @Html.ValidationMessageFor(model => model.PhaseID, "", new { @class = "text-danger" })
                         </div>
                     </div>
                 </div>
-                <div class="form-inline form-group-sm">
+                <div class="form-group">
                     <span class="headers2">@Html.LabelFor(model => model.TopicConceptID, "Tópico", htmlAttributes: new { @class = "control-label" })</span>
                     <div>
                         <div class="col-md-10">

@@ -18,6 +18,45 @@ namespace Projeto_KB.Controllers
     {
         private KbaseContext db = new KbaseContext();
 
+        //                       ---------------------------GetData-----------------------------------------
+
+        //Get: Phases unicas para validação de inserção de dados.
+        public  IOrderedQueryable GetUniquePhase()
+        {
+            var uniquePhase = (from dbPhases in db.Concepts //etapas para validar inserção de conteudos
+                                       select dbPhases.Phase.ID).Distinct().OrderBy(name => name); //nome da variavel é irrelevante em Order, já foi feito o Select, só irá ordenar os nomes
+            return uniquePhase;
+        }
+        
+        //Get: Topic unicas para validação de inserção de dados.
+        public IOrderedQueryable GetUniqueTopic()
+        {
+            var uniqueTopic = (from dbTopics in db.Concepts
+                               select dbTopics.TopicConceptID).Distinct().OrderBy(name => name); //topicos para validar inserção de conteúdos
+            return uniqueTopic;
+        }
+
+        //Get: Lista de Journeys para ligar(Bind) em DropDown, Jorney, Phases e TopicConcept ....
+        public List<Journey> GetJourneyList()
+        {
+            List<Journey> journeys = db.Journeys.ToList();
+            return journeys;
+        }
+
+        //Get: Lista de Phases para ligar(Bind) em DropDown, Jorney, Phases e TopicConcept ....
+        public ActionResult GetPhaseList(int journeyId)
+        {
+            List<Phase> phaseList = db.Phases.Where(x => x.JourneyID == journeyId).ToList();
+            ViewBag.PhaseOption = new SelectList(phaseList, "ID", "Name");
+            return PartialView("PhaseOptionsPartial");
+        }
+        public ActionResult GetTopicList(int phaseId)
+        {
+            List<TopicConcept> topicList = db.TopicConcepts.Where(x => x.PhaseID == phaseId ).ToList();
+            ViewBag.TopicOption = new SelectList(topicList, "ID", "Name");
+            return PartialView("TopicConceptsOptionPartial");
+        }
+//                                            ------------------GetDataEnd------------------------
 
         //Search Concepts
         public ActionResult SearchConcept(string SearchConcepts)
@@ -50,12 +89,6 @@ namespace Projeto_KB.Controllers
 
                 return View(search);
             }
-            ////ViewBag.dataSearch = SearchConcepts;
-            //var search = db.Concepts.Include(f => f.Subject).Include(f => f.Topic).Include(f=>f.Journey)
-            //        .Where(r => r.KeyWords.Contains(SearchConcepts) || r.Text.Contains(SearchConcepts) || r.Subject.Name.Contains(SearchConcepts)
-            //        || r.Topic.Name.Contains(SearchConcepts));
-
-            //return View(search);
 
         }
 
@@ -109,16 +142,13 @@ namespace Projeto_KB.Controllers
         public ActionResult Create()
         {
 
-            var uniqueTopic = (from dbTopics in db.Concepts
-                               select dbTopics.TopicConceptID).Distinct().OrderBy(name => name); //topicos para validar inserção de conteúdos
+            var uniqueTopic = GetUniqueTopic();
             ViewBag.compareTopic = JsonConvert.SerializeObject(uniqueTopic);//valores podem vir nulos.
 
-            var uniquePhase = (from dbPhases in db.Concepts //etapas para validar inserção de conteudos
-                               select dbPhases.Phase.ID).Distinct().OrderBy(name => name); //nome da variavel é irrelevante em Order, já foi feito o Select, só irá ordenar os nomes
+            var uniquePhase = GetUniquePhase();
             ViewBag.comparePhase = JsonConvert.SerializeObject(uniquePhase);//valores podem vir nulos.
 
-            ViewBag.JourneyList = new SelectList(GetJourneyList(), "ID", "Name"); 
-            //ViewBag.JourneyID = new SelectList(db.Journeys, "ID", "Name");
+            ViewBag.JourneyList = new SelectList(GetJourneyList(), "ID", "Name"); //Metodo GetJourneyList() para obter a Jorney...          
             ViewBag.PhaseID = new SelectList(db.Phases, "ID", "Name");
             ViewBag.TopicConceptID = new SelectList(db.TopicConcepts, "ID", "Name");
             return View();
@@ -140,25 +170,16 @@ namespace Projeto_KB.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.JourneyID = new SelectList(db.Journeys, "ID", "Name", concept.JourneyID);
+            var uniqueTopic = GetUniqueTopic();
+            ViewBag.compareTopic = JsonConvert.SerializeObject(uniqueTopic);//valores podem vir nulos.
+
+            var uniquePhase = GetUniquePhase();
+            ViewBag.comparePhase = JsonConvert.SerializeObject(uniquePhase);//valores podem vir nulos.
+            
+            ViewBag.JourneyList = new SelectList(GetJourneyList(), "ID", "Name");
             ViewBag.PhaseID = new SelectList(db.Phases, "ID", "Name", concept.PhaseID);
             ViewBag.TopicConceptID = new SelectList(db.TopicConcepts, "ID", "Name", concept.TopicConceptID);
             return View(concept);
-        }
-
-        //GET: Lista de Journeys para ligar(Bind) em DropDown, Jorney, Phases e TopicConcept ....
-        public List<Journey> GetJourneyList()
-        {
-            List<Journey> journeys = db.Journeys.ToList();
-            return journeys;
-        }
-
-        //GET: Lista de Phases para ligar(Bind) em DropDown, Jorney, Phases e TopicConcept ....
-        public ActionResult GetPhaseList(int journeyId)
-        {
-            List<Phase> phaseList = db.Phases.Where(x => x.JourneyID == journeyId).ToList();
-            ViewBag.PhaseOption = new SelectList(phaseList, "ID", "Name");
-            return PartialView("PhaseOptionsPartial");
         }
 
         // GET: Concepts/Edit/5
@@ -175,6 +196,12 @@ namespace Projeto_KB.Controllers
             {
                 return HttpNotFound();
             }
+            var uniqueTopic = new SelectList(GetUniqueTopic());
+            ViewBag.compareTopic = JsonConvert.SerializeObject(uniqueTopic);//valores podem vir nulos.
+
+            var uniquePhase = new SelectList(GetUniquePhase());
+            ViewBag.comparePhase = JsonConvert.SerializeObject(uniquePhase);//valores podem vir nulos.
+
             ViewBag.JourneyID = new SelectList(db.Journeys, "ID", "Name", concept.JourneyID);
             ViewBag.PhaseID = new SelectList(db.Phases, "ID", "Name", concept.PhaseID);
             ViewBag.TopicConceptID = new SelectList(db.TopicConcepts, "ID", "Name", concept.TopicConceptID);
@@ -196,6 +223,13 @@ namespace Projeto_KB.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+
+            var uniqueTopic = new SelectList(GetUniqueTopic());
+            ViewBag.compareTopic = JsonConvert.SerializeObject(uniqueTopic);//valores podem vir nulos.
+
+            var uniquePhase = new SelectList(GetUniquePhase());
+            ViewBag.comparePhase = JsonConvert.SerializeObject(uniquePhase);//valores podem vir nulos.
+
             ViewBag.JourneyID = new SelectList(db.Journeys, "ID", "Name", concept.JourneyID);
             ViewBag.PhaseID = new SelectList(db.Phases, "ID", "Name", concept.PhaseID);
             ViewBag.TopicConceptID = new SelectList(db.TopicConcepts, "ID", "Name", concept.TopicConceptID);

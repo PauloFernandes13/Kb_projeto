@@ -19,6 +19,7 @@
                 <table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">
                     <thead>
                         <tr>
+                            <th>@Html.DisplayNameFor(model => model.Phases.Name)</th>
                             <th>@Html.DisplayNameFor(model => model.Name)</th>
                             <th>@Html.DisplayNameFor(model => model.Order)</th>
                             <th>Manage Phase</th>
@@ -26,6 +27,7 @@
                     </thead>
                     <tfoot>
                         <tr>
+                            <th>@Html.DisplayNameFor(model => model.Phases.Name)</th>
                             <th>@Html.DisplayNameFor(model => model.Name)</th>
                             <th>@Html.DisplayNameFor(model => model.Order)</th>
                             <th>Manage Concept</th>
@@ -36,6 +38,9 @@
                         @foreach (var item in Model)
                         {
                             <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Phases.Name)
+                                </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Name)
                                 </td>

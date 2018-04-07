@@ -40,6 +40,7 @@ namespace Projeto_KB.Controllers
         // GET: TopicConcepts/Create
         public ActionResult Create()
         {
+            ViewBag.PhaseID = new SelectList(db.Phases, "ID", "Name");
             return View();
         }
 
@@ -48,7 +49,7 @@ namespace Projeto_KB.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID,Name,Order")] TopicConcept topicConcept)
+        public async Task<ActionResult> Create([Bind(Include = "ID,Name,Order,PhaseID")] TopicConcept topicConcept)
         {
             if (ModelState.IsValid)
             {
@@ -63,6 +64,7 @@ namespace Projeto_KB.Controllers
         // GET: TopicConcepts/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
+            ViewBag.PhaseID = new SelectList(db.Phases, "ID", "Name");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -80,7 +82,7 @@ namespace Projeto_KB.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ID,Name,Order")] TopicConcept topicConcept)
+        public async Task<ActionResult> Edit([Bind(Include = "ID,Name,Order,PhaseID")] TopicConcept topicConcept)
         {
             if (ModelState.IsValid)
             {

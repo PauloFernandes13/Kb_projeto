@@ -15,6 +15,7 @@ namespace Projeto_KB.Models
         public int Order { get; set; }
         public int? JourneyID { get; set; }
 
+        public virtual ICollection<TopicConcept> TopicConcepts { get; set; }
         public virtual ICollection<Concept> Concepts { get; set; }
         public virtual Journey Journeys { get; set; }
 

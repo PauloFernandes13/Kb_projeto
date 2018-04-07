@@ -13,6 +13,9 @@ namespace Projeto_KB.Models
         [DisplayName("Tópicos BEST")]
         public string Name { get; set; }
         public int Order { get; set; }
+        public int? PhaseID { get; set; }
+
         public virtual ICollection<Concept> Concepts { get; set; }
+        public virtual Phase Phases { get; set; }
     }
 }
